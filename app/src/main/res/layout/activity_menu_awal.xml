@@ -1,18 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><!-- layout view untuk menu awal -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.pplagro_3c.pssi.letsplant.MenuAwal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!--ImageView untuk objek gambar-->
+    <ImageView
+        android:id="@+id/bgAwal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bw_awal" />
 
-</android.support.constraint.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="144dp"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/tombolPetunjuk"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/tombol_petunjuk"
+            android:onClick="tombolPetunjuk"/>
+
+        <ImageView
+            android:id="@+id/tombolPengaturan"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginRight="24dp"
+            android:layout_toLeftOf="@id/tombolPetunjuk"
+            android:src="@drawable/tombol_pengaturan"
+            android:onClick="tombolPengaturan"/>
+
+        <ImageView
+            android:id="@+id/tombolMain"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginRight="24dp"
+            android:layout_toLeftOf="@id/tombolPengaturan"
+            android:src="@drawable/tombol_main" />
+        <!--android:onClick=""/>-->
+
+        <ImageView
+            android:id="@+id/tombolTentang"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginLeft="24dp"
+            android:layout_toRightOf="@id/tombolPetunjuk"
+            android:src="@drawable/tombol_tentang"
+            android:onClick="tombolTentang"/>
+
+        <ImageView
+            android:id="@+id/tombolKeluar"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginLeft="24dp"
+            android:layout_toRightOf="@id/tombolTentang"
+            android:src="@drawable/tombol_exit"
+            android:onClick="tombolKeluar"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/teksPetunjuk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="PETUNJUK" />
+
+            <TextView
+                android:id="@+id/teksPengaturan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_toLeftOf="@id/teksPetunjuk"
+                android:text="PENGATURAN" />
+
+            <TextView
+                android:id="@+id/teksMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="36dp"
+                android:layout_toLeftOf="@id/teksPengaturan"
+                android:text="MAIN" />
+
+            <TextView
+                android:id="@+id/teksTentang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@id/teksPetunjuk"
+                android:text="TENTANG" />
+
+            <TextView
+                android:id="@+id/teksKeluar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_toRightOf="@id/teksTentang"
+                android:text="KELUAR" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/suara"
+        android:visibility="invisible"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="151dp"
+        android:src="@drawable/musik_off"
+        android:layout_alignTop="@+id/musik"
+        android:layout_alignParentStart="true"
+        android:onClick="ubahSuara"/>
+
+    <ImageView
+        android:id="@+id/musik"
+        android:visibility="invisible"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/suara_off"
+        android:layout_marginBottom="14dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/suara"
+        android:layout_marginStart="19dp"
+        android:onClick="ubahMusik"/>
+
+</RelativeLayout>

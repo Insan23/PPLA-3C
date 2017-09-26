@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MenuPetunjuk">
+
+    <LinearLayout
+        android:id="@+id/line1"
+        android:layout_width="96dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/tombolPetunjuk"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_margin="12dp"
+            android:src="@drawable/tombol_petunjuk"
+            android:onClick="menuAwal"/>
+
+        <ImageView
+            android:id="@+id/selanjutnya"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_margin="12dp"
+            android:src="@drawable/selanjutnya"
+            android:onClick="next"/>
+
+        <ImageView
+            android:id="@+id/sebelumnya"
+            android:visibility="invisible"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_margin="12dp"
+            android:src="@drawable/sebelumnya"
+            android:onClick="prev"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/gambarPetunjuk"
+        android:layout_width="496dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/petunjuk1"/>
+
+</LinearLayout>
