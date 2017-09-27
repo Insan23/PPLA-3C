@@ -1,5 +1,6 @@
 # PPLA-3C
 ## Modul 1
+Progress pengerjaan tampilan awal dengan masing masing tombol yang sudah berfungsi
 
 ### Struktur Direktori
 [Kode Logika (Controller)](https://github.com/Insan23/PPLA-3C/tree/modul-1/app/src/main/java/com/pplagro_3c/pssi/letsplant)
