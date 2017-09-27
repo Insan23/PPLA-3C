@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?><!-- layout view untuk menu awal -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- layout view untuk menu awal -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.pplagro_3c.pssi.letsplant.MenuAwal">
+    tools:context=".MenuAwal">
 
     <!--ImageView untuk objek gambar-->
     <ImageView
@@ -26,8 +28,9 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/tombol_petunjuk"
-            android:onClick="tombolPetunjuk"/>
+            android:onClick="tombolPetunjuk"
+            android:scaleType="centerCrop"
+            android:src="@drawable/tombol_petunjuk" />
 
         <ImageView
             android:id="@+id/tombolPengaturan"
@@ -35,8 +38,9 @@
             android:layout_height="72dp"
             android:layout_marginRight="24dp"
             android:layout_toLeftOf="@id/tombolPetunjuk"
-            android:src="@drawable/tombol_pengaturan"
-            android:onClick="tombolPengaturan"/>
+            android:onClick="tombolPengaturan"
+            android:scaleType="centerCrop"
+            android:src="@drawable/tombol_pengaturan" />
 
         <ImageView
             android:id="@+id/tombolMain"
@@ -53,8 +57,8 @@
             android:layout_height="72dp"
             android:layout_marginLeft="24dp"
             android:layout_toRightOf="@id/tombolPetunjuk"
-            android:src="@drawable/tombol_tentang"
-            android:onClick="tombolTentang"/>
+            android:onClick="tombolTentang"
+            android:src="@drawable/tombol_tentang" />
 
         <ImageView
             android:id="@+id/tombolKeluar"
@@ -62,8 +66,8 @@
             android:layout_height="72dp"
             android:layout_marginLeft="24dp"
             android:layout_toRightOf="@id/tombolTentang"
-            android:src="@drawable/tombol_exit"
-            android:onClick="tombolKeluar"/>
+            android:onClick="tombolKeluar"
+            android:src="@drawable/tombol_exit" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -115,25 +119,23 @@
 
     <ImageView
         android:id="@+id/suara"
-        android:visibility="invisible"
         android:layout_width="36dp"
         android:layout_height="36dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/musik"
         android:layout_marginStart="151dp"
         android:src="@drawable/musik_off"
-        android:layout_alignTop="@+id/musik"
-        android:layout_alignParentStart="true"
-        android:onClick="ubahSuara"/>
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/musik"
-        android:visibility="invisible"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:src="@drawable/suara_off"
-        android:layout_marginBottom="14dp"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/suara"
+        android:layout_marginBottom="14dp"
         android:layout_marginStart="19dp"
-        android:onClick="ubahMusik"/>
+        android:layout_toEndOf="@+id/suara"
+        android:src="@drawable/suara_off"
+        android:visibility="invisible" />
 
 </RelativeLayout>

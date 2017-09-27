@@ -25,38 +25,36 @@ public class MenuPetunjuk extends Activity {
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(this, MenuAwal.class);
-        startActivity(i);
+        finish();
 
     }
 
     public void menuAwal(View view) {
-        Intent i = new Intent(this, MenuAwal.class);
-        startActivity(i);
+        finish();
 
     }
 
     public void next(View view) {
-        ImageView v = findViewById(R.id.selanjutnya);
-        if (index < 2) {
-            index++;
-            gantiPetunjuk();
-        } else if (index == 2) {
-            v.setVisibility(View.INVISIBLE);
-        } else if (index != 2) {
-            v.setVisibility(View.VISIBLE);
-        }
+        ganti(true);
     }
 
     public void prev(View view) {
-        ImageView v = findViewById(R.id.sebelumnya);
-        if (index > 0) {
-            index--;
-            gantiPetunjuk();
-        } else if (index == 0) {
-            v.setVisibility(View.INVISIBLE);
-        } else if (index != 0) {
-            v.setVisibility(View.VISIBLE);
+        ganti(false);
+    }
+
+    public void ganti(boolean b) {
+        ImageView seb = (ImageView) findViewById(R.id.sebelumnya);
+        ImageView sel = (ImageView) findViewById(R.id.sebelumnya);
+        if (b) {
+            if (!(index == 2)) {
+                index++;
+                gantiPetunjuk();
+            }
+        } else if (!b) {
+            if (!(index == 0)) {
+                index--;
+                gantiPetunjuk();
+            }
         }
     }
 

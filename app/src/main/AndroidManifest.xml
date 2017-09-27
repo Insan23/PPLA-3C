@@ -20,10 +20,6 @@
         <activity
             android:name=".MenuPetunjuk"
             android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-            </intent-filter>
         </activity>
         <activity android:name=".SplashScreen"
             android:screenOrientation="landscape">
@@ -32,6 +28,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MenuTentang"
+            android:screenOrientation="landscape">
+
         </activity>
     </application>
 

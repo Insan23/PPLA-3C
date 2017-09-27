@@ -17,14 +17,11 @@ public class MenuTentang extends Activity {
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(this, MenuAwal.class);
-        startActivity(i);
+        finish();
 
     }
 
     public void kembali(View view) {
-        Intent i = new Intent(this, MenuAwal.class);
-        startActivity(i);
-
+        finish();
     }
 }

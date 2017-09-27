@@ -14,6 +14,8 @@ public class MenuAwal extends AppCompatActivity {
     private boolean suara = false;
     private boolean musik = false;
 
+    private static boolean tPengaturan = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,33 +35,32 @@ public class MenuAwal extends AppCompatActivity {
     }
 
     public void keluar() {
-        if (this.isTaskRoot()) {
-            new AlertDialog.Builder(this)
-                    .setMessage("Yakin Ingin Keluar?")
-                    .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            //kode saat memilih ya
-                            finish();
-                        }
-                    }).setNegativeButton("Tidak", null)
-            .show();
-        }
+        new AlertDialog.Builder(this)
+                .setMessage("Yakin Ingin Keluar?")
+                .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //kode saat memilih ya
+                        finish();
+                    }
+                }).setNegativeButton("Tidak", null)
+                .show();
+
     }
 
     public void tombolKeluar(View view) {
-        if (this.isTaskRoot()) {
-            new AlertDialog.Builder(this)
-                    .setMessage("Yakin Ingin Keluar?")
-                    .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            //kode saat memilih ya
-                            finish();
-                        }
-                    }).setNegativeButton("Tidak", null)
-                    .show();
-        }
+
+        new AlertDialog.Builder(this)
+                .setMessage("Yakin Ingin Keluar?")
+                .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //kode saat memilih ya
+                        finish();
+                    }
+                }).setNegativeButton("Tidak", null)
+                .show();
+
     }
 
     public void tombolTentang(View view) {
@@ -76,16 +77,16 @@ public class MenuAwal extends AppCompatActivity {
         ImageView tSuara = (ImageView) findViewById(R.id.suara);
         ImageView tMusik = (ImageView) findViewById(R.id.musik);
 
-        tSuara.setVisibility(View.VISIBLE);
-        tMusik.setVisibility(View.VISIBLE);
-    }
+        if (!tPengaturan) {
+            tSuara.setVisibility(View.VISIBLE);
+            tMusik.setVisibility(View.VISIBLE);
+            tPengaturan = true;
+        } else {
+            tSuara.setVisibility(View.GONE);
+            tMusik.setVisibility(View.GONE);
+            tPengaturan = false;
+        }
 
-    public void pengaturanHilang(View view) {
-        ImageView tSuara = (ImageView) findViewById(R.id.suara);
-        ImageView tMusik = (ImageView) findViewById(R.id.musik);
-
-        tSuara.setVisibility(View.INVISIBLE);
-        tMusik.setVisibility(View.INVISIBLE);
     }
 
     public void tombolUbahSuara(View view) {
