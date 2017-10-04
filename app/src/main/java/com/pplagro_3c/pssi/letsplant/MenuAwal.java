@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,22 +35,12 @@ public class MenuAwal extends AppCompatActivity {
         keluar();
     }
 
-    public void keluar() {
-        new AlertDialog.Builder(this)
-                .setMessage("Yakin Ingin Keluar?")
-                .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        //kode saat memilih ya
-                        finish();
-                    }
-                }).setNegativeButton("Tidak", null)
-                .show();
-
-    }
 
     public void tombolKeluar(View view) {
+        keluar();
+    }
 
+    private void keluar() {
         new AlertDialog.Builder(this)
                 .setMessage("Yakin Ingin Keluar?")
                 .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
@@ -90,11 +81,27 @@ public class MenuAwal extends AppCompatActivity {
     }
 
     public void tombolUbahSuara(View view) {
-        //kode saat tombol suara ditekan
+        //kode saat tombol suara ditekan (gambar speaker)
+        ImageView s = (ImageView) findViewById(R.id.suara);
+        if (!this.suara) {
+            this.suara = true;
+            s.setImageResource(R.drawable.suara_on);
+        } else if (this.suara) {
+            this.suara = false;
+            s.setImageResource(R.drawable.suara_off);
+        }
     }
 
     public void tombolUbahMusik(View view) {
-        //kode saat tombol musik ditekan
+        //kode saat tombol musik ditekan (gambar not balok)
+        ImageView m = (ImageView) findViewById(R.id.musik);
+        if (!this.musik) {
+            this.musik = true;
+            m.setImageResource(R.drawable.musik_on);
+        } else if (this.musik) {
+            this.musik = false;
+            m.setImageResource(R.drawable.musik_off);
+        }
     }
 
 }
