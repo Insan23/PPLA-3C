@@ -9,7 +9,9 @@
     android:layout_height="match_parent"
     tools:context=".MenuAwal">
 
-    <!--ImageView untuk objek gambar-->
+    <!--ImageView
+    objek gambar yang ditampilkan di layar
+    -->
     <ImageView
         android:id="@+id/bgAwal"
         android:layout_width="match_parent"
@@ -18,124 +20,159 @@
         android:src="@drawable/bw_awal" />
 
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="144dp"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/tombolPetunjuk"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_centerHorizontal="true"
-            android:onClick="tombolPetunjuk"
-            android:scaleType="centerCrop"
-            android:src="@drawable/tombol_petunjuk" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5">
 
-        <ImageView
-            android:id="@+id/tombolPengaturan"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_marginRight="24dp"
-            android:layout_toLeftOf="@id/tombolPetunjuk"
-            android:onClick="tombolPengaturan"
-            android:scaleType="centerCrop"
-            android:src="@drawable/tombol_pengaturan" />
+        </LinearLayout>
 
-        <ImageView
-            android:id="@+id/tombolMain"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_marginRight="24dp"
-            android:layout_toLeftOf="@id/tombolPengaturan"
-            android:src="@drawable/tombol_main" />
-        <!--android:onClick=""/>-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/tombolTentang"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_marginLeft="24dp"
-            android:layout_toRightOf="@id/tombolPetunjuk"
-            android:onClick="tombolTentang"
-            android:src="@drawable/tombol_tentang" />
-
-        <ImageView
-            android:id="@+id/tombolKeluar"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_marginLeft="24dp"
-            android:layout_toRightOf="@id/tombolTentang"
-            android:onClick="tombolKeluar"
-            android:src="@drawable/tombol_exit" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_alignParentBottom="true">
-
+            <ImageView
+                android:id="@+id/tombolMain"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:src="@drawable/tombol_main" />
+            <!--android:onClick=""/>-->
             <TextView
-                android:id="@+id/teksPetunjuk"
+                android:id="@+id/teksMain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="PETUNJUK" />
+                android:layout_gravity="center"
+                android:text="MAIN" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/tombolPengaturan"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:onClick="tombolPengaturan"
+                android:src="@drawable/tombol_pengaturan" />
 
             <TextView
                 android:id="@+id/teksPengaturan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:layout_toLeftOf="@id/teksPetunjuk"
+                android:layout_gravity="center"
                 android:text="PENGATURAN" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/suara"
+                    android:layout_weight="1"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_alignTop="@+id/musik"
+                    android:src="@drawable/musik_off" />
+
+                <ImageView
+                    android:id="@+id/musik"
+                    android:layout_weight="1"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_toEndOf="@+id/suara"
+                    android:src="@drawable/suara_off" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/tombolPetunjuk"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:onClick="tombolPetunjuk"
+                android:src="@drawable/tombol_petunjuk" />
+
             <TextView
-                android:id="@+id/teksMain"
+                android:id="@+id/teksPetunjuk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="36dp"
-                android:layout_toLeftOf="@id/teksPengaturan"
-                android:text="MAIN" />
+                android:layout_gravity="center"
+                android:text="PETUNJUK" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/tombolTentang"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:onClick="tombolTentang"
+                android:src="@drawable/tombol_tentang" />
 
             <TextView
                 android:id="@+id/teksTentang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@id/teksPetunjuk"
+                android:layout_gravity="center"
                 android:text="TENTANG" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/tombolKeluar"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:onClick="tombolKeluar"
+                android:src="@drawable/tombol_exit" />
 
             <TextView
                 android:id="@+id/teksKeluar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_toRightOf="@id/teksTentang"
+                android:layout_gravity="center"
                 android:text="KELUAR" />
+        </LinearLayout>
 
-        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5">
 
-    </RelativeLayout>
+        </LinearLayout>
 
-    <ImageView
-        android:id="@+id/suara"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/musik"
-        android:layout_marginStart="151dp"
-        android:src="@drawable/musik_off"
-        android:visibility="invisible" />
-
-    <ImageView
-        android:id="@+id/musik"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="14dp"
-        android:layout_marginStart="19dp"
-        android:layout_toEndOf="@+id/suara"
-        android:src="@drawable/suara_off"
-        android:visibility="invisible" />
+    </LinearLayout>
 
 </RelativeLayout>
