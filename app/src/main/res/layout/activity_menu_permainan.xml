@@ -13,24 +13,99 @@
         android:scaleType="centerCrop"
         android:src="@drawable/bg_lahan_pagi" />
 
+    <ImageView
+        android:id="@+id/petani"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/petani" />
+
+    <RelativeLayout
+        android:layout_width="240dp"
+        android:layout_height="200dp"
+        android:layout_above="@+id/petani"
+        android:layout_alignStart="@+id/petani"
+        android:layout_marginStart="37dp"
+        android:background="@drawable/dialog_input_nama">
+
+        <TextView
+            android:id="@+id/teks1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="28dp"
+            android:text="Hai, Selamat Datang Di"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/teks2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/teks1"
+            android:layout_centerHorizontal="true"
+            android:text="Let's Plant"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/teks3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/teks2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:text="Masukkan Namamu :" />
+
+        <EditText
+            android:id="@+id/inputNama"
+            android:layout_width="148dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/teks3"
+            android:layout_centerHorizontal="true"
+            android:hint="Namamu"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/simpan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/teks3"
+            android:layout_below="@+id/inputNama"
+            android:layout_marginTop="4dp"
+            android:text="SIMPAN"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/batal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/teks3"
+            android:layout_below="@+id/inputNama"
+            android:layout_marginTop="4dp"
+            android:text="BATAL"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/relKamu"
         android:layout_width="89dp"
         android:layout_height="32dp"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/tombolKamu"
             android:layout_width="89dp"
             android:layout_height="32dp"
             android:src="@drawable/bg_menu_bawah" />
+
         <TextView
             android:id="@+id/teksKamu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:text="Kamu"
-            android:textSize="16sp"
-            android:layout_centerInParent="true"/>
+            android:textSize="16sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -38,20 +113,22 @@
         android:layout_width="89dp"
         android:layout_height="32dp"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/relKamu">
+        android:layout_toRightOf="@id/relKamu"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/tombolInventaris"
             android:layout_width="89dp"
             android:layout_height="32dp"
             android:src="@drawable/bg_menu_bawah" />
+
         <TextView
             android:id="@+id/teksInventaris"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:text="Inventaris"
-            android:textSize="16sp"
-            android:layout_centerInParent="true"/>
+            android:textSize="16sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -59,7 +136,8 @@
         android:layout_width="89dp"
         android:layout_height="32dp"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/relInventaris">
+        android:layout_toRightOf="@id/relInventaris"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/tombolToko"
@@ -73,9 +151,9 @@
             android:id="@+id/teksToko"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:text="Toko"
-            android:textSize="16sp"
-            android:layout_centerInParent="true"/>
+            android:textSize="16sp" />
 
     </RelativeLayout>
 
@@ -86,7 +164,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="8dp"
-        android:src="@drawable/aset_pengaturan" />
+        android:src="@drawable/aset_pengaturan"
+        android:visibility="gone" />
 
     <LinearLayout
         android:layout_width="176dp"
