@@ -31,7 +31,11 @@
         <activity
             android:name=".MenuTentang"
             android:screenOrientation="landscape" />
-        <activity android:name=".MenuPermainan"></activity>
+        <activity
+            android:name=".MenuPermainan"
+            android:screenOrientation="landscape">
+
+        </activity>
     </application>
 
 </manifest>
