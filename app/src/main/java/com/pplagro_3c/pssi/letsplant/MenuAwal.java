@@ -22,6 +22,12 @@ public class MenuAwal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_awal);
 
+        ImageView tSuara = (ImageView) findViewById(R.id.suara);
+        ImageView tMusik = (ImageView) findViewById(R.id.musik);
+        if (!tPengaturan) {
+            tSuara.setVisibility(View.GONE);
+            tMusik.setVisibility(View.GONE);
+        }
 
 //        requestWindowFeature(Window.FEATURE_NO_TITLE);
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -35,6 +41,9 @@ public class MenuAwal extends AppCompatActivity {
         keluar();
     }
 
+    public void tombolMain(View view) {
+        startActivity(new Intent(MenuAwal.this, MenuPermainan.class));
+    }
 
     public void tombolKeluar(View view) {
         keluar();

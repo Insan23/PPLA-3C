@@ -30,7 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5">
-
+        <!-- layout kosong untuk pemberi jarak -->
         </LinearLayout>
 
         <LinearLayout
@@ -44,8 +44,9 @@
                 android:layout_width="72dp"
                 android:layout_height="72dp"
                 android:layout_gravity="center"
-                android:src="@drawable/tombol_main" />
-            <!--android:onClick=""/>-->
+                android:src="@drawable/tombol_main"
+                android:onClick="tombolMain"/>
+
             <TextView
                 android:id="@+id/teksMain"
                 android:layout_width="wrap_content"
