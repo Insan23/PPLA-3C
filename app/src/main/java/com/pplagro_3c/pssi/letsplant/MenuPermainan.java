@@ -20,6 +20,9 @@ public class MenuPermainan extends AppCompatActivity {
     private boolean dialogPengaturan = false;
     private boolean allowedName = true;
 
+    //nama player
+    private String nama;
+
     //objek pada menu aku
     private View layoutKamu = findViewById(R.id.relKamu);
 
@@ -83,12 +86,15 @@ public class MenuPermainan extends AppCompatActivity {
 
     }
 
+
     private boolean cekChar(char c) {
-
-        if () {
-
+        String bannedChar = "1234567890`~!@#$%^&*()_+-=[]\\{}|;':,./<>?\"";
+        for (int i = 0; i< bannedChar.length(); i++) {
+            if (c == bannedChar.charAt(i)) {
+                return true;
+            }
         }
-        return true;
+        return false;
     }
 
     /**
