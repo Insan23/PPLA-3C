@@ -42,7 +42,8 @@ public class MenuAwal extends AppCompatActivity {
     }
 
     public void tombolMain(View view) {
-        startActivity(new Intent(MenuAwal.this, MenuPermainan.class));
+        Intent i = new Intent(MenuAwal.this, MenuPermainan.class);
+        startActivity(i);
     }
 
     public void tombolKeluar(View view) {
