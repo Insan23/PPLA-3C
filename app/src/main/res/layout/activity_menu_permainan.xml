@@ -33,7 +33,7 @@
             </RelativeLayout>
 
             <LinearLayout
-                android:id="@+id/baris1"
+                android:id="@+id/l_baris1"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_below="@id/kosongan1"
@@ -42,7 +42,7 @@
                 android:layout_marginTop="10dp">
 
                 <RelativeLayout
-                    android:id="@+id/1_1"
+                    android:id="@+id/l_1_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -52,7 +52,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/2_1"
+                    android:id="@+id/l_2_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -62,7 +62,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/3_1"
+                    android:id="@+id/l_3_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -72,7 +72,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/4_1"
+                    android:id="@+id/l_4_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -82,7 +82,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/5_1"
+                    android:id="@+id/l_5_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -93,7 +93,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/baris2"
+                android:id="@+id/l_baris2"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_below="@id/baris1"
@@ -101,7 +101,7 @@
                 android:layout_marginRight="20dp">
 
                 <RelativeLayout
-                    android:id="@+id/1_2"
+                    android:id="@+id/l_1_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -111,7 +111,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/2_2"
+                    android:id="@+id/l_2_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -121,7 +121,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/3_2"
+                    android:id="@+id/l_3_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -131,7 +131,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/4_2"
+                    android:id="@+id/l_4_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -141,7 +141,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/5_2"
+                    android:id="@+id/l_5_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -152,7 +152,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/baris3"
+                android:id="@+id/l_baris3"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_below="@id/baris2"
@@ -160,7 +160,7 @@
                 android:layout_marginRight="20dp">
 
                 <RelativeLayout
-                    android:id="@+id/1_3"
+                    android:id="@+id/l_1_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -170,7 +170,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/2_3"
+                    android:id="@+id/l_2_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -180,7 +180,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/3_3"
+                    android:id="@+id/l_3_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -190,7 +190,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/4_3"
+                    android:id="@+id/l_4_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -200,7 +200,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/5_3"
+                    android:id="@+id/l_5_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -231,7 +231,7 @@
             </RelativeLayout>
 
             <LinearLayout
-                android:id="@+id/baris1_p"
+                android:id="@+id/p_baris1"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_below="@id/kosongan1"
@@ -240,7 +240,7 @@
                 android:layout_marginTop="10dp">
 
                 <RelativeLayout
-                    android:id="@+id/1_1_p"
+                    android:id="@+id/p_1_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -250,7 +250,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/2_1_p"
+                    android:id="@+id/p_2_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -260,7 +260,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/3_1_p"
+                    android:id="@+id/p_3_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -270,7 +270,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/4_1_p"
+                    android:id="@+id/p_4_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -280,7 +280,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/5_1_p"
+                    android:id="@+id/p_5_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -291,7 +291,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/baris2_p"
+                android:id="@+id/p_baris2"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_below="@id/baris1"
@@ -299,7 +299,7 @@
                 android:layout_marginRight="20dp">
 
                 <RelativeLayout
-                    android:id="@+id/1_2_p"
+                    android:id="@+id/p_1_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -309,7 +309,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/2_2_p"
+                    android:id="@+id/p_2_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -319,7 +319,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/3_2_p"
+                    android:id="@+id/p_3_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -329,7 +329,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/4_2_p"
+                    android:id="@+id/p_4_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -339,7 +339,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/5_2_p"
+                    android:id="@+id/p_5_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -350,7 +350,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/baris3_p"
+                android:id="@+id/p_baris3"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_below="@id/baris2"
@@ -358,7 +358,7 @@
                 android:layout_marginRight="20dp">
 
                 <RelativeLayout
-                    android:id="@+id/1_3_p"
+                    android:id="@+id/p_1_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -368,7 +368,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/2_3_p"
+                    android:id="@+id/p_2_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -378,7 +378,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/3_3_p"
+                    android:id="@+id/p_3_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -388,7 +388,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/4_3_p"
+                    android:id="@+id/p_4_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
@@ -398,7 +398,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/5_3_p"
+                    android:id="@+id/p_5_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
