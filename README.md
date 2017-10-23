@@ -10,7 +10,7 @@
 ## Navigasi Modul
 [Modul 1](https://github.com/Insan23/PPLA-3C/tree/modul-1)
 
-Modul 2
+[Modul 2](https://github.com/Insan23/PPLA-3C/tree/modul-2)
 
 Modul 3
 
