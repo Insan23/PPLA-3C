@@ -1,30 +1,32 @@
 package com.pplagro_3c.pssi.letsplant;
 
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.provider.ContactsContract;
+import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetBehavior.BottomSheetCallback;
-import android.os.Bundle;
-import android.support.v7.view.menu.ExpandedMenuView;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.PemainEntry;
 
 public class MenuPermainan extends AppCompatActivity {
 
 
     private boolean firstStart = true;
     private boolean dialogPengaturan = false;
+    private boolean isInputNama = true;
     private boolean allowedName = true;
 
     //dialog
@@ -39,18 +41,19 @@ public class MenuPermainan extends AppCompatActivity {
     private BottomSheetBehavior menuKamu;
     private ImageView tombolKamu;
     View menuKamuView;
-    View menuInventarisView;
-    View menuTokoView;
+
 
     //objek pada menu inventaris
     private RelativeLayout layoutInventaris;
     private BottomSheetBehavior menuInventaris;
     private ImageView tombolInventaris;
+    View menuInventarisView;
 
     //objek pada menu toko
     private RelativeLayout layoutToko;
     private BottomSheetBehavior menuToko;
     private ImageView tombolToko;
+    View menuTokoView;
 
     //objek pada menu pengaturan
     private ImageView tombolPengaturan;
@@ -72,16 +75,22 @@ public class MenuPermainan extends AppCompatActivity {
         layoutKamu = (RelativeLayout) findViewById(R.id.relKamu);
         layoutInventaris = (RelativeLayout) findViewById(R.id.relInventaris);
         layoutToko = (RelativeLayout) findViewById(R.id.relToko);
-        tombolPengaturan = (ImageView) findViewById(R.id.tombolPengaturan);
+        tombolPengaturan = (ImageView) findViewById(R.id.tombolPengaturan_main);
         tombolHome = (ImageView) findViewById(R.id.tombolHome);
         tombolMusik = (ImageView) findViewById(R.id.tombolMusik);
         tombolSuara = (ImageView) findViewById(R.id.tombolSuara);
-        tombolKeluar = (ImageView) findViewById(R.id.tombolKeluar);
+        tombolKeluar = (ImageView) findViewById(R.id.tombolKeluar_main);
         Pengaturan = (LinearLayout) findViewById(R.id.dialogPengaturan);
 
         tombolKamu = (ImageView) findViewById(R.id.tombolKamu);
         tombolInventaris = (ImageView) findViewById(R.id.tombolInventaris);
         tombolToko = (ImageView) findViewById(R.id.tombolToko);
+
+        teks1 = (TextView) findViewById(R.id.teks1);
+        teks2 = (TextView) findViewById(R.id.teks2);
+        teks3 = (TextView) findViewById(R.id.teks3);
+        simpan = (TextView) findViewById(R.id.simpan);
+        batal = (TextView) findViewById(R.id.batal);
 
         menuKamuView = findViewById(R.id.menu_kamu);
         menuInventarisView = findViewById(R.id.menu_inventaris);
@@ -95,68 +104,6 @@ public class MenuPermainan extends AppCompatActivity {
         menuKamu.setState(BottomSheetBehavior.STATE_HIDDEN);
         menuInventaris.setState(BottomSheetBehavior.STATE_HIDDEN);
         menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
-
-        tombolKamu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (menuKamu.getState() != BottomSheetBehavior.STATE_EXPANDED) {
-                    menuKamu.setState(BottomSheetBehavior.STATE_EXPANDED);
-                }
-            }
-        });
-        tombolInventaris.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (menuInventaris.getState() != BottomSheetBehavior.STATE_EXPANDED) {
-                    menuInventaris.setState(BottomSheetBehavior.STATE_EXPANDED);
-                }
-            }
-        });
-        tombolToko.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (menuToko.getState() != BottomSheetBehavior.STATE_EXPANDED) {
-                    menuToko.setState(BottomSheetBehavior.STATE_EXPANDED);
-                }
-            }
-        });
-
-        tombolPengaturan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!dialogPengaturan) {
-                    Pengaturan.setVisibility(View.VISIBLE);
-                    dialogPengaturan = true;
-                } else if (dialogPengaturan) {
-                    Pengaturan.setVisibility(View.GONE);
-                    dialogPengaturan = false;
-                }
-            }
-        });
-        tombolHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-        tombolMusik.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        tombolSuara.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        tombolKeluar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
 
         menuKamu.setBottomSheetCallback(new BottomSheetCallback() {
             @Override
@@ -215,6 +162,7 @@ public class MenuPermainan extends AppCompatActivity {
         error = (TextView) findViewById(R.id.teksError);
         inputNama = (EditText) findViewById(R.id.inputNama);
         layoutDialog = (RelativeLayout) findViewById(R.id.dialog);
+
         if (firstStart) {
             layoutInventaris.setVisibility(View.GONE);
             layoutKamu.setVisibility(View.GONE);
@@ -236,12 +184,102 @@ public class MenuPermainan extends AppCompatActivity {
 
     }
 
+    private void initOnClickCallback() {
+        tombolKamu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (menuKamu.getState() != BottomSheetBehavior.STATE_EXPANDED) {
+                    menuKamu.setState(BottomSheetBehavior.STATE_EXPANDED);
+                }
+            }
+        });
+        tombolInventaris.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (menuInventaris.getState() != BottomSheetBehavior.STATE_EXPANDED) {
+                    menuInventaris.setState(BottomSheetBehavior.STATE_EXPANDED);
+                }
+            }
+        });
+        tombolToko.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (menuToko.getState() != BottomSheetBehavior.STATE_EXPANDED) {
+                    menuToko.setState(BottomSheetBehavior.STATE_EXPANDED);
+                }
+            }
+        });
+
+        simpan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isInputNama) {
+                    nama = inputNama.getText().toString().trim();
+                    dialog("next");
+                    isInputNama = false;
+                } else {
+                    dialog("close");
+                }
+            }
+        });
+
+        batal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                konfirmasi();
+            }
+        });
+
+        tombolPengaturan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!dialogPengaturan) {
+                    Pengaturan.setVisibility(View.VISIBLE);
+                    dialogPengaturan = true;
+                } else if (dialogPengaturan) {
+                    Pengaturan.setVisibility(View.GONE);
+                    dialogPengaturan = false;
+                }
+            }
+        });
+        tombolHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        tombolMusik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        tombolSuara.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        tombolKeluar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_permainan);
 
+        View decorView = getWindow().getDecorView();
+        //hide the status bar
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
+
         init();
+        initOnClickCallback();
         error.setText("");
 
         inputNama.addTextChangedListener(new TextWatcher() {
@@ -274,7 +312,7 @@ public class MenuPermainan extends AppCompatActivity {
         String bannedChar = "1234567890`~!@#$%^&*()_+-=[]\\{}|;':,./<>?\"";
         for (int i = 0; i < s.length(); i++) {
             for (int j = 0; j < bannedChar.length(); j++) {
-                if (s.charAt(s.charAt(i)) == bannedChar.charAt(j)) {
+                if (s.charAt(i) == bannedChar.charAt(j)) {
                     return true;
                 } else {
                     return false;
@@ -284,12 +322,91 @@ public class MenuPermainan extends AppCompatActivity {
         return false;
     }
 
+    public void konfirmasi() {
+        new AlertDialog.Builder(this)
+                .setMessage("Yakin Ingin Kembali?")
+                .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //kode saat memilih ya
+                        finish();
+                    }
+                }).setNegativeButton("Tidak", null)
+                .show();
+    }
+
+    public void dialog(String kondisi) {
+        switch (kondisi) {
+            case "next":
+                simpanNama();
+
+                batal.setVisibility(View.GONE);
+                inputNama.setVisibility(View.GONE);
+                teks1.setText("Halo " + nama);
+                teks2.setText("Ini adalah lahanmu untuk menanam kakao, rajinlah merawat kakaomu dan jadilah pekebun yang baik");
+                teks3.setText("Selamat Berkebun");
+                simpan.setText("Lewati");
+                break;
+            case "close":
+                petani.setVisibility(View.GONE);
+                dialog.setVisibility(View.GONE);
+                tombolPengaturan.setVisibility(View.VISIBLE);
+                tombolKamu.setVisibility(View.VISIBLE);
+                tombolInventaris.setVisibility(View.VISIBLE);
+                tombolToko.setVisibility(View.VISIBLE);
+                break;
+            default:
+                ;
+        }
+    }
+
+    private void simpanNama() {
+        // nama koin coklat kakao bibit poly
+        String nama = inputNama.getText().toString().trim();
+        ContentValues values = new ContentValues();
+        values.put(PemainEntry.KOLOM_NAMA, nama);
+        values.put(PemainEntry.KOLOM_JUMLAH_KOIN, 25000);
+        values.put(PemainEntry.KOLOM_JUMLAH_COKLAT, 0);
+        values.put(PemainEntry.KOLOM_JUMLAH_BUAH_KAKAO, 0);
+        values.put(PemainEntry.KOLOM_JUMLAH_BIBIT, 5);
+        values.put(PemainEntry.KOLOM_JUMLAH_POLYBAG, 0);
+
+        Uri uri = getContentResolver().insert(PemainEntry.CONTENT_URI, values);
+        if (uri == null) {
+            Toast.makeText(this, "gagal menyimpan nama", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "berhasil menyimpan nama", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
     /**
      * teks setelah input nama
+     *
      * hello @String nama
      * ini adalah lahanmu untuk menanam kakao, rajinlah merawat kakaomu dan jadilah pekebun yang baik
      * selamat berkebun
      * <button>lewati>
+     *
+     *  aset awal
+     *  koin = 25000
+     *  1 lahan poly
+     *  1 pupuk
+     *  5 bibit
+     *  1 lahan siap tanam
+     *
+     *
+     *  1 lahan poly 7110
+     *  1 pupuk 200
+     *  5 bibit 15 koin @ 3 koin
+     *  1 lahan siap tanam 7000
+     *  1 polybag 2 koin
+     *
+     *  coklat + 600 koin
+     *
+     *  1 lahan poly dan siap tanam 5 x 3 tanaman
+     *
      */
 
 }

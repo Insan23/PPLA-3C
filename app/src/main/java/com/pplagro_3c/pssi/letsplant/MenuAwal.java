@@ -24,15 +24,15 @@ public class MenuAwal extends AppCompatActivity {
 
         ImageView tSuara = (ImageView) findViewById(R.id.suara);
         ImageView tMusik = (ImageView) findViewById(R.id.musik);
+        tPengaturan = false;
         if (!tPengaturan) {
             tSuara.setVisibility(View.GONE);
             tMusik.setVisibility(View.GONE);
         }
-
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-//        setContentView(R.layout.main);
+        View decorView = getWindow().getDecorView();
+        //hide the status bar
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
     }
 
     @Override

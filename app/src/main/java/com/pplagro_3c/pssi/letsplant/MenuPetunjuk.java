@@ -1,7 +1,6 @@
 package com.pplagro_3c.pssi.letsplant;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -14,13 +13,16 @@ import android.widget.ImageView;
 public class MenuPetunjuk extends Activity {
 
     private int index = 0;
-    private String gambar[] = {};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_petunjuk);
 
+        View decorView = getWindow().getDecorView();
+        //hide the status bar
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
     }
 
     @Override
@@ -43,8 +45,6 @@ public class MenuPetunjuk extends Activity {
     }
 
     public void ganti(boolean b) {
-        ImageView seb = (ImageView) findViewById(R.id.sebelumnya);
-        ImageView sel = (ImageView) findViewById(R.id.sebelumnya);
         if (b) {
             if (!(index == 2)) {
                 index++;

@@ -38,6 +38,15 @@
             android:name=".drawer"
             android:label="@string/title_activity_drawer"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <provider
+            android:authorities="com.pplagro_3c.pssi.letsplant"
+            android:name=".database.PemainProvider"/>
+        <provider
+            android:authorities="com.pplagro_3c.pssi.letsplant"
+            android:name=".database.LahanProvider"/>
+        <provider
+            android:authorities="com.pplagro_3c.pssi.letsplant"
+            android:name=".database.TanamanProvider"/>
     </application>
 
 </manifest>
