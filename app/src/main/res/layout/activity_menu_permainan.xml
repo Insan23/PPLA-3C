@@ -96,7 +96,7 @@
                 android:id="@+id/l_baris2"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_below="@id/baris1"
+                android:layout_below="@id/l_baris1"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp">
 
@@ -155,7 +155,7 @@
                 android:id="@+id/l_baris3"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_below="@id/baris2"
+                android:layout_below="@id/l_baris2"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp">
 
@@ -234,7 +234,7 @@
                 android:id="@+id/p_baris1"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_below="@id/kosongan1"
+                android:layout_below="@id/kosongan2"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp">
@@ -294,7 +294,7 @@
                 android:id="@+id/p_baris2"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_below="@id/baris1"
+                android:layout_below="@id/p_baris1"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp">
 
@@ -353,7 +353,7 @@
                 android:id="@+id/p_baris3"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_below="@id/baris2"
+                android:layout_below="@id/p_baris2"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp">
 
