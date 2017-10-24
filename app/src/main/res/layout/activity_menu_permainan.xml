@@ -14,8 +14,7 @@
         <RelativeLayout
             android:id="@+id/layout_lahan_siap_tanam"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
+            android:layout_height="match_parent">
 
 
             <ImageView
@@ -415,8 +414,7 @@
             android:layout_height="72dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/petani"
-            android:visibility="gone" />
+            android:src="@drawable/petani" />
 
         <RelativeLayout
             android:id="@+id/dialog"
@@ -424,8 +422,7 @@
             android:layout_height="250dp"
             android:layout_above="@+id/petani"
             android:layout_toEndOf="@id/petani"
-            android:background="@drawable/dialog_input_nama"
-            android:visibility="gone">
+            android:background="@drawable/dialog_input_nama">
 
             <TextView
                 android:id="@+id/teks1"
@@ -501,8 +498,7 @@
             android:id="@+id/relKamu"
             android:layout_width="89dp"
             android:layout_height="32dp"
-            android:layout_alignParentBottom="true"
-            android:visibility="gone">
+            android:layout_alignParentBottom="true">
 
             <ImageView
                 android:id="@+id/tombolKamu"
@@ -524,8 +520,7 @@
             android:layout_width="89dp"
             android:layout_height="32dp"
             android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@id/relKamu"
-            android:visibility="gone">
+            android:layout_toRightOf="@id/relKamu">
 
             <ImageView
                 android:id="@+id/tombolInventaris"
@@ -547,8 +542,7 @@
             android:layout_width="89dp"
             android:layout_height="32dp"
             android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@id/relInventaris"
-            android:visibility="gone">
+            android:layout_toRightOf="@id/relInventaris">
 
             <ImageView
                 android:id="@+id/tombolToko"
@@ -574,8 +568,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_margin="8dp"
-            android:src="@drawable/aset_pengaturan"
-            android:visibility="gone" />
+            android:src="@drawable/aset_pengaturan" />
 
         <LinearLayout
             android:id="@+id/dialogPengaturan"
@@ -583,8 +576,7 @@
             android:layout_height="32dp"
             android:layout_alignTop="@id/tombolPengaturan_main"
             android:layout_toStartOf="@id/tombolPengaturan_main"
-            android:background="@drawable/bg_pengaturan"
-            android:visibility="gone">
+            android:background="@drawable/bg_pengaturan">
 
             <ImageView
                 android:id="@+id/tombolHome"
@@ -629,7 +621,6 @@
         android:layout_height="72dp"
         android:background="#ffffff"
         android:clipToPadding="true"
-        android:visibility="gone"
         app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
         <LinearLayout
@@ -771,7 +762,6 @@
         android:layout_height="72dp"
         android:background="#ffffff"
         android:clipToPadding="true"
-        android:visibility="gone"
         app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
         <LinearLayout
@@ -828,7 +818,6 @@
         android:layout_height="72dp"
         android:background="#ffffff"
         android:clipToPadding="true"
-        android:visibility="gone"
         app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
         <LinearLayout

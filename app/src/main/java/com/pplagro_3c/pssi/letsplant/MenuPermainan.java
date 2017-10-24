@@ -214,12 +214,17 @@ public class MenuPermainan extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (isInputNama) {
-                    nama = inputNama.getText().toString().trim();
-                    dialog("next");
-                    isInputNama = false;
+                    if (inputNama.getText().toString().trim().equalsIgnoreCase("")) {
+                        error.setText("Nama Harus Diisi");
+                    } else {
+                        nama = inputNama.getText().toString().trim();
+                        dialog("next");
+                        isInputNama = false;
+                    }
                 } else {
                     dialog("close");
                 }
+                hideS();
             }
         });
 
@@ -268,15 +273,19 @@ public class MenuPermainan extends AppCompatActivity {
         });
     }
 
+    private void hideS() {
+        View decorView = getWindow().getDecorView();
+        //hide the status bar
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_permainan);
 
-        View decorView = getWindow().getDecorView();
-        //hide the status bar
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
+        hideS();
 
         init();
         initOnClickCallback();
@@ -290,7 +299,7 @@ public class MenuPermainan extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence cs, int start, int before, int after) {
-
+                error.setText("");
             }
 
             @Override
@@ -305,6 +314,11 @@ public class MenuPermainan extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        konfirmasi();
     }
 
 
@@ -348,12 +362,14 @@ public class MenuPermainan extends AppCompatActivity {
                 simpan.setText("Lewati");
                 break;
             case "close":
+                firstStart = false;
+                Toast.makeText(this, "tombol lewati ditekan", Toast.LENGTH_SHORT).show();
+                layoutInventaris.setVisibility(View.VISIBLE);
+                layoutKamu.setVisibility(View.VISIBLE);
+                layoutToko.setVisibility(View.VISIBLE);
+                tombolPengaturan.setVisibility(View.VISIBLE);
                 petani.setVisibility(View.GONE);
                 dialog.setVisibility(View.GONE);
-                tombolPengaturan.setVisibility(View.VISIBLE);
-                tombolKamu.setVisibility(View.VISIBLE);
-                tombolInventaris.setVisibility(View.VISIBLE);
-                tombolToko.setVisibility(View.VISIBLE);
                 break;
             default:
                 ;
