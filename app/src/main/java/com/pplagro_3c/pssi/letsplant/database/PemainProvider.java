@@ -196,15 +196,20 @@ public class PemainProvider extends ContentProvider {
     }
 
     @Override
-    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String selection, @Nullable String[] selectionArgs) {
+    public int update(@NonNull Uri uri, @Nullable ContentValues value, @Nullable String selection, @Nullable String[] selectionArgs) {
         SQLiteDatabase db = PemainDBHelper.getWritableDatabase();
-        /** int match = sUriMatcher.match(uri);
+        int perubahan = 0;
+        /**
+        int match = sUriMatcher.match(uri);
         switch (match) {
             case NAMA_PEMAIN:
+                //ga bisa ganti nama, jadi ga ada kode yang faedah
                 break;
             case ASET_PEMAIN:
+                //aset pemain = seluruh aset, update sekaligus, kurang bermanfaat
                 break;
             case KOIN_PEMAIN:
+
                 break;
             case COKLAT_PEMAIN:
                 break;
@@ -214,14 +219,18 @@ public class PemainProvider extends ContentProvider {
                 break;
             case POLYBAG_PEMAIN:
                 break;
-            default: //
+            default:
                 ;
-        } */
+        }
+         */
 
         selection = PemainEntry._ID + "=?";
-        selectionArgs = new String[]{ String.valueOf(ContentUris.parseId(uri)) };
-        db.update(PemainEntry.NAMA_TABEL, contentValues, selection, selectionArgs);
-        return 0;
+        selectionArgs = new String[]{
+                String.valueOf(ContentUris.parseId(uri))
+        };
+
+        perubahan = db.update(PemainEntry.NAMA_TABEL, value, selection, selectionArgs);
+        return perubahan;
     }
 
 }

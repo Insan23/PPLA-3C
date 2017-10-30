@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+butuh android.support.design.widget.CoordinatorLayout untu dapat support bottomsheet
+yang digunakan untuk menampilkan menu
+-->
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--layout lahan siap panen-->
         <RelativeLayout
             android:id="@+id/layout_lahan_siap_tanam"
             android:layout_width="match_parent"
@@ -210,6 +215,7 @@
             </LinearLayout>
         </RelativeLayout>
 
+        <!--layout lahan polybag-->
         <RelativeLayout
             android:id="@+id/layout_lahan_polybag"
             android:layout_width="match_parent"
@@ -220,7 +226,13 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/bg_lahan_pagi" />
+                android:src="@drawable/bg_lahan_poly" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/genteng" />
 
             <RelativeLayout
                 android:id="@+id/kosongan2"
@@ -408,6 +420,7 @@
             </LinearLayout>
         </RelativeLayout>
 
+        <!--gambar petani-->
         <ImageView
             android:id="@+id/petani"
             android:layout_width="72dp"
@@ -416,6 +429,7 @@
             android:layout_centerHorizontal="true"
             android:src="@drawable/petani" />
 
+        <!--dialog petani-->
         <RelativeLayout
             android:id="@+id/dialog"
             android:layout_width="240dp"
@@ -460,6 +474,7 @@
                 android:layout_below="@id/teks3"
                 android:layout_centerHorizontal="true"
                 android:hint="Namamu"
+                android:inputType="textCapSentences"
                 android:maxLength="5"
                 android:textSize="16sp" />
 
@@ -494,6 +509,7 @@
                 android:textSize="16sp" />
         </RelativeLayout>
 
+        <!--tombol kamu-->
         <RelativeLayout
             android:id="@+id/relKamu"
             android:layout_width="89dp"
@@ -515,6 +531,7 @@
                 android:textSize="16sp" />
         </RelativeLayout>
 
+        <!--tombol inventaris-->
         <RelativeLayout
             android:id="@+id/relInventaris"
             android:layout_width="89dp"
@@ -537,6 +554,7 @@
                 android:textSize="16sp" />
         </RelativeLayout>
 
+        <!--tombol toko-->
         <RelativeLayout
             android:id="@+id/relToko"
             android:layout_width="89dp"
@@ -561,6 +579,7 @@
 
         </RelativeLayout>
 
+        <!--tombol pengaturan-->
         <ImageView
             android:id="@+id/tombolPengaturan_main"
             android:layout_width="32dp"
@@ -570,6 +589,7 @@
             android:layout_margin="8dp"
             android:src="@drawable/aset_pengaturan" />
 
+        <!--dialog menu pengaturan-->
         <LinearLayout
             android:id="@+id/dialogPengaturan"
             android:layout_width="176dp"

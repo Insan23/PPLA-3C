@@ -1,12 +1,10 @@
 package com.pplagro_3c.pssi.letsplant;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -15,7 +13,7 @@ public class MenuAwal extends AppCompatActivity {
     private boolean suara = false;
     private boolean musik = false;
 
-    private static boolean tPengaturan = false;
+    private boolean tPengaturan = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

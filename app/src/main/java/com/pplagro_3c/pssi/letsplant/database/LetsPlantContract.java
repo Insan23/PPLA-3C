@@ -5,10 +5,7 @@ package com.pplagro_3c.pssi.letsplant.database;
  */
 
 import android.net.Uri;
-import android.content.ContentResolver;
 import android.provider.BaseColumns;
-
-import static com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.LahanEntry.KOLOM_ID_PEMAIN;
 
 public class LetsPlantContract {
     //untuk mencegah terjadinya eksekusi program secara ilegal, maka konstruktor dikosongi
@@ -180,13 +177,16 @@ public class LetsPlantContract {
 
         /**
          * tipe-tipe dari kolom jenis
+         * (Tipe Tipe Perkembangan Tanaman)
          */
-        public static final String BIBIT = "bibit";
-        public static final String TUNAS = "tunas";
-        public static final String SIAP_TANAM = "siap_tanam";
-        public static final String BESAR_TANPA_BUAH = "pohon_besar_tak_berbuah";
-        public static final String BESAR_BUAH_SEDANG = "pohon_besar_buah_sedang";
-        public static final String BESAR_BUAH_BESAR  ="pohon_besar_buah_besar";
+        public static final String TANAMAN_BIBIT = "bibit";
+        public static final String TANAMAN_TUNAS = "tunas";
+        public static final String TANAMAN_SIAP_TANAM = "siap_tanam";
+        public static final String TANAMAN_BESAR_TANPA_BUAH = "pohon_besar_tak_berbuah";
+        public static final String TANAMAN_BESAR_BUAH_SEDANG = "pohon_besar_buah_sedang";
+        public static final String TANAMAN_BESAR_BUAH_BESAR  ="pohon_besar_buah_besar";
+
+
 
         /**
          * tipe-tipe dari kolom buah

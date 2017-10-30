@@ -38,6 +38,7 @@ public class MenuPermainan extends AppCompatActivity {
 
     //objek pada menu kamu
     private RelativeLayout layoutKamu;
+    private TextView teksKamu;
     private BottomSheetBehavior menuKamu;
     private ImageView tombolKamu;
     View menuKamuView;
@@ -45,12 +46,14 @@ public class MenuPermainan extends AppCompatActivity {
 
     //objek pada menu inventaris
     private RelativeLayout layoutInventaris;
+    private TextView teksInventaris;
     private BottomSheetBehavior menuInventaris;
     private ImageView tombolInventaris;
     View menuInventarisView;
 
     //objek pada menu toko
     private RelativeLayout layoutToko;
+    private TextView teksToko;
     private BottomSheetBehavior menuToko;
     private ImageView tombolToko;
     View menuTokoView;
@@ -231,7 +234,7 @@ public class MenuPermainan extends AppCompatActivity {
         batal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                konfirmasi();
+                finish();
             }
         });
 
@@ -269,6 +272,24 @@ public class MenuPermainan extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+            }
+        });
+        teksKamu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                menuKamu.setState(BottomSheetBehavior.STATE_HIDDEN);
+            }
+        });
+        teksInventaris.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                menuInventaris.setState(BottomSheetBehavior.STATE_HIDDEN);
+            }
+        });
+        teksToko.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
             }
         });
     }

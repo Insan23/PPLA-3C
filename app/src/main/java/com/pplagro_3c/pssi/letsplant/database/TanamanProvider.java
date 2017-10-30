@@ -4,9 +4,11 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.TanamanEntry;
 
 /**
  * Created by Aleq on 23/10/2017.
@@ -16,6 +18,8 @@ public class TanamanProvider extends ContentProvider {
 
     /* tipe akses ke tabel tanaman */
     private static final int JENIS_TANAMAN = 310;
+    private static final int LOKASI = 311;
+    private static final int BUAH = 312;
 
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
@@ -24,6 +28,16 @@ public class TanamanProvider extends ContentProvider {
          *
          */
         sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, JENIS_TANAMAN);
+
+        /**
+         *
+         */
+        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, LOKASI);
+
+        /**
+         *
+         */
+        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, BUAH);
     }
 
     private LetsPlantDBHelper TanamanDBHelper;
@@ -36,7 +50,22 @@ public class TanamanProvider extends ContentProvider {
 
     @Nullable
     @Override
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strings, @Nullable String s, @Nullable String[] strings1, @Nullable String s1) {
+    public Cursor query(@NonNull Uri uri, @Nullable String[] column, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
+        SQLiteDatabase db = TanamanDBHelper.getReadableDatabase();
+        Cursor output = null;
+
+        int match = sUriMatcher.match(uri);
+        switch (match) {
+            case JENIS_TANAMAN:
+                column = new String[] {
+
+                }
+                break;
+            case LOKASI:
+                break;
+            case BUAH:
+                break;
+        }
         return null;
     }
 
