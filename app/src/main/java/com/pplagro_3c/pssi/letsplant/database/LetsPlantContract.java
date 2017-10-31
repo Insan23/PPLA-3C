@@ -186,7 +186,27 @@ public class LetsPlantContract {
         public static final String TANAMAN_BESAR_BUAH_SEDANG = "pohon_besar_buah_sedang";
         public static final String TANAMAN_BESAR_BUAH_BESAR  ="pohon_besar_buah_besar";
 
+        /**
+         * koordinat Lahan
+         */
 
+        public static final String POS_11 = "11";
+        public static final String POS_21 = "21";
+        public static final String POS_31 = "31";
+        public static final String POS_41 = "41";
+        public static final String POS_51 = "51";
+
+        public static final String POS_12 = "12";
+        public static final String POS_22 = "22";
+        public static final String POS_32 = "32";
+        public static final String POS_42 = "42";
+        public static final String POS_52 = "52";
+
+        public static final String POS_13 = "13";
+        public static final String POS_23 = "23";
+        public static final String POS_33 = "33";
+        public static final String POS_43 = "43";
+        public static final String POS_53 = "53";
 
         /**
          * tipe-tipe dari kolom buah

@@ -45,7 +45,7 @@ yang digunakan untuk menampilkan menu
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp">
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/l_1_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -53,9 +53,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/l_2_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -63,9 +63,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/l_3_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -73,9 +73,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/l_4_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -83,9 +83,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/l_5_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -93,7 +93,7 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
             </LinearLayout>
 
             <LinearLayout
@@ -104,7 +104,7 @@ yang digunakan untuk menampilkan menu
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp">
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/l_1_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -112,9 +112,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/l_2_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -122,9 +122,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/l_3_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -132,9 +132,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/l_4_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -142,9 +142,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/l_5_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -152,7 +152,7 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
             </LinearLayout>
 
             <LinearLayout
@@ -163,7 +163,7 @@ yang digunakan untuk menampilkan menu
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp">
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/l_1_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -171,9 +171,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/l_2_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -181,9 +181,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/l_3_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -191,9 +191,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/l_4_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -201,9 +201,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/l_5_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -211,7 +211,7 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
             </LinearLayout>
         </RelativeLayout>
 
@@ -227,6 +227,7 @@ yang digunakan untuk menampilkan menu
                 android:layout_alignParentBottom="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/bg_lahan_poly" />
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -250,7 +251,7 @@ yang digunakan untuk menampilkan menu
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp">
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/p_1_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -258,9 +259,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/p_2_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -268,9 +269,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/p_3_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -278,9 +279,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/p_4_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -288,9 +289,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/p_5_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -298,7 +299,7 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
             </LinearLayout>
 
             <LinearLayout
@@ -309,7 +310,7 @@ yang digunakan untuk menampilkan menu
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp">
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/p_1_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -317,9 +318,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/p_2_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -327,9 +328,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/p_3_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -337,9 +338,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/p_4_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -347,9 +348,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/p_5_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -357,7 +358,7 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
             </LinearLayout>
 
             <LinearLayout
@@ -368,7 +369,7 @@ yang digunakan untuk menampilkan menu
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp">
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/p_1_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -376,9 +377,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/p_2_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -386,9 +387,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/p_3_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -396,9 +397,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/p_4_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -406,9 +407,9 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
 
-                <RelativeLayout
+                <ImageView
                     android:id="@+id/p_5_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -416,7 +417,7 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </RelativeLayout>
+                </ImageView>
             </LinearLayout>
         </RelativeLayout>
 

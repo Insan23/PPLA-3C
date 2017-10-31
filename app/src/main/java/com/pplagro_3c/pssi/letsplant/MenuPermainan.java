@@ -1,8 +1,13 @@
 package com.pplagro_3c.pssi.letsplant;
 
 import android.app.AlertDialog;
+import android.app.LoaderManager;
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.CursorLoader;
 import android.content.DialogInterface;
+import android.content.Loader;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -20,6 +25,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.PemainEntry;
+import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.LahanEntry;
+import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.TanamanEntry;
+import com.pplagro_3c.pssi.letsplant.objek.Tanaman;
 
 public class MenuPermainan extends AppCompatActivity {
 
@@ -28,6 +36,29 @@ public class MenuPermainan extends AppCompatActivity {
     private boolean dialogPengaturan = false;
     private boolean isInputNama = true;
     private boolean allowedName = true;
+
+    public Tanaman lahanTanam[] = new Tanaman[15];
+    public Tanaman lahanPoly[] = new Tanaman[15];
+
+    /**
+     * List Petak Lahan Tanam
+     */
+    private ImageView layoutLahanTanam[][] = new ImageView[3][5];
+    private int resLahan[][] = {
+            {R.id.l_1_1, R.id.l_2_1, R.id.l_3_1, R.id.l_4_1, R.id.l_5_1},
+            {R.id.l_1_2, R.id.l_2_2, R.id.l_3_2, R.id.l_4_2, R.id.l_5_2},
+            {R.id.l_1_3, R.id.l_2_3, R.id.l_3_3, R.id.l_4_3, R.id.l_5_3}
+    };
+
+    /**
+     * List Petak Lahan Polybag
+     */
+    private ImageView layoutLahanPoly[][] = new ImageView[3][15];
+    private int resPoly[][] = {
+            {R.id.p_1_1, R.id.p_2_1, R.id.p_3_1, R.id.p_4_1, R.id.p_5_1},
+            {R.id.p_1_2, R.id.p_2_2, R.id.p_3_2, R.id.p_4_2, R.id.p_5_2},
+            {R.id.p_1_3, R.id.p_2_3, R.id.p_3_3, R.id.p_4_3, R.id.p_5_3}
+    };
 
     //dialog
     ImageView petani;
@@ -301,6 +332,15 @@ public class MenuPermainan extends AppCompatActivity {
         decorView.setSystemUiVisibility(uiOptions);
     }
 
+    private void initLahan() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 5; j++) {
+                layoutLahanTanam[i][j] = (ImageView) findViewById(resLahan[i][j]);
+                layoutLahanPoly[i][j] = (ImageView) findViewById(resPoly[i][j]);
+            }
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -309,6 +349,7 @@ public class MenuPermainan extends AppCompatActivity {
         hideS();
 
         init();
+        initLahan();
         initOnClickCallback();
         error.setText("");
 
@@ -414,9 +455,61 @@ public class MenuPermainan extends AppCompatActivity {
         } else {
             Toast.makeText(this, "berhasil menyimpan nama", Toast.LENGTH_SHORT).show();
         }
-
-
     }
+
+    private void isiLahan() {
+        for (int i = 0; i < 15; i++) {
+            lahanTanam[i] = new Tanaman();
+            lahanPoly[i] = new Tanaman();
+        }
+    }
+
+    private class LahanLoader implements LoaderManager.LoaderCallbacks<Cursor> {
+
+        Context context;
+
+        public LahanLoader(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+            String projection[] = {
+                    LahanEntry._ID,
+                    LahanEntry.KOLOM_TIPE_LAHAN,
+                    TanamanEntry._ID,
+                    TanamanEntry.KOLOM_LOKASI,
+                    TanamanEntry.KOLOM_JENIS,
+            };
+            return new CursorLoader(context,
+                    LahanEntry.CONTENT_URI,
+                    projection,
+                    null,
+                    null,
+                    null);
+        }
+
+        @Override
+        public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+            cursor.isBeforeFirst();
+            int kolomID = cursor.getColumnIndex(LahanEntry._ID);
+            int kolomTipe = cursor.getColumnIndex(LahanEntry.KOLOM_TIPE_LAHAN);
+            int kolomIDTanaman = cursor.getColumnIndex(TanamanEntry._ID);
+            int kolomLokasi = cursor.getColumnIndex(TanamanEntry.KOLOM_LOKASI);
+            int kolomJenis = cursor.getColumnIndex(TanamanEntry.KOLOM_JENIS);
+
+            int i = 0;
+            while (cursor.moveToNext()) {
+
+            }
+        }
+
+        @Override
+        public void onLoaderReset(Loader<Cursor> loader) {
+
+        }
+    }
+
 
     /**
      * teks setelah input nama

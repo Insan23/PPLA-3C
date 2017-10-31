@@ -6,12 +6,14 @@ import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.LahanEntry;
+import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.TanamanEntry;
 
 /**
  * Created by Aleq on 23/10/2017.
@@ -23,6 +25,7 @@ public class LahanProvider extends ContentProvider {
 
     /* tipe akses ke tabel lahan */
     private static final int TIPE_LAHAN = 210;
+    private static final int TANAMAN = 211;
 
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
@@ -31,6 +34,11 @@ public class LahanProvider extends ContentProvider {
          *
          */
         sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, TIPE_LAHAN);
+
+        /**
+         *
+         */
+        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT + "/#", TANAMAN);
     }
 
     private LetsPlantDBHelper LahanDBHelper;
@@ -49,6 +57,16 @@ public class LahanProvider extends ContentProvider {
 
         int match = sUriMatcher.match(uri);
         switch (match) {
+            case TANAMAN:
+                selection = LahanEntry._ID + "=?";
+                SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
+                builder.setTables(
+                        LahanEntry.KOLOM_ID_PEMAIN
+                                + " JOIN " + TanamanEntry.NAMA_TABEL + " ON " + LahanEntry.NAMA_TABEL + "." + LahanEntry._ID
+                                + " = " + TanamanEntry.NAMA_TABEL + "." + TanamanEntry.KOLOM_IDLahan
+                );
+                output = builder.query(db, column, selection, selectionArgs, null, null, sortOrder);
+                break;
             case TIPE_LAHAN:
                 //nothing
                 break;

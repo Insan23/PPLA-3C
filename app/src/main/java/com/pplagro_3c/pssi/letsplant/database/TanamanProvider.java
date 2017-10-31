@@ -5,10 +5,16 @@ import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
+import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.PemainEntry;
+import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.LahanEntry;
 import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.TanamanEntry;
+import com.pplagro_3c.pssi.letsplant.objek.Lahan;
+import com.pplagro_3c.pssi.letsplant.objek.Tanaman;
 
 /**
  * Created by Aleq on 23/10/2017.
@@ -17,6 +23,7 @@ import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.TanamanEntry;
 public class TanamanProvider extends ContentProvider {
 
     /* tipe akses ke tabel tanaman */
+    private static final int TANAMAN = 300;
     private static final int JENIS_TANAMAN = 310;
     private static final int LOKASI = 311;
     private static final int BUAH = 312;
@@ -56,10 +63,10 @@ public class TanamanProvider extends ContentProvider {
 
         int match = sUriMatcher.match(uri);
         switch (match) {
-            case JENIS_TANAMAN:
-                column = new String[] {
+            case TANAMAN:
 
-                }
+                break;
+            case JENIS_TANAMAN:
                 break;
             case LOKASI:
                 break;
