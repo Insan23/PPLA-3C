@@ -37,32 +37,44 @@ public class MenuPermainan extends AppCompatActivity {
     private boolean isInputNama = true;
     private boolean allowedName = true;
 
-    public Tanaman lahanTanam[] = new Tanaman[15];
-    public Tanaman lahanPoly[] = new Tanaman[15];
 
+
+
+    private ImageView layoutLahanTanam[][] = new ImageView[3][5];
+    private ImageView layoutLahanPoly[][] = new ImageView[3][5];
+    private ImageView ikon_notif[][] = new ImageView[3][5];
     /**
      * List Petak Lahan Tanam
      */
-    private ImageView layoutLahanTanam[][] = new ImageView[3][5];
     private int resLahan[][] = {
             {R.id.l_1_1, R.id.l_2_1, R.id.l_3_1, R.id.l_4_1, R.id.l_5_1},
             {R.id.l_1_2, R.id.l_2_2, R.id.l_3_2, R.id.l_4_2, R.id.l_5_2},
             {R.id.l_1_3, R.id.l_2_3, R.id.l_3_3, R.id.l_4_3, R.id.l_5_3}
     };
+    private int resNotifLahan[][] = {
+            {R.id.n_l_1_1, R.id.n_l_2_1, R.id.n_l_3_1, R.id.n_l_4_1, R.id.n_l_5_1},
+            {R.id.n_l_1_2, R.id.n_l_2_2, R.id.n_l_3_2, R.id.n_l_4_2, R.id.n_l_5_2},
+            {R.id.n_l_1_3, R.id.n_l_2_3, R.id.n_l_3_3, R.id.n_l_4_3, R.id.n_l_5_3}
+    };
 
     /**
      * List Petak Lahan Polybag
      */
-    private ImageView layoutLahanPoly[][] = new ImageView[3][15];
     private int resPoly[][] = {
             {R.id.p_1_1, R.id.p_2_1, R.id.p_3_1, R.id.p_4_1, R.id.p_5_1},
             {R.id.p_1_2, R.id.p_2_2, R.id.p_3_2, R.id.p_4_2, R.id.p_5_2},
             {R.id.p_1_3, R.id.p_2_3, R.id.p_3_3, R.id.p_4_3, R.id.p_5_3}
     };
+    private int resNotifPoly[][] = {
+            {R.id.n_p_1_1, R.id.n_p_2_1, R.id.n_p_3_1, R.id.n_p_4_1, R.id.n_p_5_1},
+            {R.id.n_p_1_2, R.id.n_p_2_2, R.id.n_p_3_2, R.id.n_p_4_2, R.id.n_p_5_2},
+            {R.id.n_p_1_3, R.id.n_p_2_3, R.id.n_p_3_3, R.id.n_p_4_3, R.id.n_p_5_3}
+    };
 
     //dialog
     ImageView petani;
     View dialog;
+    private ImageView lahan11;
 
     //nama player
     private String nama;
@@ -70,14 +82,20 @@ public class MenuPermainan extends AppCompatActivity {
     //objek pada menu kamu
     private RelativeLayout layoutKamu;
     private TextView teksKamu;
+    private View bibit;
+    private View pupuk;
+    private View polybag;
+    private View lahan;
     private BottomSheetBehavior menuKamu;
     private ImageView tombolKamu;
     View menuKamuView;
 
-
     //objek pada menu inventaris
     private RelativeLayout layoutInventaris;
     private TextView teksInventaris;
+    private ImageView air;
+    private ImageView sabit;
+    private ImageView cangkul;
     private BottomSheetBehavior menuInventaris;
     private ImageView tombolInventaris;
     View menuInventarisView;
@@ -85,6 +103,10 @@ public class MenuPermainan extends AppCompatActivity {
     //objek pada menu toko
     private RelativeLayout layoutToko;
     private TextView teksToko;
+    private View bibit_toko;
+    private View pupuk_toko;
+    private View polybag_toko;
+    private View lahan_toko;
     private BottomSheetBehavior menuToko;
     private ImageView tombolToko;
     View menuTokoView;
@@ -103,6 +125,7 @@ public class MenuPermainan extends AppCompatActivity {
     private RelativeLayout layoutDialog;
 
     public void init() {
+        lahan11 = (ImageView) findViewById(R.id.p_1_1);
         petani = (ImageView) findViewById(R.id.petani);
         dialog = findViewById(R.id.dialog);
 
@@ -127,8 +150,24 @@ public class MenuPermainan extends AppCompatActivity {
         batal = (TextView) findViewById(R.id.batal);
 
         menuKamuView = findViewById(R.id.menu_kamu);
+        teksKamu = (TextView) findViewById(R.id.teksKamu);
+        bibit = findViewById(R.id.line_bibit);
+        pupuk = findViewById(R.id.pupuk_line);
+        polybag = findViewById(R.id.polybag_line);
+
         menuInventarisView = findViewById(R.id.menu_inventaris);
+        teksInventaris = (TextView) findViewById(R.id.teksInventaris);
+        air = (ImageView) findViewById(R.id.air_ikon);
+        sabit = (ImageView) findViewById(R.id.sabit_ikon);
+        cangkul = (ImageView) findViewById(R.id.cangkul_ikon);
+
         menuTokoView = findViewById(R.id.menu_toko);
+        teksToko = (TextView) findViewById(R.id.teksToko);
+        bibit_toko = findViewById(R.id.bibit_toko_line);
+        pupuk_toko = findViewById(R.id.pupuk_toko_line);
+        polybag_toko = findViewById(R.id.polybag_toko_line);
+        lahan_toko = findViewById(R.id.lahan_toko_line);
+
         menuKamu = BottomSheetBehavior.from(menuKamuView);
         menuInventaris = BottomSheetBehavior.from(menuInventarisView);
         menuToko = BottomSheetBehavior.from(menuTokoView);
@@ -323,6 +362,11 @@ public class MenuPermainan extends AppCompatActivity {
                 menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
             }
         });
+
+        /**
+         * Menu Kamu
+         */
+
     }
 
     private void hideS() {
@@ -335,8 +379,7 @@ public class MenuPermainan extends AppCompatActivity {
     private void initLahan() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 5; j++) {
-                layoutLahanTanam[i][j] = (ImageView) findViewById(resLahan[i][j]);
-                layoutLahanPoly[i][j] = (ImageView) findViewById(resPoly[i][j]);
+
             }
         }
     }
@@ -459,8 +502,7 @@ public class MenuPermainan extends AppCompatActivity {
 
     private void isiLahan() {
         for (int i = 0; i < 15; i++) {
-            lahanTanam[i] = new Tanaman();
-            lahanPoly[i] = new Tanaman();
+
         }
     }
 

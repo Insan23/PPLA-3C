@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 butuh android.support.design.widget.CoordinatorLayout untu dapat support bottomsheet
 yang digunakan untuk menampilkan menu
 -->
@@ -45,55 +44,118 @@ yang digunakan untuk menampilkan menu
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp">
 
-                <ImageView
-                    android:id="@+id/l_1_1"
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/l_1_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/l_2_1"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_l_1_1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/l_2_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/l_3_1"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_l_2_1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/l_3_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/l_4_1"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_l_3_1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/l_4_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/l_5_1"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_l_4_1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/l_5_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
+
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_l_5_1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -104,55 +166,118 @@ yang digunakan untuk menampilkan menu
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp">
 
-                <ImageView
-                    android:id="@+id/l_1_2"
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/l_1_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/l_2_2"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_l_1_2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/l_2_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/l_3_2"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_l_2_2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/l_3_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside"/>
 
-                <ImageView
-                    android:id="@+id/l_4_2"
+                    <ImageView
+                        android:id="@+id/n_l_3_2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/l_4_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/l_5_2"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_l_4_2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/l_5_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
+
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_l_5_2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -163,55 +288,120 @@ yang digunakan untuk menampilkan menu
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp">
 
-                <ImageView
-                    android:id="@+id/l_1_3"
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/l_1_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/l_2_3"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_l_1_3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/l_2_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/l_3_3"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_l_2_3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/l_3_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/l_4_3"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_l_3_3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/l_4_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/l_5_3"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_l_4_3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/l_5_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
+
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_l_5_3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
             </LinearLayout>
         </RelativeLayout>
 
@@ -251,55 +441,121 @@ yang digunakan untuk menampilkan menu
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp">
 
-                <ImageView
-                    android:id="@+id/p_1_1"
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/p_1_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/p_2_1"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_p_1_1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/p_2_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/p_3_1"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_p_2_1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/p_3_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/p_4_1"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_p_3_1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/p_4_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/p_5_1"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_p_4_1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/p_5_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
+
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_p_5_1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -310,55 +566,120 @@ yang digunakan untuk menampilkan menu
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp">
 
-                <ImageView
-                    android:id="@+id/p_1_2"
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/p_1_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/p_2_2"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_p_1_2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/p_2_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/p_3_2"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_p_2_2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/p_3_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/p_4_2"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_p_3_2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/p_4_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/p_5_2"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_p_4_2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/p_5_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
+
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_p_5_2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -369,55 +690,120 @@ yang digunakan untuk menampilkan menu
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp">
 
-                <ImageView
-                    android:id="@+id/p_1_3"
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/p_1_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/p_2_3"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_p_1_3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/p_2_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/p_3_3"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_p_2_3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/p_3_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/p_4_3"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_p_3_3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/p_4_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
 
-                <ImageView
-                    android:id="@+id/p_5_3"
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_p_4_3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1">
 
-                </ImageView>
+                    <ImageView
+                        android:id="@+id/p_5_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside">
+
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/n_p_5_3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerInside"/>
+
+                </RelativeLayout>
             </LinearLayout>
         </RelativeLayout>
 
@@ -670,6 +1056,7 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginStart="8dp"
                     android:text="Namamu" />
 
+                <!--koin-->
                 <LinearLayout
                     android:id="@+id/koin_line"
                     android:layout_width="84dp"
@@ -691,6 +1078,7 @@ yang digunakan untuk menampilkan menu
                         android:text="500" />
                 </LinearLayout>
 
+                <!--bibit-->
                 <LinearLayout
                     android:id="@+id/line_bibit"
                     android:layout_width="84dp"
@@ -711,6 +1099,7 @@ yang digunakan untuk menampilkan menu
                         android:text="5" />
                 </LinearLayout>
 
+                <!--pupuk-->
                 <LinearLayout
                     android:id="@+id/pupuk_line"
                     android:layout_width="84dp"
@@ -731,6 +1120,7 @@ yang digunakan untuk menampilkan menu
                         android:text="5" />
                 </LinearLayout>
 
+                <!--polybag-->
                 <LinearLayout
                     android:id="@+id/polybag_line"
                     android:layout_width="84dp"
@@ -751,6 +1141,7 @@ yang digunakan untuk menampilkan menu
                         android:text="5" />
                 </LinearLayout>
 
+                <!--lahan-->
                 <LinearLayout
                     android:id="@+id/lahan_line"
                     android:layout_width="84dp"
@@ -802,6 +1193,7 @@ yang digunakan untuk menampilkan menu
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <!--air-->
                 <ImageView
                     android:id="@+id/air_ikon"
                     android:layout_width="36dp"
@@ -810,6 +1202,7 @@ yang digunakan untuk menampilkan menu
                     android:layout_marginStart="8dp"
                     android:src="@drawable/aset_air" />
 
+                <!--sabit-->
                 <ImageView
                     android:id="@+id/sabit_ikon"
                     android:layout_width="36dp"
@@ -819,6 +1212,7 @@ yang digunakan untuk menampilkan menu
                     android:layout_toEndOf="@id/air_ikon"
                     android:src="@drawable/aset_sabit" />
 
+                <!--cangkul-->
                 <ImageView
                     android:id="@+id/cangkul_ikon"
                     android:layout_width="36dp"
@@ -858,6 +1252,7 @@ yang digunakan untuk menampilkan menu
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <!--bibit toko-->
                 <LinearLayout
                     android:id="@+id/bibit_toko_line"
                     android:layout_width="84dp"
@@ -877,6 +1272,7 @@ yang digunakan untuk menampilkan menu
                         android:text="x koin" />
                 </LinearLayout>
 
+                <!--pupuk-->
                 <LinearLayout
                     android:id="@+id/pupuk_toko_line"
                     android:layout_width="84dp"
@@ -897,6 +1293,7 @@ yang digunakan untuk menampilkan menu
                         android:text="5" />
                 </LinearLayout>
 
+                <!--polybag-->
                 <LinearLayout
                     android:id="@+id/polybag_toko_line"
                     android:layout_width="84dp"
@@ -917,6 +1314,7 @@ yang digunakan untuk menampilkan menu
                         android:text="5" />
                 </LinearLayout>
 
+                <!--lahan-->
                 <LinearLayout
                     android:id="@+id/lahan_toko_line"
                     android:layout_width="84dp"
