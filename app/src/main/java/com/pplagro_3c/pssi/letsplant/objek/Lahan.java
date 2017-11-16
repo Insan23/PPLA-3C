@@ -1,14 +1,14 @@
 package com.pplagro_3c.pssi.letsplant.objek;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.pplagro_3c.pssi.letsplant.R;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
-import static com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.TanamanEntry.TANAMAN_BIBIT;
 
 /**
  * Created by Aleq on 23/10/2017.
@@ -27,16 +27,15 @@ public class Lahan {
         BIBIT, POLYBAG, PUPUK, LAHAN_TANAM, LAHAN_POLY,
         SIAP_TANAM,
         AIR, CANGKUL, SABIT,
-        BIBIT_TOKO, POLYBAG_TOKO, PUPUK_TOKO, LAHAN_TANAM_TOKO, LAHAN_POLY_TOKO
     }
 
     /**
      * Tanaman Bibit, Tunas, dan Siap Tanam, masih di dalam polybag
-     *
+     * <p>
      * Tanaman Besar
-     *
      */
     private static enum TANAMAN {
+        KOSONG,
         POLYBAG,
         BIBIT,
         TUNAS,
@@ -57,16 +56,15 @@ public class Lahan {
 
     TANAMAN SAAT_INI;
 
-    private enum AKSI {
-        AIR,
-        PUPUK,
-        CANGKUL
-    }
-
     public Lahan(Context konteks, ImageView L, ImageView N) {
         this.konteks = konteks;
         lahan = L;
         notif = N;
+        LAHAN_SAAT_INI = LAHAN.LAHAN_POLYBAG;
+    }
+
+    public void setLahan(LAHAN lahan) {
+        LAHAN_SAAT_INI = lahan;
     }
 
     public void tindakan(AKSI_USER aksi) {
@@ -96,20 +94,12 @@ public class Lahan {
             case SABIT:
                 pakaiSabit();
                 break;
-            case BIBIT_TOKO:
-                break;
-            case PUPUK_TOKO:
-                break;
-            case POLYBAG_TOKO:
-                break;
-            case LAHAN_TANAM_TOKO:
-                break;
-            case LAHAN_POLY_TOKO:
-                break;
             default:
                 Toast.makeText(konteks, "Tindakan GAGAL, Tidak Diketahui", Toast.LENGTH_LONG);
         }
     }
+
+
 
     private void pakaiSabit() {
 
@@ -128,14 +118,21 @@ public class Lahan {
     }
 
     private void letakBibit() {
-        lahan.setImageResource(R.drawable.tanaman_bibit);
-        SAAT_INI = TANAMAN.BIBIT;
+        if (SAAT_INI == TANAMAN.POLYBAG && LAHAN_SAAT_INI == LAHAN.LAHAN_POLYBAG) {
+            lahan.setImageResource(R.drawable.tanaman_bibit);
+            SAAT_INI = TANAMAN.BIBIT;
+        } else {
+            //koding jika petak saat ini bukan polybag
+        }
     }
 
     private void letakPoly() {
-        lahan.setImageResource(R.drawable.tanaman_polybag);
-        SAAT_INI = TANAMAN.POLYBAG;
-        LAHAN_SAAT_INI = LAHAN.LAHAN_POLYBAG;
+        if (SAAT_INI == TANAMAN.KOSONG && LAHAN_SAAT_INI == LAHAN.LAHAN_POLYBAG) {
+            lahan.setImageResource(R.drawable.tanaman_polybag);
+            SAAT_INI = TANAMAN.POLYBAG;
+        } else {
+            //koding jika lahan tidak kosong
+        }
     }
 
 }

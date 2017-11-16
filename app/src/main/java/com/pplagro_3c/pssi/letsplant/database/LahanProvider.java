@@ -24,12 +24,17 @@ public class LahanProvider extends ContentProvider {
     public static final String LOG_TAG = LahanProvider.class.getSimpleName();
 
     /* tipe akses ke tabel lahan */
+    private static final int LAHAN = 200;
     private static final int TIPE_LAHAN = 210;
     private static final int TANAMAN = 211;
 
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     static {
+        /**
+         *
+         */
+        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, LAHAN);
         /**
          *
          */
@@ -57,6 +62,9 @@ public class LahanProvider extends ContentProvider {
 
         int match = sUriMatcher.match(uri);
         switch (match) {
+            case LAHAN:
+
+                break;
             case TANAMAN:
                 selection = LahanEntry._ID + "=?";
                 SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
@@ -73,7 +81,7 @@ public class LahanProvider extends ContentProvider {
             default:
                 ;
         }
-        return null;
+        return output;
     }
 
     @Nullable

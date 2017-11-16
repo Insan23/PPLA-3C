@@ -18,7 +18,8 @@ yang digunakan untuk menampilkan menu
         <RelativeLayout
             android:id="@+id/layout_lahan_siap_tanam"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:visibility="gone">
 
 
             <ImageView

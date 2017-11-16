@@ -28,19 +28,21 @@ import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.PemainEntry;
 import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.LahanEntry;
 import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.TanamanEntry;
 import com.pplagro_3c.pssi.letsplant.objek.Lahan;
-import com.pplagro_3c.pssi.letsplant.objek.Tanaman;
+import com.pplagro_3c.pssi.letsplant.objek.Toko;
 
 import static android.R.attr.id;
 
 public class MenuPermainan extends AppCompatActivity {
 
 
-    private boolean firstStart = true;
+    private boolean firstStart;
     private boolean dialogPengaturan = false;
     private boolean isInputNama = true;
     private boolean allowedName = true;
 
     private Lahan.AKSI_USER aksi = Lahan.AKSI_USER.TIDAK_ADA;
+    private Lahan.LAHAN lahanSaatIni = Lahan.LAHAN.LAHAN_POLYBAG;
+    private Toko.AKSI_USER_TOKO aksiToko = Toko.AKSI_USER_TOKO.TIDAK_ADA;
 
 
     private Lahan petak_lahan[][] = new Lahan[3][5];
@@ -295,6 +297,9 @@ public class MenuPermainan extends AppCompatActivity {
     }
 
     private void initOnClickCallback() {
+        /**
+         * klik Listener untuk item-item pada menu kamu
+         */
         tombolKamu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -345,6 +350,9 @@ public class MenuPermainan extends AppCompatActivity {
             }
         });
 
+        /**
+         * klik Listener untuk item-item pada menu inventaris
+         */
         tombolInventaris.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -388,10 +396,14 @@ public class MenuPermainan extends AppCompatActivity {
                 }
             }
         });
+
+        /**
+         * klik listener untuk item-item pada menu toko
+         */
         bibit_toko.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                aksi = Lahan.AKSI_USER.BIBIT_TOKO;
+
                 menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
                 overlay.setVisibility(View.GONE);
             }
@@ -399,7 +411,7 @@ public class MenuPermainan extends AppCompatActivity {
         pupuk_toko.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                aksi = Lahan.AKSI_USER.PUPUK_TOKO;
+
                 menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
                 overlay.setVisibility(View.GONE);
             }
@@ -407,7 +419,7 @@ public class MenuPermainan extends AppCompatActivity {
         polybag_toko.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                aksi = Lahan.AKSI_USER.POLYBAG_TOKO;
+
                 menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
                 overlay.setVisibility(View.GONE);
             }
@@ -415,7 +427,7 @@ public class MenuPermainan extends AppCompatActivity {
         lahan_toko.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                aksi = Lahan.AKSI_USER.LAHAN_TANAM_TOKO;
+
                 menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
                 overlay.setVisibility(View.GONE);
             }
@@ -423,7 +435,7 @@ public class MenuPermainan extends AppCompatActivity {
         lahan_poly_toko.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                aksi = Lahan.AKSI_USER.LAHAN_POLY_TOKO;
+
                 menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
                 overlay.setVisibility(View.GONE);
             }
@@ -544,12 +556,14 @@ public class MenuPermainan extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         petak_lahan[finalI][finalJ].tindakan(aksi);
+                        aksi = Lahan.AKSI_USER.TIDAK_ADA;
                     }
                 });
                 ikonLahanPoly[i][j].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         petak_poly[finalI][finalJ].tindakan(aksi);
+                        aksi = Lahan.AKSI_USER.TIDAK_ADA;
                     }
                 });
             }

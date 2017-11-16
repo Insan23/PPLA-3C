@@ -37,7 +37,7 @@ public class PemainProvider extends ContentProvider {
         /**
          *
          */
-        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, NAMA_PEMAIN);
+        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT + "/#", NAMA_PEMAIN);
 
         /**
          *

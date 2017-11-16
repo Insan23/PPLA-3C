@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.content.SharedPreferencesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -15,14 +17,15 @@ import static java.security.AccessController.getContext;
 
 public class MenuAwal extends AppCompatActivity {
 
-    private boolean suara = false;
-    private boolean musik = false;
+    private boolean suara;
+    private boolean musik;
 
     private boolean tPengaturan = false;
 
-    SharedPreferences pengaturan = getActivity().getSharedPreferences(
+    SharedPreferences pengaturan = this.getSharedPreferences(
             getString(R.string.pengaturan), Context.MODE_PRIVATE
     );
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +34,7 @@ public class MenuAwal extends AppCompatActivity {
 
         ImageView tSuara = (ImageView) findViewById(R.id.suara);
         ImageView tMusik = (ImageView) findViewById(R.id.musik);
-        tPengaturan = false;
+
         if (!tPengaturan) {
             tSuara.setVisibility(View.GONE);
             tMusik.setVisibility(View.GONE);
@@ -40,7 +43,13 @@ public class MenuAwal extends AppCompatActivity {
         //hide the status bar
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
+
+        MediaPlayer player = MediaPlayer.create(this, Settings.System.DEFAULT_RINGTONE_URI);
+        player.setLooping(true);
+        player.start();
     }
+
+
 
     @Override
     public void onBackPressed() {
