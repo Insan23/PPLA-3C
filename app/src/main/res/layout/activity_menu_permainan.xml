@@ -22,6 +22,7 @@ yang digunakan untuk menampilkan menu
 
 
             <ImageView
+                android:id="@+id/bg_lahan_tanam"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
@@ -412,6 +413,7 @@ yang digunakan untuk menampilkan menu
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/bg_lahan_poly"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
@@ -419,6 +421,7 @@ yang digunakan untuk menampilkan menu
                 android:src="@drawable/bg_lahan_poly" />
 
             <ImageView
+                android:id="@+id/genteng_lahan_poly"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
@@ -1021,6 +1024,17 @@ yang digunakan untuk menampilkan menu
 
     </RelativeLayout>
 
+    <!--layout overlay untuk saat klik menu kamu user dsb-->
+    <RelativeLayout
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:alpha="0.3"
+        android:visibility="gone">
+
+    </RelativeLayout>
+
     <!-- Layout Menu Kamu -->
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/menu_kamu"
@@ -1144,6 +1158,27 @@ yang digunakan untuk menampilkan menu
                 <!--lahan-->
                 <LinearLayout
                     android:id="@+id/lahan_line"
+                    android:layout_width="84dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/polybag_line">
+
+                    <ImageView
+                        android:id="@+id/lahan_ikon"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/aset_lahan" />
+
+                    <TextView
+                        android:id="@+id/lahan_teks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="1" />
+                </LinearLayout>
+
+                <!--lahan-->
+                <LinearLayout
+                    android:id="@+id/lahan_poly_line"
                     android:layout_width="84dp"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@id/polybag_line">
@@ -1317,6 +1352,27 @@ yang digunakan untuk menampilkan menu
                 <!--lahan-->
                 <LinearLayout
                     android:id="@+id/lahan_toko_line"
+                    android:layout_width="84dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/polybag_toko_line">
+
+                    <ImageView
+                        android:id="@+id/lahan_toko_ikon"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/aset_lahan" />
+
+                    <TextView
+                        android:id="@+id/lahan_toko_teks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="1" />
+                </LinearLayout>
+
+                <!--lahan poly-->
+                <LinearLayout
+                    android:id="@+id/lahan_poly_toko_line"
                     android:layout_width="84dp"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@id/polybag_toko_line">

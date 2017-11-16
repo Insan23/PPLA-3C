@@ -1,12 +1,17 @@
 package com.pplagro_3c.pssi.letsplant;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.content.SharedPreferencesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+
+import static java.security.AccessController.getContext;
 
 public class MenuAwal extends AppCompatActivity {
 
@@ -14,6 +19,10 @@ public class MenuAwal extends AppCompatActivity {
     private boolean musik = false;
 
     private boolean tPengaturan = false;
+
+    SharedPreferences pengaturan = getActivity().getSharedPreferences(
+            getString(R.string.pengaturan), Context.MODE_PRIVATE
+    );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

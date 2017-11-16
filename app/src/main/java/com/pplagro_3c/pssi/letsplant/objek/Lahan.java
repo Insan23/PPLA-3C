@@ -16,14 +16,18 @@ import static com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.TanamanEn
 
 public class Lahan {
 
-    private static enum LAHAN {
+    public static enum LAHAN {
         LAHAN_POLYBAG,
+        PINDAH,
         LAHAN_TANAM
     }
 
-    private static enum AKSI_USER {
-        BIBIT, POLYBAG, PUPUK,
-        AIR, CANGKUL, SABIT
+    public static enum AKSI_USER {
+        TIDAK_ADA,
+        BIBIT, POLYBAG, PUPUK, LAHAN_TANAM, LAHAN_POLY,
+        SIAP_TANAM,
+        AIR, CANGKUL, SABIT,
+        BIBIT_TOKO, POLYBAG_TOKO, PUPUK_TOKO, LAHAN_TANAM_TOKO, LAHAN_POLY_TOKO
     }
 
     /**
@@ -76,6 +80,13 @@ public class Lahan {
             case PUPUK:
                 beriPupuk();
                 break;
+            case LAHAN_TANAM:
+                break;
+            case LAHAN_POLY:
+                break;
+            case SIAP_TANAM:
+                break;
+
             case AIR:
                 beriAir();
                 break;
@@ -83,14 +94,24 @@ public class Lahan {
                 mencangkulTanah();
                 break;
             case SABIT:
-                basmiHama();
+                pakaiSabit();
+                break;
+            case BIBIT_TOKO:
+                break;
+            case PUPUK_TOKO:
+                break;
+            case POLYBAG_TOKO:
+                break;
+            case LAHAN_TANAM_TOKO:
+                break;
+            case LAHAN_POLY_TOKO:
                 break;
             default:
                 Toast.makeText(konteks, "Tindakan GAGAL, Tidak Diketahui", Toast.LENGTH_LONG);
         }
     }
 
-    private void basmiHama() {
+    private void pakaiSabit() {
 
     }
 
