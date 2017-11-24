@@ -135,6 +135,9 @@ public class Lahan {
             penyiraman--;
             butuhAir = false;
         }
+        Toast.makeText(konteks, "Debug: Penyiraman Selesai", Toast.LENGTH_LONG);
+        mHandler.removeCallbacks(waktuPenyiraman);
+        pertumbuhan();
     }
 
     private void beriPupuk() {
@@ -143,6 +146,8 @@ public class Lahan {
             pemupukan--;
             butuhPupuk = false;
         }
+        Toast.makeText(konteks, "Debug: Pemupukan Selesai", Toast.LENGTH_LONG);
+        pertumbuhan();
     }
 
     private void letakBibit() {
@@ -187,9 +192,6 @@ public class Lahan {
             if (butuhPupuk) {
                 Toast.makeText(konteks, "Debug: Masih Butuh Pupuk", Toast.LENGTH_LONG);
                 gantiImageNotif(PERAWATAN.TIDAK_ADA);
-            } else {
-                Toast.makeText(konteks, "Debug: Pemupukan Selesai", Toast.LENGTH_LONG);
-                pertumbuhan();
             }
         }
     }
@@ -272,10 +274,6 @@ public class Lahan {
                             Toast.makeText(konteks, "Debug: Tanaman Tidak Diketahui, tidak_menyiram_3", Toast.LENGTH_LONG);
                     }
                 }
-            } else if (!butuhAir) {
-                mHandler.removeCallbacks(this);
-                Toast.makeText(konteks, "Debug: Penyiraman Selesai", Toast.LENGTH_LONG);
-                pertumbuhan();
             }
         }
     }
