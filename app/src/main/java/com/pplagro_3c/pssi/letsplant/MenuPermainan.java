@@ -34,7 +34,6 @@ import static android.R.attr.id;
 
 public class MenuPermainan extends AppCompatActivity {
 
-
     private boolean firstStart;
     private boolean dialogPengaturan = false;
     private boolean isInputNama = true;
@@ -80,6 +79,7 @@ public class MenuPermainan extends AppCompatActivity {
     };
 
     //atribut atribut
+
     //dialog
     ImageView petani;
     View dialog;
@@ -287,7 +287,7 @@ public class MenuPermainan extends AppCompatActivity {
             layoutKamu.setVisibility(View.VISIBLE);
             layoutToko.setVisibility(View.VISIBLE);
             tombolPengaturan.setVisibility(View.VISIBLE);
-            petani.setVisibility(View.GONE);
+            petani.setImageResource(R.color.transparan);
             dialog.setVisibility(View.GONE);
         }
         if (!dialogPengaturan) {
@@ -703,6 +703,10 @@ public class MenuPermainan extends AppCompatActivity {
         for (int i = 0; i < 15; i++) {
 
         }
+    }
+
+    private void gantiLahan() {
+
     }
 
     private class LahanLoader implements LoaderManager.LoaderCallbacks<Cursor> {

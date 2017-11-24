@@ -22,9 +22,9 @@ public class MenuAwal extends AppCompatActivity {
 
     private boolean tPengaturan = false;
 
-    SharedPreferences pengaturan = this.getSharedPreferences(
-            getString(R.string.pengaturan), Context.MODE_PRIVATE
-    );
+//    SharedPreferences pengaturan = this.getSharedPreferences(
+//            getString(R.string.pengaturan), Context.MODE_PRIVATE
+//    );
 
 
     @Override
@@ -47,6 +47,8 @@ public class MenuAwal extends AppCompatActivity {
         MediaPlayer player = MediaPlayer.create(this, Settings.System.DEFAULT_RINGTONE_URI);
         player.setLooping(true);
         player.start();
+        suara = true;
+        musik = true;
     }
 
 

@@ -12,6 +12,7 @@
     <!--ImageView
     objek gambar yang ditampilkan di layar
     -->
+    <!--gambar background-->
     <ImageView
         android:id="@+id/bgAwal"
         android:layout_width="match_parent"
@@ -26,13 +27,14 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 
+        <!-- layout kosong untuk pemberi jarak -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5">
-        <!-- layout kosong untuk pemberi jarak -->
         </LinearLayout>
 
+        <!--layout tombol main-->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -55,6 +57,7 @@
                 android:text="MAIN" />
         </LinearLayout>
 
+        <!--layout tombol pengaturan-->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -76,11 +79,13 @@
                 android:layout_gravity="center"
                 android:text="PENGATURAN" />
 
+            <!--layout tombol musik dan suara-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
+                <!--tombol suara-->
                 <ImageView
                     android:id="@+id/suara"
                     android:layout_weight="1"
@@ -89,6 +94,7 @@
                     android:layout_alignTop="@+id/musik"
                     android:src="@drawable/musik_off" />
 
+                <!--tombol musik-->
                 <ImageView
                     android:id="@+id/musik"
                     android:layout_weight="1"
@@ -101,6 +107,7 @@
 
         </LinearLayout>
 
+        <!--layout tombol petunjuk-->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -123,6 +130,7 @@
                 android:text="PETUNJUK" />
         </LinearLayout>
 
+        <!--layout tombol tentang-->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -145,6 +153,7 @@
                 android:text="TENTANG" />
         </LinearLayout>
 
+        <!--layout tombol keluar-->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
