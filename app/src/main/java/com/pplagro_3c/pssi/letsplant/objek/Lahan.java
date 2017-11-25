@@ -274,6 +274,7 @@ public class Lahan {
                             Toast.makeText(konteks, "Debug: Tanaman Tidak Diketahui, tidak_menyiram_3", Toast.LENGTH_LONG);
                     }
                 }
+                gantiImageTanaman(TANAMAN_SAAT_INI);
             }
         }
     }
