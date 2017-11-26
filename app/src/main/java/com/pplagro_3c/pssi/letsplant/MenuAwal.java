@@ -19,18 +19,15 @@ public class MenuAwal extends AppCompatActivity {
 
     private boolean suara;
     private boolean musik;
+    private static MediaPlayer backgroundmusic;
 
     private boolean tPengaturan = false;
-
-//    SharedPreferences pengaturan = this.getSharedPreferences(
-//            getString(R.string.pengaturan), Context.MODE_PRIVATE
-//    );
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_awal);
+        backgroundmusic = MediaPlayer.create(MenuAwal.this, R.raw.backgroundmusic);
 
         ImageView tSuara = (ImageView) findViewById(R.id.suara);
         ImageView tMusik = (ImageView) findViewById(R.id.musik);
@@ -44,14 +41,10 @@ public class MenuAwal extends AppCompatActivity {
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
 
-        MediaPlayer player = MediaPlayer.create(this, Settings.System.DEFAULT_RINGTONE_URI);
-        player.setLooping(true);
-        player.start();
+
         suara = true;
         musik = true;
     }
-
-
 
     @Override
     public void onBackPressed() {
@@ -59,6 +52,10 @@ public class MenuAwal extends AppCompatActivity {
         keluar();
     }
 
+    public void onStart(){
+        super.onStart();
+        backgroundmusic.start();
+    }
     public void tombolMain(View view) {
         Intent i = new Intent(MenuAwal.this, MenuPermainan.class);
         startActivity(i);
@@ -75,6 +72,7 @@ public class MenuAwal extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //kode saat memilih ya
+                        backgroundmusic.pause();
                         finish();
                     }
                 }).setNegativeButton("Tidak", null)

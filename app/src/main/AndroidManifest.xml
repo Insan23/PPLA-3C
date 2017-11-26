@@ -49,8 +49,6 @@
         <provider
             android:name=".database.TanamanProvider"
             android:authorities="com.pplagro_3c.pssi.letsplant" />
-
-        <activity android:name=".coba"></activity>
     </application>
 
 </manifest>

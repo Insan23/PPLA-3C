@@ -70,8 +70,9 @@ public class Lahan {
 
     private boolean butuhAir;
     private boolean butuhPupuk;
+    private boolean butuhPanen;
 
-    TANAMAN TANAMAN_SAAT_INI = TANAMAN.KOSONG;
+    TANAMAN TANAMAN_SAAT_INI;
 
     public Lahan(Context konteks, ImageView L, ImageView N) {
         mHandler = new Handler(Looper.getMainLooper());
@@ -79,6 +80,7 @@ public class Lahan {
         lahan = L;
         notif = N;
         LAHAN_SAAT_INI = LAHAN.LAHAN_POLYBAG;
+        TANAMAN_SAAT_INI = TANAMAN.KOSONG;
 
         waktuPemupukan = new delayMemupuk();
         waktuPenyiraman = new delayMenyiram();
@@ -130,24 +132,23 @@ public class Lahan {
     }
 
     private void beriAir() {
-        if (!(penyiraman < 1)) {
+        if (butuhAir) {
             gantiImageNotif(PERAWATAN.AIR_SUKSES);
             penyiraman--;
-            butuhAir = false;
+            mHandler.removeCallbacks(waktuPenyiraman);
+            Toast.makeText(konteks, "Debug: Penyiraman Selesai", Toast.LENGTH_LONG);
+            pertumbuhan();
         }
-        Toast.makeText(konteks, "Debug: Penyiraman Selesai", Toast.LENGTH_LONG);
-        mHandler.removeCallbacks(waktuPenyiraman);
-        pertumbuhan();
     }
 
     private void beriPupuk() {
-        if (!(pemupukan < 1)) {
+        if (butuhPupuk) {
             gantiImageNotif(PERAWATAN.PUPUK_SUSKES);
             pemupukan--;
-            butuhPupuk = false;
+            mHandler.removeCallbacks(waktuPemupukan);
+            Toast.makeText(konteks, "Debug: Pemupukan Selesai", Toast.LENGTH_LONG);
+            pertumbuhan();
         }
-        Toast.makeText(konteks, "Debug: Pemupukan Selesai", Toast.LENGTH_LONG);
-        pertumbuhan();
     }
 
     private void letakBibit() {
@@ -170,19 +171,32 @@ public class Lahan {
                 @Override
                 public void run() {
                     gantiImageNotif(PERAWATAN.AIR_BUTUH);
-                    butuhAir = true;
                     mHandler.postDelayed(waktuPenyiraman, 60000); //jeda 1 menit untuk melakukan penyiraman
                 }
-            }, 300000); //menunggu 5 menit untuk dapat menyiram
+            }, 180000); //menunggu 3 menit untuk dapat menyiram (3m * 60d = 180 * 1000milidetik = 180.000
         } else if (penyiraman == 0) {
-            if (pemupukan > 0) {
-                gantiImageNotif(PERAWATAN.PUPUK_BUTUH);
-                butuhPupuk = true;
-                mHandler.postDelayed(waktuPemupukan, 600000);
-            } else if (pemupukan == 0) {
+            if (LAHAN_SAAT_INI == LAHAN.LAHAN_POLYBAG) {
+                if (pemupukan > 0) {
+                    gantiImageNotif(PERAWATAN.PUPUK_BUTUH);
+                    mHandler.postDelayed(waktuPemupukan, 300000);
+                    if (pemupukan == 1) {
+                        TANAMAN_SAAT_INI = TANAMAN.TUNAS;
+                        penyiraman = 3;
+                    } else if (pemupukan == 0) {
+                        TANAMAN_SAAT_INI = TANAMAN.SIAP_TANAM;
+                        penyiraman = 3;
+                    } else {
+
+                    }
+                } else if (pemupukan == 0) {
+
+                }
+
+            } else if (LAHAN_SAAT_INI == LAHAN.LAHAN_TANAM) {
 
             }
         }
+        gantiImageTanaman(TANAMAN_SAAT_INI);
     }
 
     private class delayMemupuk implements Runnable {
@@ -192,6 +206,16 @@ public class Lahan {
             if (butuhPupuk) {
                 Toast.makeText(konteks, "Debug: Masih Butuh Pupuk", Toast.LENGTH_LONG);
                 gantiImageNotif(PERAWATAN.TIDAK_ADA);
+                tidak_memupuk--;
+                if (tidak_memupuk == 2) {
+                    if (LAHAN_SAAT_INI == LAHAN.LAHAN_POLYBAG) {
+                        TANAMAN_SAAT_INI = TANAMAN.POLYBAG;
+                        gantiImageTanaman(TANAMAN_SAAT_INI);
+                    } else if (LAHAN_SAAT_INI == LAHAN.LAHAN_TANAM) {
+                        TANAMAN_SAAT_INI = TANAMAN.KOSONG;
+                        gantiImageTanaman(TANAMAN_SAAT_INI);
+                    }
+                }
             }
         }
     }
@@ -281,8 +305,8 @@ public class Lahan {
 
     private void letakPoly() {
         if (TANAMAN_SAAT_INI == TANAMAN.KOSONG && LAHAN_SAAT_INI == LAHAN.LAHAN_POLYBAG) {
-            gantiImageTanaman(TANAMAN.POLYBAG);
             TANAMAN_SAAT_INI = TANAMAN.POLYBAG;
+            gantiImageTanaman(TANAMAN_SAAT_INI);
         } else {
             //koding jika lahan tidak kosong
         }
@@ -295,33 +319,39 @@ public class Lahan {
                 break;
             case AIR_BUTUH:
                 notif.setImageResource(R.drawable.ic_air_warning);
+                butuhAir = true;
                 break;
             case AIR_SUKSES:
                 notif.setImageResource(R.drawable.ic_air_complete);
+                butuhAir = false;
                 mHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         gantiImageNotif(PERAWATAN.TIDAK_ADA);
                     }
-                }, 300);
+                }, 500);
                 break;
             case PUPUK_BUTUH:
                 notif.setImageResource(R.drawable.ic_pupuk_warning);
+                butuhPupuk = true;
                 break;
             case PUPUK_SUSKES:
                 notif.setImageResource(R.drawable.ic_pupuk_complete);
+                butuhPupuk = false;
                 mHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         gantiImageNotif(PERAWATAN.TIDAK_ADA);
                     }
-                }, 300);
+                }, 500);
                 break;
             case PANEN_BUTUH:
                 notif.setImageResource(R.drawable.ic_sabit_warning);
+                butuhPanen = true;
                 break;
             case PANEN_SUKSES:
                 notif.setImageResource(R.drawable.ic_sabit_complete);
+                butuhPanen = false;
                 mHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
