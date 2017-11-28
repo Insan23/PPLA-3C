@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Looper;
+import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -176,25 +177,25 @@ public class Lahan {
             }, 180000); //menunggu 3 menit untuk dapat menyiram (3m * 60d = 180 * 1000milidetik = 180.000
         } else if (penyiraman == 0) {
             if (LAHAN_SAAT_INI == LAHAN.LAHAN_POLYBAG) {
-                if (pemupukan > 0) {
-                    gantiImageNotif(PERAWATAN.PUPUK_BUTUH);
-                    mHandler.postDelayed(waktuPemupukan, 300000);
-                    if (pemupukan == 1) {
-                        TANAMAN_SAAT_INI = TANAMAN.TUNAS;
-                        penyiraman = 3;
-                    } else if (pemupukan == 0) {
-                        TANAMAN_SAAT_INI = TANAMAN.SIAP_TANAM;
-                        penyiraman = 3;
-                    } else {
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        gantiImageNotif(PERAWATAN.PUPUK_BUTUH);
+                        mHandler.postDelayed(waktuPemupukan, 300000);
+                        if (pemupukan == 1) {
+                            TANAMAN_SAAT_INI = TANAMAN.TUNAS;
+                        } else if (pemupukan == 0) {
+                            TANAMAN_SAAT_INI = TANAMAN.SIAP_TANAM;
+                        } else {
+                            Toast.makeText(konteks, "Debug: siap dipindah", Toast.LENGTH_LONG);
+                        }
 
                     }
-                } else if (pemupukan == 0) {
-
-                }
-
+                }, 360000);
             } else if (LAHAN_SAAT_INI == LAHAN.LAHAN_TANAM) {
 
             }
+            penyiraman = 3;
         }
         gantiImageTanaman(TANAMAN_SAAT_INI);
     }
@@ -230,6 +231,8 @@ public class Lahan {
                 tidak_menyiram++;
                 if (tidak_menyiram == 1) {
                     switch (TANAMAN_SAAT_INI) {
+                        case BIBIT:
+                            break;
                         case TUNAS:
                             TANAMAN_SAAT_INI = TANAMAN.TUNAS_KUNING;
                             break;
@@ -253,6 +256,8 @@ public class Lahan {
                     }
                 } else if (tidak_menyiram == 2) {
                     switch (TANAMAN_SAAT_INI) {
+                        case BIBIT:
+                            break;
                         case TUNAS_KUNING:
                             TANAMAN_SAAT_INI = TANAMAN.TUNAS_KUNING;
                             break;
@@ -276,11 +281,14 @@ public class Lahan {
                     }
                 } else if (tidak_menyiram == 3) {
                     switch (TANAMAN_SAAT_INI) {
+                        case BIBIT:
+                            TANAMAN_SAAT_INI = TANAMAN.POLYBAG;
+                            break;
                         case TUNAS_KUNING:
-                            TANAMAN_SAAT_INI = TANAMAN.TUNAS_KUNING;
+                            TANAMAN_SAAT_INI = TANAMAN.POLYBAG;
                             break;
                         case SIAP_TANAM_KUNING:
-                            TANAMAN_SAAT_INI = TANAMAN.SIAP_TANAM_KUNING;
+                            TANAMAN_SAAT_INI = TANAMAN.POLYBAG;
                             break;
                         case KECIL_KUNING:
                             TANAMAN_SAAT_INI = TANAMAN.KECIL_KUNING;

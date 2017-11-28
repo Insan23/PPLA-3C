@@ -608,6 +608,12 @@ public class MenuPermainan extends AppCompatActivity {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle save) {
+        super.onSaveInstanceState(save);
+
+    }
+
+    @Override
     public void onBackPressed() {
         konfirmasi();
     }
