@@ -101,8 +101,8 @@ public class MenuPermainan extends AppCompatActivity {
     private View lahan_tanam;
     private View lahan_poly;
     private BottomSheetBehavior menuKamu;
-    private ImageView tombolKamu;
-    View menuKamuView;
+    private RelativeLayout tombolKamu;
+    private View menuKamuView;
 
     //objek pada menu inventaris
     private RelativeLayout layoutInventaris;
@@ -111,8 +111,8 @@ public class MenuPermainan extends AppCompatActivity {
     private ImageView sabit;
     private ImageView cangkul;
     private BottomSheetBehavior menuInventaris;
-    private ImageView tombolInventaris;
-    View menuInventarisView;
+    private RelativeLayout tombolInventaris;
+    private View menuInventarisView;
 
     //objek pada menu toko
     private RelativeLayout layoutToko;
@@ -124,8 +124,17 @@ public class MenuPermainan extends AppCompatActivity {
     private View lahan_poly_toko;
     private Button tombol_beli;
     private BottomSheetBehavior menuToko;
-    private ImageView tombolToko;
-    View menuTokoView;
+    private RelativeLayout tombolToko;
+    private View menuTokoView;
+
+    //objek pada menu pengolahan
+    private RelativeLayout layoutPengolahan;
+    private TextView teksPengolahan;
+    private View kakao_pengolahan;
+    private View coklat_pengolahan;
+    private BottomSheetBehavior menuPengolahan;
+    private RelativeLayout tombolPengolahan;
+    private View menuPengolahanView;
 
     //objek pada menu pengaturan
     private ImageView tombolPengaturan;
@@ -163,7 +172,7 @@ public class MenuPermainan extends AppCompatActivity {
         genteng_poly = (ImageView) findViewById(R.id.genteng_lahan_poly);
 
         layoutKamu = (RelativeLayout) findViewById(R.id.relKamu);
-        tombolKamu = (ImageView) findViewById(R.id.tombolKamu);
+        tombolKamu = (RelativeLayout) findViewById(R.id.relKamu);
         menuKamuView = findViewById(R.id.menu_kamu);
         teksKamu = (TextView) findViewById(R.id.teksKamu);
         bibit = findViewById(R.id.line_bibit);
@@ -176,8 +185,7 @@ public class MenuPermainan extends AppCompatActivity {
         menuKamu.setState(BottomSheetBehavior.STATE_HIDDEN);
 
         layoutInventaris = (RelativeLayout) findViewById(R.id.relInventaris);
-        tombolInventaris = (ImageView) findViewById(R.id.tombolInventaris);
-        tombolToko = (ImageView) findViewById(R.id.tombolToko);
+        tombolInventaris = (RelativeLayout) findViewById(R.id.relInventaris);
         menuInventarisView = findViewById(R.id.menu_inventaris);
         teksInventaris = (TextView) findViewById(R.id.teksInventaris);
         air = (ImageView) findViewById(R.id.air_ikon);
@@ -188,6 +196,7 @@ public class MenuPermainan extends AppCompatActivity {
         menuInventaris.setState(BottomSheetBehavior.STATE_HIDDEN);
 
         layoutToko = (RelativeLayout) findViewById(R.id.relToko);
+        tombolToko = (RelativeLayout) findViewById(R.id.relToko);
         menuTokoView = findViewById(R.id.menu_toko);
         teksToko = (TextView) findViewById(R.id.teksToko);
         bibit_toko = findViewById(R.id.bibit_toko_line);
@@ -200,6 +209,16 @@ public class MenuPermainan extends AppCompatActivity {
         menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
         tombol_beli = (Button) findViewById(R.id.tombol_beli);
         toko = new Toko(this);
+
+        layoutPengolahan = (RelativeLayout) findViewById(R.id.relPengolahan);
+        tombolPengolahan = (RelativeLayout) findViewById(R.id.relPengolahan);
+        menuPengolahanView = findViewById(R.id.menu_pengolahan);
+        teksPengolahan = (TextView) findViewById(R.id.teksPengolahan);
+        kakao_pengolahan = findViewById(R.id.kakao_pengolahan_line);
+        coklat_pengolahan = findViewById(R.id.coklat_pengolahan_line);
+        menuPengolahan = BottomSheetBehavior.from(menuPengolahanView);
+        menuPengolahan.setHideable(true);
+        menuPengolahan.setState(BottomSheetBehavior.STATE_HIDDEN);
 
         tombolPengaturan = (ImageView) findViewById(R.id.tombolPengaturan_main);
         tombolHome = (ImageView) findViewById(R.id.tombolHome);
@@ -264,6 +283,26 @@ public class MenuPermainan extends AppCompatActivity {
 
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+            }
+        });
+        menuPengolahan.setBottomSheetCallback(new BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                if (newState == BottomSheetBehavior.STATE_EXPANDED) {
+                    layoutPengolahan.setVisibility(View.GONE);
+                    overlay.setVisibility(View.VISIBLE);
+                } else if (newState == BottomSheetBehavior.STATE_DRAGGING) {
+                    layoutPengolahan.setVisibility(View.VISIBLE);
+                    overlay.setVisibility(View.VISIBLE);
+                } else if (newState == BottomSheetBehavior.STATE_HIDDEN) {
+                    layoutPengolahan.setVisibility(View.VISIBLE);
+                    overlay.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+
             }
         });
 
@@ -405,47 +444,47 @@ public class MenuPermainan extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 aksiToko = Toko.AKSI_USER_TOKO.BIBIT_TOKO;
-                menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
-                overlay.setVisibility(View.GONE);
+//                menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
+//                overlay.setVisibility(View.GONE);
             }
         });
         pupuk_toko.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 aksiToko = Toko.AKSI_USER_TOKO.PUPUK_TOKO;
-                menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
-                overlay.setVisibility(View.GONE);
+//                menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
+//                overlay.setVisibility(View.GONE);
             }
         });
         polybag_toko.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 aksiToko = Toko.AKSI_USER_TOKO.POLYBAG_TOKO;
-                menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
-                overlay.setVisibility(View.GONE);
+//                menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
+//                overlay.setVisibility(View.GONE);
             }
         });
         lahan_toko.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 aksiToko = Toko.AKSI_USER_TOKO.LAHAN_TANAM_TOKO;
-                menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
-                overlay.setVisibility(View.GONE);
+//                menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
+//                overlay.setVisibility(View.GONE);
             }
         });
         lahan_poly_toko.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 aksiToko = Toko.AKSI_USER_TOKO.LAHAN_POLY_TOKO;
-                menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
-                overlay.setVisibility(View.GONE);
+//                menuToko.setState(BottomSheetBehavior.STATE_HIDDEN);
+//                overlay.setVisibility(View.GONE);
             }
         });
         tombol_beli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toko.pakaiToko(aksiToko);
                 aksiToko = Toko.AKSI_USER_TOKO.TIDAK_ADA;
+                toko.pakaiToko(aksiToko);
             }
         });
 
