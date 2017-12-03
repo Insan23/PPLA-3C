@@ -689,7 +689,7 @@ public class MenuPermainan extends AppCompatActivity {
                 dialog.setVisibility(View.GONE);
                 break;
             default:
-                ;
+                Toast.makeText(this, "dialog bermasalah", Toast.LENGTH_SHORT);
         }
     }
 

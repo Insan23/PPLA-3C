@@ -38,7 +38,7 @@ public class Lahan {
      * Tanaman Besar
      */
     private static enum TANAMAN {
-        KOSONG,
+        KOSONG, CANGKUL,
         POLYBAG, BIBIT,
         TUNAS, TUNAS_KUNING,
         SIAP_TANAM, SIAP_TANAM_KUNING,
@@ -129,7 +129,12 @@ public class Lahan {
     }
 
     private void mencangkulTanah() {
-
+        if (LAHAN_SAAT_INI == LAHAN.LAHAN_TANAM && TANAMAN_SAAT_INI == TANAMAN.CANGKUL) {
+            TANAMAN_SAAT_INI = TANAMAN.CANGKUL;
+            gantiImageTanaman(TANAMAN_SAAT_INI);
+        } else {
+            //kode bila tanah sudah dicangkul
+        }
     }
 
     private void beriAir() {
@@ -192,7 +197,7 @@ public class Lahan {
 
                     }
                 }, 360000);
-            } else if (LAHAN_SAAT_INI == LAHAN.LAHAN_TANAM) {
+            } else if (LAHAN_SAAT_INI == LAHAN.PINDAH) {
 
             }
             penyiraman = 3;
@@ -379,6 +384,9 @@ public class Lahan {
         switch (t) {
             case KOSONG:
                 lahan.setImageResource(R.color.transparan);
+                break;
+            case CANGKUL:
+                lahan.setImageResource(R.drawable.tanah_retak);
                 break;
             case POLYBAG:
                 lahan.setImageResource(R.drawable.tanaman_polybag);

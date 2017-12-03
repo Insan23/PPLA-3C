@@ -25,19 +25,19 @@ public class Toko {
         int koin = -1;
         switch (toko) {
             case BIBIT_TOKO:
-                koin= 40;
+                koin= 15;
                 break;
             case PUPUK_TOKO:
-                koin = 500;
+                koin = 200;
                 break;
             case POLYBAG_TOKO:
-                koin = 40;
+                koin = 2;
                 break;
             case LAHAN_TANAM_TOKO:
-                koin = 2000;
+                koin = 7000;
                 break;
             case LAHAN_POLY_TOKO:
-                koin = 2000;
+                koin = 7110;
                 break;
             default:
                 Toast.makeText(konteks, "Tindakan GAGAL, Tidak Diketahui", Toast.LENGTH_LONG);
@@ -46,31 +46,27 @@ public class Toko {
                 .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        beliProduk(toko);
+                        switch (toko) {
+                            case BIBIT_TOKO:
+                                //kode untuk beli bibit
+                                break;
+                            case PUPUK_TOKO:
+                                //kode untuk beli pupuk
+                                break;
+                            case POLYBAG_TOKO:
+                                //kode untuk beli polybag
+                                break;
+                            case LAHAN_TANAM_TOKO:
+                                //kode untuk beli lahan tanam
+                                break;
+                            case LAHAN_POLY_TOKO:
+                                //kode untuk beli lahan poly
+                                break;
+                            default:
+                                Toast.makeText(konteks, "Tindakan GAGAL, Tidak Diketahui", Toast.LENGTH_LONG);
+                        }
                     }
                 })
                 .setNegativeButton("Tidak", null).show();
-    }
-
-    private void beliProduk(AKSI_USER_TOKO produk) {
-        switch (produk) {
-            case BIBIT_TOKO:
-
-                break;
-            case PUPUK_TOKO:
-
-                break;
-            case POLYBAG_TOKO:
-
-                break;
-            case LAHAN_TANAM_TOKO:
-
-                break;
-            case LAHAN_POLY_TOKO:
-
-                break;
-            default:
-                Toast.makeText(konteks, "Tindakan GAGAL, Tidak Diketahui", Toast.LENGTH_LONG);
-        }
     }
 }

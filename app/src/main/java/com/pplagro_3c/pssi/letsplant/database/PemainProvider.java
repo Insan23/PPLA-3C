@@ -200,28 +200,28 @@ public class PemainProvider extends ContentProvider {
         SQLiteDatabase db = PemainDBHelper.getWritableDatabase();
         int perubahan = 0;
         /**
-        int match = sUriMatcher.match(uri);
-        switch (match) {
-            case NAMA_PEMAIN:
-                //ga bisa ganti nama, jadi ga ada kode yang faedah
-                break;
-            case ASET_PEMAIN:
-                //aset pemain = seluruh aset, update sekaligus, kurang bermanfaat
-                break;
-            case KOIN_PEMAIN:
+         int match = sUriMatcher.match(uri);
+         switch (match) {
+         case NAMA_PEMAIN:
+         //ga bisa ganti nama, jadi ga ada kode yang faedah
+         break;
+         case ASET_PEMAIN:
+         //aset pemain = seluruh aset, update sekaligus, kurang bermanfaat
+         break;
+         case KOIN_PEMAIN:
 
-                break;
-            case COKLAT_PEMAIN:
-                break;
-            case KAKAO_PEMAIN:
-                break;
-            case BIBIT_PEMAIN:
-                break;
-            case POLYBAG_PEMAIN:
-                break;
-            default:
-                ;
-        }
+         break;
+         case COKLAT_PEMAIN:
+         break;
+         case KAKAO_PEMAIN:
+         break;
+         case BIBIT_PEMAIN:
+         break;
+         case POLYBAG_PEMAIN:
+         break;
+         default:
+         ;
+         }
          */
 
         selection = PemainEntry._ID + "=?";

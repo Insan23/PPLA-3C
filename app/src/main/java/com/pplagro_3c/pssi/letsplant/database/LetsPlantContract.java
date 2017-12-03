@@ -48,42 +48,42 @@ public class LetsPlantContract {
 
         /**
          * kolom nama
-         * 
+         * <p>
          * tipe data : TEXT
          */
         public static final String KOLOM_NAMA = "nama";
 
         /**
          * kolom jmlKoin
-         * 
+         * <p>
          * tipe data : INTEGER
          */
         public static final String KOLOM_JUMLAH_KOIN = "jmlKoin";
 
         /**
          * kolom jmlCoklat
-         * 
+         * <p>
          * tipe data : INTEGER
          */
         public static final String KOLOM_JUMLAH_COKLAT = "jmlCoklat";
 
         /**
          * kolom jmlBuahKakao
-         * 
+         * <p>
          * tipe data : INTEGER
          */
         public static final String KOLOM_JUMLAH_BUAH_KAKAO = "jmlBuahKakao";
 
         /**
          * kolom jmlBibit
-         * 
+         * <p>
          * tipe data : INTEGER
          */
         public static final String KOLOM_JUMLAH_BIBIT = "jmlBibit";
 
         /**
          * kolom jmlPolybag
-         * 
+         * <p>
          * tipe data INTEGER
          */
         public static final String KOLOM_JUMLAH_POLYBAG = "jmlPolybag";
@@ -100,14 +100,14 @@ public class LetsPlantContract {
 
         /**
          * kolom id
-         *
+         * <p>
          * tipe data : INTEGER
          */
         public static final String _ID = "_IDLahan";
 
         /**
          * kolom tipeLahan
-         *
+         * <p>
          * tipe data : TEXT (Lahan_Polybag, Lahan_Siap_Tanam)
          */
         public static final String KOLOM_TIPE_LAHAN = "tipeLahan";
@@ -133,58 +133,80 @@ public class LetsPlantContract {
 
         /**
          * nama tabel
-         *
+         * <p>
          * tanaman
          */
         public static final String NAMA_TABEL = "tanaman";
 
         /**
          * kolom id
-         *
+         * <p>
          * tipe data : INTEGER
          */
         public static final String _ID = "_IDTanaman";
 
         /**
          * kolom idLahan (foreign key)
-         *
+         * <p>
          * tipe data : INTEGER
          */
         public static final String KOLOM_IDLahan = LahanEntry._ID;
 
         /**
          * kolom lokasi
-         *
+         * <p>
          * tipe data : VARCHAR
          */
         public static final String KOLOM_LOKASI = "lokasi";
 
         /**
          * kolom jenis
-         *
+         * <p>
          * tipe data : TEXT (bibit, tunas, siap_tanam, pohonbesar_takbuah, pohonbesar_buahsedang, pohonbesar_buahbesar)
          */
         public static final String KOLOM_JENIS = "jenis";
 
         /**
          * kolom buah
-         *
+         * <p>
          * tipe data : INTEGER
          * atau
          * tipe data : TEXT (sedang, besar, siap_panen)
          */
         public static final String KOLOM_BUAH = "buah";
+        /*
+        private static enum TANAMAN {
+            KOSONG,
+            POLYBAG, BIBIT,
+            TUNAS, TUNAS_KUNING,
+            SIAP_TANAM, SIAP_TANAM_KUNING,
 
+            KECIL, KECIL_KUNING,
+            BESAR_TANPA_BUAH, BESAR_TANPA_BUAH_KUNING, BESAR_TANPA_BUAH_KUNING_SEMUA,
+            BESAR_BUAH_SEDANG, BESAR_BUAH_SEDANG_KUNING, BESAR_BUAH_SEDANG_KUNING_SEMUA,
+            BESAR_BUAH_BESAR, BESAR_BUAH_BESAR_KUNING, BESAR_BUAH_BESAR_KUNING_SEMUA
+        }
+        */
         /**
          * tipe-tipe dari kolom jenis
          * (Tipe Tipe Perkembangan Tanaman)
          */
+        public static final String TANAMAN_KOSONG = "kosong";
+        public static final String TANAMAN_POLYBAG = "polybag";
         public static final String TANAMAN_BIBIT = "bibit";
         public static final String TANAMAN_TUNAS = "tunas";
+        public static final String TANAMAN_TUNAS_KUNING = "tunas_kuning";
         public static final String TANAMAN_SIAP_TANAM = "siap_tanam";
+        public static final String TANAMAN_SIAP_TANAM_KUNING = "siap_tanam_kuning";
         public static final String TANAMAN_BESAR_TANPA_BUAH = "pohon_besar_tak_berbuah";
+        public static final String TANAMAN_BESAR_TANPA_BUAH_KUNING = "pohon_besar_tak_berbuah_kuning";
+        public static final String TANAMAN_BESAR_TANPA_BUAH_KUNING_SEMUA = "pohon_besar_tak_berbuah_kuning_semua";
         public static final String TANAMAN_BESAR_BUAH_SEDANG = "pohon_besar_buah_sedang";
-        public static final String TANAMAN_BESAR_BUAH_BESAR  ="pohon_besar_buah_besar";
+        public static final String TANAMAN_BESAR_BUAH_SEDANG_KUNING = "pohon_besar_buah_sedang_kuning";
+        public static final String TANAMAN_BESAR_BUAH_SEDANG_KUNING_SEMUA = "pohon_besar_buah_sedang_kuning_semua";
+        public static final String TANAMAN_BESAR_BUAH_BESAR = "pohon_besar_buah_besar";
+        public static final String TANAMAN_BESAR_BUAH_BESAR_KUNING = "pohon_besar_buah_besar_kuning";
+        public static final String TANAMAN_BESAR_BUAH_BESAR_KUNING_SEMUA = "pohon_besar_buah_besar_kuning_semua";
 
         /**
          * koordinat Lahan
