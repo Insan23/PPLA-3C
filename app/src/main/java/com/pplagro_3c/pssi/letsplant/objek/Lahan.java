@@ -73,15 +73,20 @@ public class Lahan {
     private boolean butuhPupuk;
     private boolean butuhPanen;
 
+    private int lokasiX;
+    private int lokasiY;
+
     TANAMAN TANAMAN_SAAT_INI;
 
-    public Lahan(Context konteks, ImageView L, ImageView N) {
+    public Lahan(Context konteks, ImageView L, ImageView N, int x, int y, LAHAN lahan_saat_ini) {
         mHandler = new Handler(Looper.getMainLooper());
         this.konteks = konteks;
         lahan = L;
         notif = N;
-        LAHAN_SAAT_INI = LAHAN.LAHAN_POLYBAG;
+        LAHAN_SAAT_INI = lahan_saat_ini;
         TANAMAN_SAAT_INI = TANAMAN.KOSONG;
+        lokasiX = x;
+        lokasiY = y;
 
         waktuPemupukan = new delayMemupuk();
         waktuPenyiraman = new delayMenyiram();
@@ -107,12 +112,14 @@ public class Lahan {
                 beriPupuk();
                 break;
             case LAHAN_TANAM:
+                //kode berada pada MenuPermainan
                 break;
             case LAHAN_POLY:
+                //kode berada pada MenuPermainan
                 break;
             case SIAP_TANAM:
+                letakTanaman();
                 break;
-
             case AIR:
                 beriAir();
                 break;
@@ -124,6 +131,17 @@ public class Lahan {
                 break;
             default:
                 Toast.makeText(konteks, "Tindakan GAGAL, Tidak Diketahui: TINDAKAN_USER", Toast.LENGTH_LONG);
+        }
+    }
+
+    private void letakTanaman() {
+        if (LAHAN_SAAT_INI == LAHAN.PINDAH && TANAMAN_SAAT_INI == TANAMAN.CANGKUL) {
+            TANAMAN_SAAT_INI = TANAMAN.KECIL;
+            gantiImageTanaman(TANAMAN_SAAT_INI);
+            penyiraman = 3;
+            tidak_menyiram = 0;
+            pemupukan = 2;
+            tidak_memupuk = 0;
         }
     }
 
@@ -162,13 +180,13 @@ public class Lahan {
     }
 
     private void letakBibit() {
-        penyiraman = 3;
-        tidak_menyiram = 0;
-        pemupukan = 2;
-        tidak_memupuk = 0;
         if (TANAMAN_SAAT_INI == TANAMAN.POLYBAG && LAHAN_SAAT_INI == LAHAN.LAHAN_POLYBAG) {
-            gantiImageTanaman(TANAMAN.BIBIT);
+            penyiraman = 3;
+            tidak_menyiram = 0;
+            pemupukan = 2;
+            tidak_memupuk = 0;
             TANAMAN_SAAT_INI = TANAMAN.BIBIT;
+            gantiImageTanaman(TANAMAN_SAAT_INI);
             pertumbuhan();
         } else {
             //koding jika petak saat ini bukan polybag
@@ -176,16 +194,16 @@ public class Lahan {
     }
 
     private void pertumbuhan() {
-        if (penyiraman > 0) {
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    gantiImageNotif(PERAWATAN.AIR_BUTUH);
-                    mHandler.postDelayed(waktuPenyiraman, 60000); //jeda 1 menit untuk melakukan penyiraman
-                }
-            }, 180000); //menunggu 3 menit untuk dapat menyiram (3m * 60d = 180 * 1000milidetik = 180.000
-        } else if (penyiraman == 0) {
-            if (LAHAN_SAAT_INI == LAHAN.LAHAN_POLYBAG) {
+        if (LAHAN_SAAT_INI == LAHAN.LAHAN_POLYBAG) {
+            if (penyiraman > 0) {
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        gantiImageNotif(PERAWATAN.AIR_BUTUH);
+                        mHandler.postDelayed(waktuPenyiraman, 60000); //jeda 1 menit untuk melakukan penyiraman
+                    }
+                }, 180000); //menunggu 3 menit untuk dapat menyiram (3m * 60d = 180 * 1000milidetik = 180.000
+            } else if (penyiraman == 0) {
                 mHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -200,10 +218,32 @@ public class Lahan {
                         }
                     }
                 }, 360000);
-            } else if (LAHAN_SAAT_INI == LAHAN.PINDAH) {
-
-            } else if (LAHAN_SAAT_INI == LAHAN.LAHAN_TANAM) {
-
+            }
+            penyiraman = 3;
+        } else if (LAHAN_SAAT_INI == LAHAN.LAHAN_TANAM) {
+            if (penyiraman > 0) {
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        gantiImageNotif(PERAWATAN.AIR_BUTUH);
+                        mHandler.postDelayed(waktuPenyiraman, 60000); //jeda 1 menit untuk melakukan penyiraman
+                    }
+                }, 180000); //menunggu 3 menit untuk dapat menyiram (3m * 60d = 180 * 1000milidetik = 180.000
+            } else if (penyiraman == 0) {
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        gantiImageNotif(PERAWATAN.PUPUK_BUTUH);
+                        mHandler.postDelayed(waktuPemupukan, 300000);
+                        if (pemupukan == 1) {
+                            TANAMAN_SAAT_INI = TANAMAN.TUNAS;
+                        } else if (pemupukan == 0) {
+                            TANAMAN_SAAT_INI = TANAMAN.SIAP_TANAM;
+                        } else {
+                            Toast.makeText(konteks, "Debug: siap dipindah", Toast.LENGTH_LONG);
+                        }
+                    }
+                }, 360000);
             }
             penyiraman = 3;
         }

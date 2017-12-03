@@ -551,8 +551,8 @@ public class MenuPermainan extends AppCompatActivity {
         }
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 5; j++) {
-                petak_lahan[i][j] = new Lahan(this, ikonLahanTanam[i][j], notif_lahan_tanam[i][j]);
-                petak_poly[i][j] = new Lahan(this, ikonLahanPoly[i][j], notif_lahan_poly[i][j]);
+                petak_lahan[i][j] = new Lahan(this, ikonLahanTanam[i][j], notif_lahan_tanam[i][j], j, i, Lahan.LAHAN.LAHAN_TANAM);
+                petak_poly[i][j] = new Lahan(this, ikonLahanPoly[i][j], notif_lahan_poly[i][j], j, i, Lahan.LAHAN.LAHAN_POLYBAG);
             }
         }
         for (int i = 0; i < 3; i++) {
@@ -660,14 +660,14 @@ public class MenuPermainan extends AppCompatActivity {
 
     public void konfirmasi() {
         new AlertDialog.Builder(this)
-                .setMessage("Yakin Ingin Kembali?")
+                .setMessage("Yakin Ingin Kembali?")     //pesan yang akan tampil
                 .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                    public void onClick(DialogInterface dialogInterface, int i) {       //tombol ya
                         //kode saat memilih ya
                         finish();
                     }
-                }).setNegativeButton("Tidak", null)
+                }).setNegativeButton("Tidak", null)     //tombol tidak
                 .show();
     }
 
