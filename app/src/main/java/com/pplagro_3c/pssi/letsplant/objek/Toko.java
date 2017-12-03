@@ -25,7 +25,7 @@ public class Toko {
         int koin = -1;
         switch (toko) {
             case BIBIT_TOKO:
-                koin= 15;
+                koin = 15;
                 break;
             case PUPUK_TOKO:
                 koin = 200;
@@ -42,7 +42,8 @@ public class Toko {
             default:
                 Toast.makeText(konteks, "Tindakan GAGAL, Tidak Diketahui", Toast.LENGTH_LONG);
         }
-        new AlertDialog.Builder(konteks).setMessage("Yakin ingin beli? Koinmu akan berkurang sebanyak " + koin)
+        new AlertDialog.Builder(konteks)
+                .setMessage("Yakin ingin beli? Koinmu akan berkurang sebanyak " + koin)
                 .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

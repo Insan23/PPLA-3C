@@ -569,7 +569,12 @@ public class MenuPermainan extends AppCompatActivity {
                 ikonLahanPoly[i][j].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        petak_poly[finalI][finalJ].tindakan(aksi);
+                        if (petak_lahan[finalI][finalJ].getTANAMAN_SAAT_INI() == Lahan.TANAMAN.SIAP_TANAM ||
+                                petak_lahan[finalI][finalJ].getTANAMAN_SAAT_INI() == Lahan.TANAMAN.SIAP_TANAM) {
+
+                        } else {
+                            petak_poly[finalI][finalJ].tindakan(aksi);
+                        }
                         aksi = Lahan.AKSI_USER.TIDAK_ADA;
                     }
                 });

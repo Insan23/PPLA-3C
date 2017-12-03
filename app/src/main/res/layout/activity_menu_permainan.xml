@@ -1039,7 +1039,6 @@
         android:layout_height="72dp"
         android:background="#ffffff"
         android:clipToPadding="true"
-
         app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
         <LinearLayout
@@ -1205,7 +1204,8 @@
                     <ImageView
                         android:id="@+id/tanaman_siap_pindah_ikon"
                         android:layout_width="36dp"
-                        android:layout_height="36dp"/>
+                        android:layout_height="36dp"
+                        android:src="@drawable/tanaman_siap_tanam"/>
 
                     <TextView
                         android:id="@+id/tanaman_siap_pindah"
@@ -1227,7 +1227,6 @@
         android:layout_height="72dp"
         android:background="#ffffff"
         android:clipToPadding="true"
-        android:visibility="gone"
         app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
         <LinearLayout
@@ -1287,7 +1286,6 @@
         android:layout_height="72dp"
         android:background="#ffffff"
         android:clipToPadding="true"
-        android:visibility="gone"
         app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
         <LinearLayout

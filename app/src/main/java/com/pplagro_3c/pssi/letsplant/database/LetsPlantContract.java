@@ -174,19 +174,7 @@ public class LetsPlantContract {
          * tipe data : TEXT (sedang, besar, siap_panen)
          */
         public static final String KOLOM_BUAH = "buah";
-        /*
-        private static enum TANAMAN {
-            KOSONG,
-            POLYBAG, BIBIT,
-            TUNAS, TUNAS_KUNING,
-            SIAP_TANAM, SIAP_TANAM_KUNING,
 
-            KECIL, KECIL_KUNING,
-            BESAR_TANPA_BUAH, BESAR_TANPA_BUAH_KUNING, BESAR_TANPA_BUAH_KUNING_SEMUA,
-            BESAR_BUAH_SEDANG, BESAR_BUAH_SEDANG_KUNING, BESAR_BUAH_SEDANG_KUNING_SEMUA,
-            BESAR_BUAH_BESAR, BESAR_BUAH_BESAR_KUNING, BESAR_BUAH_BESAR_KUNING_SEMUA
-        }
-        */
         /**
          * tipe-tipe dari kolom jenis
          * (Tipe Tipe Perkembangan Tanaman)

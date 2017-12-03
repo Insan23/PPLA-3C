@@ -37,12 +37,12 @@ public class PemainProvider extends ContentProvider {
         /**
          *
          */
-        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT + "/#", NAMA_PEMAIN);
+        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, NAMA_PEMAIN);
 
         /**
          *
          */
-        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT + "/#", ASET_PEMAIN);
+        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, ASET_PEMAIN);
 
         /**
          *
@@ -91,7 +91,6 @@ public class PemainProvider extends ContentProvider {
                 column = new String[]{
                         PemainEntry.KOLOM_NAMA
                 };
-                selection = PemainEntry._ID + "=?";
                 selectionArgs = new String[]{
                         String.valueOf(ContentUris.parseId(uri))
                 };
@@ -105,7 +104,6 @@ public class PemainProvider extends ContentProvider {
                         PemainEntry.KOLOM_JUMLAH_BIBIT,
                         PemainEntry.KOLOM_JUMLAH_POLYBAG
                 };
-                selection = PemainEntry._ID + "=?";
                 selectionArgs = new String[]{
                         String.valueOf(ContentUris.parseId(uri))
                 };
@@ -115,7 +113,6 @@ public class PemainProvider extends ContentProvider {
                 column = new String[]{
                         PemainEntry.KOLOM_JUMLAH_KOIN
                 };
-                selection = PemainEntry._ID + "=?";
                 selectionArgs = new String[]{
                         String.valueOf(ContentUris.parseId(uri))
                 };
@@ -125,7 +122,6 @@ public class PemainProvider extends ContentProvider {
                 column = new String[]{
                         PemainEntry.KOLOM_JUMLAH_COKLAT
                 };
-                selection = PemainEntry._ID + "=?";
                 selectionArgs = new String[]{
                         String.valueOf(ContentUris.parseId(uri))
                 };
@@ -135,7 +131,6 @@ public class PemainProvider extends ContentProvider {
                 column = new String[]{
                         PemainEntry.KOLOM_JUMLAH_BUAH_KAKAO
                 };
-                selection = PemainEntry._ID + "=?";
                 selectionArgs = new String[]{
                         String.valueOf(ContentUris.parseId(uri))
                 };
@@ -145,7 +140,6 @@ public class PemainProvider extends ContentProvider {
                 column = new String[]{
                         PemainEntry.KOLOM_JUMLAH_BIBIT
                 };
-                selection = PemainEntry._ID + "=?";
                 selectionArgs = new String[]{
                         String.valueOf(ContentUris.parseId(uri))
                 };
@@ -155,7 +149,6 @@ public class PemainProvider extends ContentProvider {
                 column = new String[]{
                         PemainEntry.KOLOM_JUMLAH_POLYBAG
                 };
-                selection = PemainEntry._ID + "=?";
                 selectionArgs = new String[]{
                         String.valueOf(ContentUris.parseId(uri))
                 };

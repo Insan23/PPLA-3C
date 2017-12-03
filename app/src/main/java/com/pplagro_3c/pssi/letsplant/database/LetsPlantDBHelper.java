@@ -3,6 +3,7 @@ package com.pplagro_3c.pssi.letsplant.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.PemainEntry;
 import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.LahanEntry;
 import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.TanamanEntry;
@@ -40,7 +41,7 @@ public class LetsPlantDBHelper extends SQLiteOpenHelper {
                 + LahanEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + LahanEntry.KOLOM_TIPE_LAHAN + " TEXT NOT NULL, "
                 + LahanEntry.KOLOM_ID_PEMAIN + " INTEGER NOT NULL, "
-                + " FOREIGN KEY(" + LahanEntry.KOLOM_ID_PEMAIN + ") REFERENCES " + PemainEntry.NAMA_TABEL + "(" + PemainEntry._ID+ ")"
+                + " FOREIGN KEY(" + LahanEntry.KOLOM_ID_PEMAIN + ") REFERENCES " + PemainEntry.NAMA_TABEL + "(" + PemainEntry._ID + ")"
                 + ");";
         String CREATE_TABLE_TANAMAN = "CREATE TABLE " + TanamanEntry.NAMA_TABEL
                 + " ("

@@ -37,7 +37,7 @@ public class Lahan {
      * <p>
      * Tanaman Besar
      */
-    private static enum TANAMAN {
+    public static enum TANAMAN {
         KOSONG, CANGKUL,
         POLYBAG, BIBIT,
         TUNAS, TUNAS_KUNING,
@@ -89,6 +89,10 @@ public class Lahan {
 
     public void setLahan(LAHAN lahan) {
         LAHAN_SAAT_INI = lahan;
+    }
+
+    public TANAMAN getTANAMAN_SAAT_INI() {
+        return TANAMAN_SAAT_INI;
     }
 
     public void tindakan(AKSI_USER aksi) {
@@ -194,10 +198,11 @@ public class Lahan {
                         } else {
                             Toast.makeText(konteks, "Debug: siap dipindah", Toast.LENGTH_LONG);
                         }
-
                     }
                 }, 360000);
             } else if (LAHAN_SAAT_INI == LAHAN.PINDAH) {
+
+            } else if (LAHAN_SAAT_INI == LAHAN.LAHAN_TANAM) {
 
             }
             penyiraman = 3;
