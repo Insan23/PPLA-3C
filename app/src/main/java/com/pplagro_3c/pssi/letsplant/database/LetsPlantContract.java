@@ -87,6 +87,11 @@ public class LetsPlantContract {
          * tipe data INTEGER
          */
         public static final String KOLOM_JUMLAH_POLYBAG = "jmlPolybag";
+
+        /**
+         * kolom jumlah tanaman siap tanam yang disimpan
+         */
+        public static final String KOLOM_JUMLAH_TANAMAN_SIAP_TANAM = "jmlTanamanSiapTanam";
     }
 
     public static final class LahanEntry implements BaseColumns {

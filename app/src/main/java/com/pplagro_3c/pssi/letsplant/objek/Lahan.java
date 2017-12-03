@@ -214,6 +214,7 @@ public class Lahan {
                         } else if (pemupukan == 0) {
                             TANAMAN_SAAT_INI = TANAMAN.SIAP_TANAM;
                         } else {
+                            if (pemupukan == 2 && tidak_memupuk == 1)
                             Toast.makeText(konteks, "Debug: siap dipindah", Toast.LENGTH_LONG);
                         }
                     }

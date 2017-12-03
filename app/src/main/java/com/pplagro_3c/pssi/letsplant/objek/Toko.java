@@ -42,32 +42,37 @@ public class Toko {
             default:
                 Toast.makeText(konteks, "Tindakan GAGAL, Tidak Diketahui", Toast.LENGTH_LONG);
         }
-        new AlertDialog.Builder(konteks)
-                .setMessage("Yakin ingin beli? Koinmu akan berkurang sebanyak " + koin)
-                .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        switch (toko) {
-                            case BIBIT_TOKO:
-                                //kode untuk beli bibit
-                                break;
-                            case PUPUK_TOKO:
-                                //kode untuk beli pupuk
-                                break;
-                            case POLYBAG_TOKO:
-                                //kode untuk beli polybag
-                                break;
-                            case LAHAN_TANAM_TOKO:
-                                //kode untuk beli lahan tanam
-                                break;
-                            case LAHAN_POLY_TOKO:
-                                //kode untuk beli lahan poly
-                                break;
-                            default:
-                                Toast.makeText(konteks, "Tindakan GAGAL, Tidak Diketahui", Toast.LENGTH_LONG);
+        if (koin < 0) {
+            //koding saat user tidak memilih apa apa dan menekan tombol beli di toko
+        } else {
+            new AlertDialog.Builder(konteks)
+                    .setMessage("Yakin ingin beli? Koinmu akan berkurang sebanyak " + koin)
+                    .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            switch (toko) {
+                                case BIBIT_TOKO:
+                                    //kode untuk beli bibit
+                                    break;
+                                case PUPUK_TOKO:
+                                    //kode untuk beli pupuk
+                                    break;
+                                case POLYBAG_TOKO:
+                                    //kode untuk beli polybag
+                                    break;
+                                case LAHAN_TANAM_TOKO:
+                                    //kode untuk beli lahan tanam
+                                    break;
+                                case LAHAN_POLY_TOKO:
+                                    //kode untuk beli lahan poly
+                                    break;
+                                default:
+                                    Toast.makeText(konteks, "Tindakan GAGAL, Tidak Diketahui", Toast.LENGTH_LONG);
+                            }
                         }
-                    }
-                })
-                .setNegativeButton("Tidak", null).show();
+                    })
+                    .setNegativeButton("Tidak", null).show();
+
+        }
     }
 }

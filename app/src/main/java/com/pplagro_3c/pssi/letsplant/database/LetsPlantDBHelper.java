@@ -34,7 +34,8 @@ public class LetsPlantDBHelper extends SQLiteOpenHelper {
                 + PemainEntry.KOLOM_JUMLAH_COKLAT + " INTEGER NOT NULL, "
                 + PemainEntry.KOLOM_JUMLAH_BUAH_KAKAO + " INTEGER NOT NULL, "
                 + PemainEntry.KOLOM_JUMLAH_BIBIT + " INTEGER NOT NULL, "
-                + PemainEntry.KOLOM_JUMLAH_POLYBAG + " INTEGER NOT NULL"
+                + PemainEntry.KOLOM_JUMLAH_POLYBAG + " INTEGER NOT NULL, "
+                + PemainEntry.KOLOM_JUMLAH_TANAMAN_SIAP_TANAM + " TEXT NOT NULL"
                 + ");";
         String CREATE_TABLE_LAHAN = "CREATE TABLE " + LahanEntry.NAMA_TABEL
                 + " ("

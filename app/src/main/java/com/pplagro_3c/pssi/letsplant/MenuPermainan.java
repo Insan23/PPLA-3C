@@ -717,14 +717,8 @@ public class MenuPermainan extends AppCompatActivity {
         }
     }
 
-    private void isiLahan() {
-        for (int i = 0; i < 15; i++) {
-
-        }
-    }
-
-    private void gantiLahan() {
-
+    private void perbaruiAset() {
+        Cursor mCursor = getContentResolver().query(PemainEntry.CONTENT_URI, null, null, null, null);
     }
 
     private class LahanLoader implements LoaderManager.LoaderCallbacks<Cursor> {

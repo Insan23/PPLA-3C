@@ -102,7 +102,8 @@ public class PemainProvider extends ContentProvider {
                         PemainEntry.KOLOM_JUMLAH_COKLAT,
                         PemainEntry.KOLOM_JUMLAH_BUAH_KAKAO,
                         PemainEntry.KOLOM_JUMLAH_BIBIT,
-                        PemainEntry.KOLOM_JUMLAH_POLYBAG
+                        PemainEntry.KOLOM_JUMLAH_POLYBAG,
+                        PemainEntry.KOLOM_JUMLAH_TANAMAN_SIAP_TANAM
                 };
                 selectionArgs = new String[]{
                         String.valueOf(ContentUris.parseId(uri))
