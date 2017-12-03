@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-butuh android.support.design.widget.CoordinatorLayout untu dapat support bottomsheet
-yang digunakan untuk menampilkan menu
--->
+<?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -85,7 +82,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_l_2_1"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -108,7 +105,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_l_3_1"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -131,7 +128,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_l_4_1"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -154,7 +151,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_l_5_1"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
             </LinearLayout>
@@ -186,7 +183,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_l_1_2"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -209,7 +206,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_l_2_2"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -224,13 +221,13 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/l_3_2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                     <ImageView
                         android:id="@+id/n_l_3_2"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -253,7 +250,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_l_4_2"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -276,7 +273,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_l_5_2"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
             </LinearLayout>
@@ -308,7 +305,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_l_1_3"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -331,7 +328,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_l_2_3"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -354,7 +351,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_l_3_3"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -377,7 +374,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_l_4_3"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -400,7 +397,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_l_5_3"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
             </LinearLayout>
@@ -464,7 +461,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_p_1_1"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -487,7 +484,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_p_2_1"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -510,7 +507,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_p_3_1"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -533,7 +530,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_p_4_1"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -556,7 +553,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_p_5_1"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
             </LinearLayout>
@@ -588,7 +585,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_p_1_2"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -611,7 +608,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_p_2_2"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -634,7 +631,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_p_3_2"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -657,7 +654,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_p_4_2"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -680,7 +677,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_p_5_2"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
             </LinearLayout>
@@ -712,7 +709,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_p_1_3"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -735,7 +732,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_p_2_3"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -758,7 +755,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_p_3_3"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -781,7 +778,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_p_4_3"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
 
@@ -804,7 +801,7 @@ yang digunakan untuk menampilkan menu
                         android:id="@+id/n_p_5_3"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitEnd" />
 
                 </RelativeLayout>
             </LinearLayout>
@@ -1029,8 +1026,8 @@ yang digunakan untuk menampilkan menu
         android:id="@+id/overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#000000"
         android:alpha="0.3"
+        android:background="#000000"
         android:visibility="gone">
 
     </RelativeLayout>
@@ -1042,6 +1039,7 @@ yang digunakan untuk menampilkan menu
         android:layout_height="72dp"
         android:background="#ffffff"
         android:clipToPadding="true"
+
         app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
         <LinearLayout
@@ -1057,7 +1055,7 @@ yang digunakan untuk menampilkan menu
                 android:layout_height="wrap_content"
                 android:text="KAMU" />
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -1065,7 +1063,7 @@ yang digunakan untuk menampilkan menu
                     android:id="@+id/nama_pemain"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:text="Namamu" />
@@ -1073,9 +1071,9 @@ yang digunakan untuk menampilkan menu
                 <!--koin-->
                 <LinearLayout
                     android:id="@+id/koin_line"
-                    android:layout_width="84dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/nama_pemain">
+                    android:layout_weight="1">
 
                     <ImageView
                         android:id="@+id/koin_ikon"
@@ -1095,9 +1093,9 @@ yang digunakan untuk menampilkan menu
                 <!--bibit-->
                 <LinearLayout
                     android:id="@+id/line_bibit"
-                    android:layout_width="84dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/koin_line">
+                    android:layout_weight="1">
 
                     <ImageView
                         android:id="@+id/bibit_ikon"
@@ -1116,9 +1114,9 @@ yang digunakan untuk menampilkan menu
                 <!--pupuk-->
                 <LinearLayout
                     android:id="@+id/pupuk_line"
-                    android:layout_width="84dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/line_bibit">
+                    android:layout_weight="1">
 
                     <ImageView
                         android:id="@+id/pupuk_ikon"
@@ -1137,9 +1135,9 @@ yang digunakan untuk menampilkan menu
                 <!--polybag-->
                 <LinearLayout
                     android:id="@+id/polybag_line"
-                    android:layout_width="84dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/pupuk_line">
+                    android:layout_weight="1">
 
                     <ImageView
                         android:id="@+id/polybag_ikon"
@@ -1158,9 +1156,9 @@ yang digunakan untuk menampilkan menu
                 <!--lahan-->
                 <LinearLayout
                     android:id="@+id/lahan_line"
-                    android:layout_width="84dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/polybag_line">
+                    android:layout_weight="1">
 
                     <ImageView
                         android:id="@+id/lahan_ikon"
@@ -1176,28 +1174,48 @@ yang digunakan untuk menampilkan menu
                         android:text="1" />
                 </LinearLayout>
 
-                <!--lahan-->
+                <!--lahan poly-->
                 <LinearLayout
                     android:id="@+id/lahan_poly_line"
-                    android:layout_width="84dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/polybag_line">
+                    android:layout_weight="1">
 
                     <ImageView
-                        android:id="@+id/lahan_ikon"
+                        android:id="@+id/lahan_poly_ikon"
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:src="@drawable/aset_lahan" />
+                        android:src="@drawable/ic_aset_lahan_poly" />
 
                     <TextView
-                        android:id="@+id/lahan_teks"
+                        android:id="@+id/lahan_poly_teks"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="1" />
                 </LinearLayout>
 
-            </RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/tanaman_siap_pindah_line"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/tanaman_siap_pindah_ikon"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"/>
+
+                    <TextView
+                        android:id="@+id/tanaman_siap_pindah"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="1" />
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -1209,6 +1227,7 @@ yang digunakan untuk menampilkan menu
         android:layout_height="72dp"
         android:background="#ffffff"
         android:clipToPadding="true"
+        android:visibility="gone"
         app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
         <LinearLayout
@@ -1268,6 +1287,7 @@ yang digunakan untuk menampilkan menu
         android:layout_height="72dp"
         android:background="#ffffff"
         android:clipToPadding="true"
+        android:visibility="gone"
         app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
         <LinearLayout
@@ -1375,21 +1395,30 @@ yang digunakan untuk menampilkan menu
                     android:id="@+id/lahan_poly_toko_line"
                     android:layout_width="84dp"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/polybag_toko_line">
+                    android:layout_toEndOf="@id/lahan_toko_line">
 
                     <ImageView
-                        android:id="@+id/lahan_toko_ikon"
+                        android:id="@+id/lahan_poly_toko_ikon"
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:src="@drawable/aset_lahan" />
+                        android:src="@drawable/ic_aset_lahan_poly" />
 
                     <TextView
-                        android:id="@+id/lahan_toko_teks"
+                        android:id="@+id/lahan_poly_toko_teks"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="2000" />
                 </LinearLayout>
+
+                <Button
+                    android:id="@+id/tombol_beli"
+                    android:layout_width="84dp"
+                    android:layout_height="36dp"
+                    android:layout_toEndOf="@id/lahan_poly_toko_line"
+                    android:background="#795548"
+                    android:text="BELI"
+                    android:textColor="#fff" />
 
             </RelativeLayout>
 

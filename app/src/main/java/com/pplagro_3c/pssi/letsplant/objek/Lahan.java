@@ -218,6 +218,7 @@ public class Lahan {
                     }
                 }
             }
+            pertumbuhan();
         }
     }
 
@@ -308,6 +309,7 @@ public class Lahan {
                 }
                 gantiImageTanaman(TANAMAN_SAAT_INI);
             }
+            pertumbuhan();
         }
     }
 

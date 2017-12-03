@@ -52,10 +52,11 @@ public class MenuAwal extends AppCompatActivity {
         keluar();
     }
 
-    public void onStart(){
+    public void onStart() {
         super.onStart();
         backgroundmusic.start();
     }
+
     public void tombolMain(View view) {
         Intent i = new Intent(MenuAwal.this, MenuPermainan.class);
         startActivity(i);

@@ -21,7 +21,7 @@ public class Toko {
         this.konteks = konteks;
     }
 
-    private void pakaiToko(final AKSI_USER_TOKO toko) {
+    public void pakaiToko(final AKSI_USER_TOKO toko) {
         int koin = -1;
         switch (toko) {
             case BIBIT_TOKO:
