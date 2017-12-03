@@ -756,16 +756,6 @@ public class MenuPermainan extends AppCompatActivity {
         }
     }
 
-    private void isiLahan() {
-        for (int i = 0; i < 15; i++) {
-
-        }
-    }
-
-    private void gantiLahan() {
-
-    }
-
     private class LahanLoader implements LoaderManager.LoaderCallbacks<Cursor> {
 
         Context context;
