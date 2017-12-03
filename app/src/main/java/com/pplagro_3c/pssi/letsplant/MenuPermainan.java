@@ -757,7 +757,15 @@ public class MenuPermainan extends AppCompatActivity {
     }
 
     private void perbaruiAset() {
-        Cursor mCursor = getContentResolver().query(PemainEntry.CONTENT_URI, null, null, null, null);
+        String column[] = new String[]{
+                PemainEntry.KOLOM_JUMLAH_KOIN,
+                PemainEntry.KOLOM_JUMLAH_COKLAT,
+                PemainEntry.KOLOM_JUMLAH_BUAH_KAKAO,
+                PemainEntry.KOLOM_JUMLAH_BIBIT,
+                PemainEntry.KOLOM_JUMLAH_POLYBAG,
+                PemainEntry.KOLOM_JUMLAH_TANAMAN_SIAP_TANAM
+        };
+        Cursor mCursor = getContentResolver().query(PemainEntry.CONTENT_URI, column, null, null, null);
     }
 
     private class LahanLoader implements LoaderManager.LoaderCallbacks<Cursor> {

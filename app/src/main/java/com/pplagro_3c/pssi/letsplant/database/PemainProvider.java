@@ -97,14 +97,6 @@ public class PemainProvider extends ContentProvider {
                 output = db.query(PemainEntry.NAMA_TABEL, column, selection, selectionArgs, null, null, sortOrder);
                 break;
             case ASET_PEMAIN:
-                column = new String[]{
-                        PemainEntry.KOLOM_JUMLAH_KOIN,
-                        PemainEntry.KOLOM_JUMLAH_COKLAT,
-                        PemainEntry.KOLOM_JUMLAH_BUAH_KAKAO,
-                        PemainEntry.KOLOM_JUMLAH_BIBIT,
-                        PemainEntry.KOLOM_JUMLAH_POLYBAG,
-                        PemainEntry.KOLOM_JUMLAH_TANAMAN_SIAP_TANAM
-                };
                 selectionArgs = new String[]{
                         String.valueOf(ContentUris.parseId(uri))
                 };
