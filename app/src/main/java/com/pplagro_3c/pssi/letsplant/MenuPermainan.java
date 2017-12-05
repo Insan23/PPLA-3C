@@ -165,6 +165,9 @@ public class MenuPermainan extends AppCompatActivity {
     }
 
     public void init() {
+        if (ambilAsetPemain()) firstStart = false;
+        else firstStart = true;
+
         petani = (ImageView) findViewById(R.id.petani);
         dialog = findViewById(R.id.dialog);
         teks1 = (TextView) findViewById(R.id.teks1);
@@ -227,7 +230,7 @@ public class MenuPermainan extends AppCompatActivity {
         kakao_pengolahan = findViewById(R.id.kakao_pengolahan_line);
         coklat_pengolahan = findViewById(R.id.coklat_pengolahan_line);
         kakao_pengolahan_teks = (TextView) findViewById(R.id.kakao_pengolahan_teks);
-        coklat_pengolahan_teks = (TextView) findViewById(R.id.coklat_pengolahan_teks); 
+        coklat_pengolahan_teks = (TextView) findViewById(R.id.coklat_pengolahan_teks);
         menuPengolahan = BottomSheetBehavior.from(menuPengolahanView);
         menuPengolahan.setHideable(true);
         menuPengolahan.setState(BottomSheetBehavior.STATE_HIDDEN);
@@ -598,6 +601,7 @@ public class MenuPermainan extends AppCompatActivity {
     }
 
     private void initPetak() {
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 5; j++) {
                 ikonLahanTanam[i][j] = (ImageView) findViewById(resLahan[i][j]);
@@ -608,8 +612,8 @@ public class MenuPermainan extends AppCompatActivity {
         }
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 5; j++) {
-                petak_lahan[i][j] = new Lahan(this, ikonLahanTanam[i][j], notif_lahan_tanam[i][j], j, i, Lahan.LAHAN.LAHAN_TANAM);
-                petak_poly[i][j] = new Lahan(this, ikonLahanPoly[i][j], notif_lahan_poly[i][j], j, i, Lahan.LAHAN.LAHAN_POLYBAG);
+                petak_lahan[i][j] = new Lahan(this, ikonLahanTanam[i][j], notif_lahan_tanam[i][j], (j+1), (i+1), Lahan.LAHAN.LAHAN_TANAM);
+                petak_poly[i][j] = new Lahan(this, ikonLahanPoly[i][j], notif_lahan_poly[i][j], (j+1), (i+1), Lahan.LAHAN.LAHAN_POLYBAG);
             }
         }
         for (int i = 0; i < 3; i++) {
@@ -806,14 +810,14 @@ public class MenuPermainan extends AppCompatActivity {
             int kolomKakao = mCursor.getColumnIndex(PemainEntry.KOLOM_JUMLAH_BUAH_KAKAO);
             int kolomBibit = mCursor.getColumnIndex(PemainEntry.KOLOM_JUMLAH_BIBIT);
             int kolomPolybag = mCursor.getColumnIndex(PemainEntry.KOLOM_JUMLAH_POLYBAG);
-            
+
             String nama = "";
             int koin = -1;
             int coklat = -1;
             int kakao = -1;
             int bibit = -1;
             int polybag = -1;
-            
+
             while (mCursor.moveToNext()) {
                 nama = mCursor.getString(kolomNama);
                 koin = mCursor.getInt(kolomKoin);
@@ -842,17 +846,59 @@ public class MenuPermainan extends AppCompatActivity {
                 PemainEntry.KOLOM_JUMLAH_BIBIT,
                 PemainEntry.KOLOM_JUMLAH_POLYBAG
         };
-        Cursor mCursor = getContentResolver().query(PemainEntry.CONTENT_URI, column, null, null, null);
     }
 
+    private boolean ambilLahan() {
+        String column[] = new String[]{
+                LahanEntry._ID,
+                LahanEntry.KOLOM_TIPE_LAHAN
+        };
+        Cursor mCursor = getContentResolver().query(LahanEntry.CONTENT_URI, column, null, null, null);
 
-//            cursor.isBeforeFirst();
-//            int kolomID = cursor.getColumnIndex(LahanEntry._ID);
-//            int kolomTipe = cursor.getColumnIndex(LahanEntry.KOLOM_TIPE_LAHAN);
-//            int kolomIDTanaman = cursor.getColumnIndex(TanamanEntry._ID);
-//            int kolomLokasi = cursor.getColumnIndex(TanamanEntry.KOLOM_LOKASI);
-//            int kolomJenis = cursor.getColumnIndex(TanamanEntry.KOLOM_JENIS);
+        if (null == mCursor) {
+            /**
+             * Kode untuk mengatasi error. pastikan untuk tidak menggunakan cursor sebagai pembanding!
+             * Atau juga bisa menggunakan android.util.log.e() untuk menampilkan error ini pada logcat
+             *
+             */
+        } else if (mCursor.getCount() < 1) {
+            /**
+             * Masukkan kode disini untuk memberitahukan user kalau hasil query tidak menghasilkan apa-apa
+             * Bagian ini bukanlah error.
+             */
+        } else {
+            int lahantanam = 0;
+            int lahanPoly = 0;
 
+            int kolomID = mCursor.getColumnIndex(LahanEntry._ID);
+            int kolomTipe = mCursor.getColumnIndex(LahanEntry.KOLOM_TIPE_LAHAN);
+
+            //menghitung ada berapa lahan pada tiap tipe lahan
+            while (mCursor.moveToNext()) {
+                String lahan = mCursor.getString(kolomTipe);
+                if (lahan == LahanEntry.LAHAN_POLYBAG) lahantanam++;
+                else if (lahan == LahanEntry.LAHAN_SIAP_TANAM) lahanPoly++;
+            }
+
+            int IDLahantanam[] = new int[lahantanam];
+            int IDLahanPoly[] = new int[lahanPoly];
+            if (mCursor.isBeforeFirst()) {
+                while (mCursor.moveToNext()) {
+                    int i = 0;
+                    String lahan = mCursor.getString(kolomTipe);
+                    int id = mCursor.getInt(kolomID);
+
+                    if (lahan == LahanEntry.LAHAN_POLYBAG) IDLahanPoly[i] = id;
+                    else if (lahan == LahanEntry.LAHAN_SIAP_TANAM) IDLahantanam[i] = id;
+
+                    i++;
+                }
+            }
+
+            return true;
+        }
+        return false;
+    }
 
     /**
      * teks setelah input nama

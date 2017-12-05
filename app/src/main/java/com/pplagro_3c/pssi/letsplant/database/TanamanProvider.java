@@ -1,6 +1,7 @@
 package com.pplagro_3c.pssi.letsplant.database;
 
 import android.content.ContentProvider;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
@@ -9,6 +10,7 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.PemainEntry;
 import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.LahanEntry;
@@ -21,6 +23,8 @@ import com.pplagro_3c.pssi.letsplant.objek.Tanaman;
  */
 
 public class TanamanProvider extends ContentProvider {
+
+    public static final String LOG_TAG = TanamanProvider.class.getSimpleName();
 
     /* tipe akses ke tabel tanaman */
     private static final int TANAMAN = 300;
@@ -75,7 +79,16 @@ public class TanamanProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return null;
+        SQLiteDatabase db = TanamanDBHelper.getWritableDatabase();
+
+        long id = db.insert(LahanEntry.NAMA_TABEL, null, contentValues);
+        if (id == -1) {
+            Log.e(LOG_TAG, "Gagal Menyimpan ke table tanaman, " + uri);
+            return null;
+        }
+        getContext().getContentResolver().notifyChange(uri, null);
+
+        return ContentUris.withAppendedId(uri, id);
     }
 
     @Override

@@ -58,17 +58,14 @@ public class LahanProvider extends ContentProvider {
         int match = sUriMatcher.match(uri);
         switch (match) {
             case LAHAN:
-
+                selectionArgs = new String[]{
+                        String.valueOf(ContentUris.parseId(uri))
+                };
+                output = db.query(LahanEntry.NAMA_TABEL, column, selection, selectionArgs, null, null, sortOrder);
                 break;
             case LAHAN_ID:
                 selection = LahanEntry._ID + "=?";
-                SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
-                builder.setTables(
-                        LahanEntry.KOLOM_ID_PEMAIN
-                                + " JOIN " + TanamanEntry.NAMA_TABEL + " ON " + LahanEntry.NAMA_TABEL + "." + LahanEntry._ID
-                                + " = " + TanamanEntry.NAMA_TABEL + "." + TanamanEntry.KOLOM_IDLahan
-                );
-                output = builder.query(db, column, selection, selectionArgs, null, null, sortOrder);
+                output = db.query(LahanEntry.NAMA_TABEL, column, selection, selectionArgs, null, null, sortOrder);
                 break;
             default:
                 ;
@@ -89,7 +86,7 @@ public class LahanProvider extends ContentProvider {
 
         long id = db.insert(LahanEntry.NAMA_TABEL, null, contentValues);
         if (id == -1) {
-            Log.e(LOG_TAG, "Gagal Menyimpan ke table pemain, " + uri);
+            Log.e(LOG_TAG, "Gagal Menyimpan ke table lahan, " + uri);
             return null;
         }
         getContext().getContentResolver().notifyChange(uri, null);
@@ -104,6 +101,7 @@ public class LahanProvider extends ContentProvider {
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s, @Nullable String[] strings) {
+
         return 0;
     }
 }

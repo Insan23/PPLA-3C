@@ -1,8 +1,10 @@
 package com.pplagro_3c.pssi.letsplant.objek;
 
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.net.Uri;
 import android.os.Looper;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.Toast;
 import android.os.Handler;
 
 import com.pplagro_3c.pssi.letsplant.R;
+import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract;
 
 
 /**
@@ -77,10 +80,9 @@ public class Lahan {
     private boolean butuhPanen;
     private boolean butuhPindah;
 
+    private int id;
     private int lokasiX;
     private int lokasiY;
-    private int jedaPenyiraman;
-    private int jedaPemupukan;
 
     TANAMAN TANAMAN_SAAT_INI;
 
@@ -692,6 +694,128 @@ public class Lahan {
             default:
                 Toast.makeText(konteks, "Tindakan GAGAL, Tidak Diketahui: GANTI_TANAMAN", Toast.LENGTH_LONG);
         }
+    }
+
+    private boolean simpanTanaman() {
+        String lokasi = "";
+        String jenis = "";
+        String koor = String.valueOf(lokasiX) + lokasiY;
+        switch (koor) {
+            case "11":
+                lokasi = LetsPlantContract.TanamanEntry.POS_11;
+                break;
+            case "21":
+                lokasi = LetsPlantContract.TanamanEntry.POS_21;
+                break;
+            case "31":
+                lokasi = LetsPlantContract.TanamanEntry.POS_31;
+                break;
+            case "41":
+                lokasi = LetsPlantContract.TanamanEntry.POS_41;
+                break;
+            case "51":
+                lokasi = LetsPlantContract.TanamanEntry.POS_51;
+                break;
+            case "12":
+                lokasi = LetsPlantContract.TanamanEntry.POS_12;
+                break;
+            case "22":
+                lokasi = LetsPlantContract.TanamanEntry.POS_22;
+                break;
+            case "32":
+                lokasi = LetsPlantContract.TanamanEntry.POS_32;
+                break;
+            case "42":
+                lokasi = LetsPlantContract.TanamanEntry.POS_42;
+                break;
+            case "52":
+                lokasi = LetsPlantContract.TanamanEntry.POS_52;
+                break;
+            case "13":
+                lokasi = LetsPlantContract.TanamanEntry.POS_13;
+                break;
+            case "23":
+                lokasi = LetsPlantContract.TanamanEntry.POS_23;
+                break;
+            case "33":
+                lokasi = LetsPlantContract.TanamanEntry.POS_33;
+                break;
+            case "43":
+                lokasi = LetsPlantContract.TanamanEntry.POS_43;
+                break;
+            case "53":
+                lokasi = LetsPlantContract.TanamanEntry.POS_53;
+                break;
+        }
+        switch (TANAMAN_SAAT_INI) {
+            case KOSONG:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_KOSONG;
+                break;
+            case CANGKUL:
+                break;
+            case POLYBAG:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_POLYBAG;
+                break;
+            case BIBIT:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_BIBIT;
+                break;
+            case TUNAS:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_TUNAS;
+                break;
+            case TUNAS_KUNING:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_TUNAS_KUNING;
+                break;
+            case SIAP_TANAM:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_SIAP_TANAM;
+                break;
+            case SIAP_TANAM_KUNING:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_SIAP_TANAM_KUNING;
+                break;
+            case KECIL:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_SIAP_TANAM;
+                break;
+            case KECIL_KUNING:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_SIAP_TANAM_KUNING;
+                break;
+            case BESAR_TANPA_BUAH:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_BESAR_TANPA_BUAH;
+                break;
+            case BESAR_TANPA_BUAH_KUNING:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_BESAR_TANPA_BUAH_KUNING;
+                break;
+            case BESAR_TANPA_BUAH_KUNING_SEMUA:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_BESAR_TANPA_BUAH_KUNING_SEMUA;
+                break;
+            case BESAR_BUAH_SEDANG:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_BESAR_BUAH_SEDANG;
+                break;
+            case BESAR_BUAH_SEDANG_KUNING:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_BESAR_BUAH_SEDANG_KUNING;
+                break;
+            case BESAR_BUAH_SEDANG_KUNING_SEMUA:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_BESAR_BUAH_SEDANG_KUNING_SEMUA;
+                break;
+            case BESAR_BUAH_BESAR:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_BESAR_BUAH_BESAR;
+                break;
+            case BESAR_BUAH_BESAR_KUNING:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_BESAR_BUAH_BESAR_KUNING;
+                break;
+            case BESAR_BUAH_BESAR_KUNING_SEMUA:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_BESAR_BUAH_BESAR_KUNING_SEMUA;
+                break;
+            default:
+                jenis = LetsPlantContract.TanamanEntry.TANAMAN_KOSONG;
+                Toast.makeText(konteks, "Default jenis: KOSONG", Toast.LENGTH_LONG);
+        }
+        ContentValues value = new ContentValues();
+        value.put(LetsPlantContract.TanamanEntry.KOLOM_IDLahan, id);
+        value.put(LetsPlantContract.TanamanEntry.KOLOM_LOKASI, lokasi);
+        value.put(LetsPlantContract.TanamanEntry.KOLOM_JENIS, jenis);
+        value.put(LetsPlantContract.TanamanEntry.KOLOM_BUAH, jumlahBuah);
+
+        Uri uri = konteks.getContentResolver().insert(LetsPlantContract.TanamanEntry.CONTENT_URI, value);
+        return true;
     }
 
 }

@@ -88,9 +88,6 @@ public class PemainProvider extends ContentProvider {
         int match = sUriMatcher.match(uri);
         switch (match) {
             case PEMAIN:
-                column = new String[]{
-                        PemainEntry.KOLOM_NAMA
-                };
                 selectionArgs = new String[]{
                         String.valueOf(ContentUris.parseId(uri))
                 };

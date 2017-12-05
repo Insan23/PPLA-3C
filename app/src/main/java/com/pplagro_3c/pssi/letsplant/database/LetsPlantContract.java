@@ -9,8 +9,7 @@ import android.provider.BaseColumns;
 
 public class LetsPlantContract {
     //untuk mencegah terjadinya eksekusi program secara ilegal, maka konstruktor dikosongi
-    private LetsPlantContract() {
-    }
+    private LetsPlantContract() {}
 
     /**
      * CONTENT AUTHORITY adalah nama untuk seluruh provider, seperti relasi antara domain dan webnya(server)
@@ -186,17 +185,22 @@ public class LetsPlantContract {
          */
         public static final String TANAMAN_KOSONG = "kosong";
         public static final String TANAMAN_POLYBAG = "polybag";
+
         public static final String TANAMAN_BIBIT = "bibit";
         public static final String TANAMAN_TUNAS = "tunas";
         public static final String TANAMAN_TUNAS_KUNING = "tunas_kuning";
+
         public static final String TANAMAN_SIAP_TANAM = "siap_tanam";
         public static final String TANAMAN_SIAP_TANAM_KUNING = "siap_tanam_kuning";
+
         public static final String TANAMAN_BESAR_TANPA_BUAH = "pohon_besar_tak_berbuah";
         public static final String TANAMAN_BESAR_TANPA_BUAH_KUNING = "pohon_besar_tak_berbuah_kuning";
         public static final String TANAMAN_BESAR_TANPA_BUAH_KUNING_SEMUA = "pohon_besar_tak_berbuah_kuning_semua";
+
         public static final String TANAMAN_BESAR_BUAH_SEDANG = "pohon_besar_buah_sedang";
         public static final String TANAMAN_BESAR_BUAH_SEDANG_KUNING = "pohon_besar_buah_sedang_kuning";
         public static final String TANAMAN_BESAR_BUAH_SEDANG_KUNING_SEMUA = "pohon_besar_buah_sedang_kuning_semua";
+
         public static final String TANAMAN_BESAR_BUAH_BESAR = "pohon_besar_buah_besar";
         public static final String TANAMAN_BESAR_BUAH_BESAR_KUNING = "pohon_besar_buah_besar_kuning";
         public static final String TANAMAN_BESAR_BUAH_BESAR_KUNING_SEMUA = "pohon_besar_buah_besar_kuning_semua";
@@ -222,10 +226,6 @@ public class LetsPlantContract {
         public static final String POS_33 = "33";
         public static final String POS_43 = "43";
         public static final String POS_53 = "53";
-
-        /**
-         * tipe-tipe dari kolom buah
-         */
     }
 
 }
