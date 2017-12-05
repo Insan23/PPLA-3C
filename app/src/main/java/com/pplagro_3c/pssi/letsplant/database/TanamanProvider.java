@@ -24,9 +24,7 @@ public class TanamanProvider extends ContentProvider {
 
     /* tipe akses ke tabel tanaman */
     private static final int TANAMAN = 300;
-    private static final int JENIS_TANAMAN = 310;
-    private static final int LOKASI = 311;
-    private static final int BUAH = 312;
+    private static final int TANAMAN_ID = 301;
 
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
@@ -34,17 +32,12 @@ public class TanamanProvider extends ContentProvider {
         /**
          *
          */
-        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, JENIS_TANAMAN);
+        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, TANAMAN);
 
         /**
          *
          */
-        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, LOKASI);
-
-        /**
-         *
-         */
-        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, BUAH);
+        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT + "/#", TANAMAN_ID);
     }
 
     private LetsPlantDBHelper TanamanDBHelper;
@@ -66,11 +59,8 @@ public class TanamanProvider extends ContentProvider {
             case TANAMAN:
 
                 break;
-            case JENIS_TANAMAN:
-                break;
-            case LOKASI:
-                break;
-            case BUAH:
+            case TANAMAN_ID:
+
                 break;
         }
         return null;

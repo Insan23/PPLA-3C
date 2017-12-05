@@ -338,7 +338,7 @@ public class Lahan {
                                  */
                                 pemupukan = 1;
                                 gantiImageNotif(PERAWATAN.PUPUK_BUTUH);
-                                mHandler.postDelayed(waktuPemupukan, 60000);
+                                mHandler.postDelayed(waktuPemupukan, 180000);
                                 if (pemupukan == 0) {
                                     TANAMAN_SAAT_INI = TANAMAN.BESAR_BUAH_SEDANG;
                                 } else {
@@ -363,7 +363,7 @@ public class Lahan {
                                  */
                                 pemupukan = 1;
                                 gantiImageNotif(PERAWATAN.PUPUK_BUTUH);
-                                mHandler.postDelayed(waktuPemupukan, 60000);
+                                mHandler.postDelayed(waktuPemupukan, 180000);
                                 if (pemupukan == 0) {
                                     TANAMAN_SAAT_INI = TANAMAN.BESAR_BUAH_BESAR;
                                 } else {
@@ -383,6 +383,7 @@ public class Lahan {
                             @Override
                             public void run() {
                                 if (TANAMAN_SAAT_INI == TANAMAN.BESAR_BUAH_BESAR) {
+                                    mHandler.postDelayed(null, 300000); //jeda 5 menit sebelum pemanenan
                                     gantiImageNotif(PERAWATAN.PANEN_BUTUH);
                                     mHandler.postDelayed(waktuPemanenan, 180000); //jeda pemanenan
                                 } else {
@@ -529,7 +530,17 @@ public class Lahan {
 
         @Override
         public void run() {
-
+            if (butuhPanen) {
+                TANAMAN_SAAT_INI = TANAMAN.BESAR_BUAH_BESAR_KUNING;
+                gantiImageTanaman(TANAMAN_SAAT_INI);
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        TANAMAN_SAAT_INI = TANAMAN.BESAR_TANPA_BUAH;
+                        gantiImageTanaman(TANAMAN_SAAT_INI);
+                    }
+                }, 60000);
+            }
         }
     }
 

@@ -25,8 +25,7 @@ public class LahanProvider extends ContentProvider {
 
     /* tipe akses ke tabel lahan */
     private static final int LAHAN = 200;
-    private static final int TIPE_LAHAN = 210;
-    private static final int TANAMAN = 211;
+    private static final int LAHAN_ID = 201;
 
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
@@ -35,15 +34,11 @@ public class LahanProvider extends ContentProvider {
          *
          */
         sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, LAHAN);
-        /**
-         *
-         */
-        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, TIPE_LAHAN);
 
         /**
          *
          */
-        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT + "/#", TANAMAN);
+        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT + "/#", LAHAN_ID);
     }
 
     private LetsPlantDBHelper LahanDBHelper;
@@ -65,7 +60,7 @@ public class LahanProvider extends ContentProvider {
             case LAHAN:
 
                 break;
-            case TANAMAN:
+            case LAHAN_ID:
                 selection = LahanEntry._ID + "=?";
                 SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
                 builder.setTables(
@@ -74,9 +69,6 @@ public class LahanProvider extends ContentProvider {
                                 + " = " + TanamanEntry.NAMA_TABEL + "." + TanamanEntry.KOLOM_IDLahan
                 );
                 output = builder.query(db, column, selection, selectionArgs, null, null, sortOrder);
-                break;
-            case TIPE_LAHAN:
-                //nothing
                 break;
             default:
                 ;

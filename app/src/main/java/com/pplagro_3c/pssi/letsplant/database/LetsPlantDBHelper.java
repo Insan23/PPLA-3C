@@ -34,23 +34,22 @@ public class LetsPlantDBHelper extends SQLiteOpenHelper {
                 + PemainEntry.KOLOM_JUMLAH_COKLAT + " INTEGER NOT NULL, "
                 + PemainEntry.KOLOM_JUMLAH_BUAH_KAKAO + " INTEGER NOT NULL, "
                 + PemainEntry.KOLOM_JUMLAH_BIBIT + " INTEGER NOT NULL, "
-                + PemainEntry.KOLOM_JUMLAH_POLYBAG + " INTEGER NOT NULL, "
-                + PemainEntry.KOLOM_JUMLAH_TANAMAN_SIAP_TANAM + " TEXT NOT NULL"
+                + PemainEntry.KOLOM_JUMLAH_POLYBAG + " INTEGER NOT NULL"
                 + ");";
         String CREATE_TABLE_LAHAN = "CREATE TABLE " + LahanEntry.NAMA_TABEL
                 + " ("
                 + LahanEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + LahanEntry.KOLOM_TIPE_LAHAN + " TEXT NOT NULL, "
-                + LahanEntry.KOLOM_ID_PEMAIN + " INTEGER NOT NULL, "
+                + LahanEntry.KOLOM_TIPE_LAHAN + " TEXT, "
+                + LahanEntry.KOLOM_ID_PEMAIN + " INTEGER, "
                 + " FOREIGN KEY(" + LahanEntry.KOLOM_ID_PEMAIN + ") REFERENCES " + PemainEntry.NAMA_TABEL + "(" + PemainEntry._ID + ")"
                 + ");";
         String CREATE_TABLE_TANAMAN = "CREATE TABLE " + TanamanEntry.NAMA_TABEL
                 + " ("
                 + TanamanEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + TanamanEntry.KOLOM_IDLahan + " INTEGER NOT NULL, "
-                + TanamanEntry.KOLOM_LOKASI + " TEXT NOT NULL, "
-                + TanamanEntry.KOLOM_JENIS + " TEXT NOT NULL, "
-                + TanamanEntry.KOLOM_BUAH + " INTEGER NOT NULL, "
+                + TanamanEntry.KOLOM_IDLahan + " INTEGER, "
+                + TanamanEntry.KOLOM_LOKASI + " TEXT, "
+                + TanamanEntry.KOLOM_JENIS + " TEXT, "
+                + TanamanEntry.KOLOM_BUAH + " INTEGER, "
                 + "FOREIGN KEY(" + TanamanEntry.KOLOM_IDLahan + ") REFERENCES " + LahanEntry.NAMA_TABEL + " (" + LahanEntry._ID + ")"
                 + ");";
         sqLiteDatabase.execSQL(CREATE_TABLE_PEMAIN);

@@ -31,6 +31,8 @@ import com.pplagro_3c.pssi.letsplant.database.LetsPlantContract.TanamanEntry;
 import com.pplagro_3c.pssi.letsplant.objek.Lahan;
 import com.pplagro_3c.pssi.letsplant.objek.Toko;
 
+import org.w3c.dom.Text;
+
 import static android.R.attr.id;
 
 public class MenuPermainan extends AppCompatActivity {
@@ -95,11 +97,13 @@ public class MenuPermainan extends AppCompatActivity {
     //objek pada menu kamu
     private RelativeLayout layoutKamu;
     private TextView teksKamu;
+    private TextView nama_pemain;
     private View bibit;
     private View pupuk;
     private View polybag;
     private View lahan_tanam;
     private View lahan_poly;
+    private TextView koin_teks;
     private TextView bibit_teks;
     private TextView pupuk_teks;
     private TextView polybag_teks;
@@ -133,7 +137,9 @@ public class MenuPermainan extends AppCompatActivity {
     private RelativeLayout layoutPengolahan;
     private TextView teksPengolahan;
     private View kakao_pengolahan;
+    private TextView kakao_pengolahan_teks;
     private View coklat_pengolahan;
+    private TextView coklat_pengolahan_teks;
     private BottomSheetBehavior menuPengolahan;
     private View menuPengolahanView;
 
@@ -175,11 +181,18 @@ public class MenuPermainan extends AppCompatActivity {
         layoutKamu = (RelativeLayout) findViewById(R.id.relKamu);
         menuKamuView = findViewById(R.id.menu_kamu);
         teksKamu = (TextView) findViewById(R.id.teksKamu);
+        nama_pemain = (TextView) findViewById(R.id.nama_pemain);
         bibit = findViewById(R.id.line_bibit);
         pupuk = findViewById(R.id.pupuk_line);
         polybag = findViewById(R.id.polybag_line);
         lahan_tanam = findViewById(R.id.lahan_line);
         lahan_poly = findViewById(R.id.lahan_poly_line);
+        koin_teks = (TextView) findViewById(R.id.koin_teks);
+        bibit_teks = (TextView) findViewById(R.id.bibit_teks);
+        pupuk_teks = (TextView) findViewById(R.id.pupuk_teks);
+        polybag_teks = (TextView) findViewById(R.id.polybag_teks);
+        lahan_tanam_teks = (TextView) findViewById(R.id.lahan_teks);
+        lahan_poly_teks = (TextView) findViewById(R.id.lahan_poly_teks);
         menuKamu = BottomSheetBehavior.from(menuKamuView);
         menuKamu.setHideable(true);
         menuKamu.setState(BottomSheetBehavior.STATE_HIDDEN);
@@ -213,6 +226,8 @@ public class MenuPermainan extends AppCompatActivity {
         teksPengolahan = (TextView) findViewById(R.id.teksPengolahan);
         kakao_pengolahan = findViewById(R.id.kakao_pengolahan_line);
         coklat_pengolahan = findViewById(R.id.coklat_pengolahan_line);
+        kakao_pengolahan_teks = (TextView) findViewById(R.id.kakao_pengolahan_teks);
+        coklat_pengolahan_teks = (TextView) findViewById(R.id.coklat_pengolahan_teks); 
         menuPengolahan = BottomSheetBehavior.from(menuPengolahanView);
         menuPengolahan.setHideable(true);
         menuPengolahan.setState(BottomSheetBehavior.STATE_HIDDEN);
@@ -722,6 +737,7 @@ public class MenuPermainan extends AppCompatActivity {
                 teks2.setText("Ini adalah lahanmu untuk menanam kakao, rajinlah merawat kakaomu dan jadilah pekebun yang baik");
                 teks3.setText("Selamat Berkebun");
                 simpan.setText("Lewati");
+                nama_pemain.setText(nama);
                 break;
             case "close":
                 firstStart = false;
@@ -756,63 +772,86 @@ public class MenuPermainan extends AppCompatActivity {
         }
     }
 
+    private boolean ambilAsetPemain() {
+        String column[] = new String[]{
+                PemainEntry.KOLOM_NAMA,
+                PemainEntry.KOLOM_JUMLAH_KOIN,
+                PemainEntry.KOLOM_JUMLAH_COKLAT,
+                PemainEntry.KOLOM_JUMLAH_BUAH_KAKAO,
+                PemainEntry.KOLOM_JUMLAH_BIBIT,
+                PemainEntry.KOLOM_JUMLAH_POLYBAG,
+        };
+        Cursor mCursor = getContentResolver().query(PemainEntry.CONTENT_URI, column, PemainEntry._ID + "=?", new String[]{"1"}, null);
+
+        // beberapa provider akan mengembalikan nilai null bila terjadi error, sisanya menggunakan exception
+        if (null == mCursor) {
+            /**
+             * Kode untuk mengatasi error. pastikan untuk tidak menggunakan cursor sebagai pembanding!
+             * Atau juga bisa menggunakan android.util.log.e() untuk menampilkan error ini pada logcat
+             *
+             */
+            // If the Cursor is empty, the provider found no matches
+        } else if (mCursor.getCount() < 1) {
+            /**
+             * Masukkan kode disini untuk memberitahukan user kalau hasil query tidak menghasilkan apa-apa
+             * Bagian ini bukanlah error.
+             */
+        } else {
+            /**
+             * kode bila hasil query sukses
+             */
+            int kolomNama = mCursor.getColumnIndex(PemainEntry.KOLOM_NAMA);
+            int kolomKoin = mCursor.getColumnIndex(PemainEntry.KOLOM_JUMLAH_KOIN);
+            int kolomCoklat = mCursor.getColumnIndex(PemainEntry.KOLOM_JUMLAH_COKLAT);
+            int kolomKakao = mCursor.getColumnIndex(PemainEntry.KOLOM_JUMLAH_BUAH_KAKAO);
+            int kolomBibit = mCursor.getColumnIndex(PemainEntry.KOLOM_JUMLAH_BIBIT);
+            int kolomPolybag = mCursor.getColumnIndex(PemainEntry.KOLOM_JUMLAH_POLYBAG);
+            
+            String nama = "";
+            int koin = -1;
+            int coklat = -1;
+            int kakao = -1;
+            int bibit = -1;
+            int polybag = -1;
+            
+            while (mCursor.moveToNext()) {
+                nama = mCursor.getString(kolomNama);
+                koin = mCursor.getInt(kolomKoin);
+                coklat = mCursor.getInt(kolomCoklat);
+                kakao = mCursor.getInt(kolomKakao);
+                bibit = mCursor.getInt(kolomBibit);
+                polybag = mCursor.getInt(kolomPolybag);
+            }
+            nama_pemain.setText(nama);
+            koin_teks.setText(koin);
+            coklat_pengolahan_teks.setText(coklat);
+            kakao_pengolahan_teks.setText(kakao);
+            bibit_teks.setText(bibit);
+            polybag_teks.setText(polybag);
+
+            return true;
+        }
+        return false;
+    }
+
     private void perbaruiAset() {
         String column[] = new String[]{
                 PemainEntry.KOLOM_JUMLAH_KOIN,
                 PemainEntry.KOLOM_JUMLAH_COKLAT,
                 PemainEntry.KOLOM_JUMLAH_BUAH_KAKAO,
                 PemainEntry.KOLOM_JUMLAH_BIBIT,
-                PemainEntry.KOLOM_JUMLAH_POLYBAG,
-                PemainEntry.KOLOM_JUMLAH_TANAMAN_SIAP_TANAM
+                PemainEntry.KOLOM_JUMLAH_POLYBAG
         };
         Cursor mCursor = getContentResolver().query(PemainEntry.CONTENT_URI, column, null, null, null);
     }
 
-    private class LahanLoader implements LoaderManager.LoaderCallbacks<Cursor> {
 
-        Context context;
-
-        public LahanLoader(Context context) {
-            this.context = context;
-        }
-
-        @Override
-        public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-            String projection[] = {
-                    LahanEntry._ID,
-                    LahanEntry.KOLOM_TIPE_LAHAN,
-                    TanamanEntry._ID,
-                    TanamanEntry.KOLOM_LOKASI,
-                    TanamanEntry.KOLOM_JENIS,
-            };
-            return new CursorLoader(context,
-                    LahanEntry.CONTENT_URI,
-                    projection,
-                    null,
-                    null,
-                    null);
-        }
-
-        @Override
-        public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
-            cursor.isBeforeFirst();
-            int kolomID = cursor.getColumnIndex(LahanEntry._ID);
-            int kolomTipe = cursor.getColumnIndex(LahanEntry.KOLOM_TIPE_LAHAN);
-            int kolomIDTanaman = cursor.getColumnIndex(TanamanEntry._ID);
-            int kolomLokasi = cursor.getColumnIndex(TanamanEntry.KOLOM_LOKASI);
-            int kolomJenis = cursor.getColumnIndex(TanamanEntry.KOLOM_JENIS);
-
-            int i = 0;
-            while (cursor.moveToNext()) {
-
-            }
-        }
-
-        @Override
-        public void onLoaderReset(Loader<Cursor> loader) {
-
-        }
-    }
+//            cursor.isBeforeFirst();
+//            int kolomID = cursor.getColumnIndex(LahanEntry._ID);
+//            int kolomTipe = cursor.getColumnIndex(LahanEntry.KOLOM_TIPE_LAHAN);
+//            int kolomIDTanaman = cursor.getColumnIndex(TanamanEntry._ID);
+//            int kolomLokasi = cursor.getColumnIndex(TanamanEntry.KOLOM_LOKASI);
+//            int kolomJenis = cursor.getColumnIndex(TanamanEntry.KOLOM_JENIS);
 
 
     /**

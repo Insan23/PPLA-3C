@@ -22,14 +22,14 @@ public class PemainProvider extends ContentProvider {
     public static final String LOG_TAG = PemainProvider.class.getSimpleName();
 
     /* tipe akses ke tabel pemain */
-    private static final int NAMA_PEMAIN = 110;
-    private static final int ASET_PEMAIN = 120;
+    private static final int PEMAIN = 110;
+    private static final int PEMAIN_ID = 120;
 
-    private static final int KOIN_PEMAIN = 121;
-    private static final int COKLAT_PEMAIN = 122;
-    private static final int KAKAO_PEMAIN = 123;
-    private static final int BIBIT_PEMAIN = 124;
-    private static final int POLYBAG_PEMAIN = 125;
+//    private static final int KOIN_PEMAIN = 121;
+//    private static final int COKLAT_PEMAIN = 122;
+//    private static final int KAKAO_PEMAIN = 123;
+//    private static final int BIBIT_PEMAIN = 124;
+//    private static final int POLYBAG_PEMAIN = 125;
 
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
@@ -37,37 +37,37 @@ public class PemainProvider extends ContentProvider {
         /**
          *
          */
-        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, NAMA_PEMAIN);
+        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, PEMAIN);
 
         /**
          *
          */
-        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, ASET_PEMAIN);
+        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT + "/#", PEMAIN_ID);
 
-        /**
-         *
-         */
-        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, KOIN_PEMAIN);
-
-        /**
-         *
-         */
-        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, COKLAT_PEMAIN);
-
-        /**
-         *
-         */
-        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, KAKAO_PEMAIN);
-
-        /**
-         *
-         */
-        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, BIBIT_PEMAIN);
-
-        /**
-         *
-         */
-        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, POLYBAG_PEMAIN);
+//        /**
+//         *
+//         */
+//        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, KOIN_PEMAIN);
+//
+//        /**
+//         *
+//         */
+//        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, COKLAT_PEMAIN);
+//
+//        /**
+//         *
+//         */
+//        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, KAKAO_PEMAIN);
+//
+//        /**
+//         *
+//         */
+//        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, BIBIT_PEMAIN);
+//
+//        /**
+//         *
+//         */
+//        sUriMatcher.addURI(LetsPlantContract.CONTENT_AUTHORITY, LetsPlantContract.PATH_LETS_PLANT, POLYBAG_PEMAIN);
     }
 
     private LetsPlantDBHelper PemainDBHelper;
@@ -87,7 +87,7 @@ public class PemainProvider extends ContentProvider {
 
         int match = sUriMatcher.match(uri);
         switch (match) {
-            case NAMA_PEMAIN:
+            case PEMAIN:
                 column = new String[]{
                         PemainEntry.KOLOM_NAMA
                 };
@@ -96,57 +96,57 @@ public class PemainProvider extends ContentProvider {
                 };
                 output = db.query(PemainEntry.NAMA_TABEL, column, selection, selectionArgs, null, null, sortOrder);
                 break;
-            case ASET_PEMAIN:
+            case PEMAIN_ID:
                 selectionArgs = new String[]{
                         String.valueOf(ContentUris.parseId(uri))
                 };
                 output = db.query(PemainEntry.NAMA_TABEL, column, selection, selectionArgs, null, null, sortOrder);
                 break;
-            case KOIN_PEMAIN:
-                column = new String[]{
-                        PemainEntry.KOLOM_JUMLAH_KOIN
-                };
-                selectionArgs = new String[]{
-                        String.valueOf(ContentUris.parseId(uri))
-                };
-                output = db.query(PemainEntry.NAMA_TABEL, column, selection, selectionArgs, null, null, sortOrder);
-                break;
-            case COKLAT_PEMAIN:
-                column = new String[]{
-                        PemainEntry.KOLOM_JUMLAH_COKLAT
-                };
-                selectionArgs = new String[]{
-                        String.valueOf(ContentUris.parseId(uri))
-                };
-                output = db.query(PemainEntry.NAMA_TABEL, column, selection, selectionArgs, null, null, sortOrder);
-                break;
-            case KAKAO_PEMAIN:
-                column = new String[]{
-                        PemainEntry.KOLOM_JUMLAH_BUAH_KAKAO
-                };
-                selectionArgs = new String[]{
-                        String.valueOf(ContentUris.parseId(uri))
-                };
-                output = db.query(PemainEntry.NAMA_TABEL, column, selection, selectionArgs, null, null, sortOrder);
-                break;
-            case BIBIT_PEMAIN:
-                column = new String[]{
-                        PemainEntry.KOLOM_JUMLAH_BIBIT
-                };
-                selectionArgs = new String[]{
-                        String.valueOf(ContentUris.parseId(uri))
-                };
-                output = db.query(PemainEntry.NAMA_TABEL, column, selection, selectionArgs, null, null, sortOrder);
-                break;
-            case POLYBAG_PEMAIN:
-                column = new String[]{
-                        PemainEntry.KOLOM_JUMLAH_POLYBAG
-                };
-                selectionArgs = new String[]{
-                        String.valueOf(ContentUris.parseId(uri))
-                };
-                output = db.query(PemainEntry.NAMA_TABEL, column, selection, selectionArgs, null, null, sortOrder);
-                break;
+//            case KOIN_PEMAIN:
+//                column = new String[]{
+//                        PemainEntry.KOLOM_JUMLAH_KOIN
+//                };
+//                selectionArgs = new String[]{
+//                        String.valueOf(ContentUris.parseId(uri))
+//                };
+//                output = db.query(PemainEntry.NAMA_TABEL, column, selection, selectionArgs, null, null, sortOrder);
+//                break;
+//            case COKLAT_PEMAIN:
+//                column = new String[]{
+//                        PemainEntry.KOLOM_JUMLAH_COKLAT
+//                };
+//                selectionArgs = new String[]{
+//                        String.valueOf(ContentUris.parseId(uri))
+//                };
+//                output = db.query(PemainEntry.NAMA_TABEL, column, selection, selectionArgs, null, null, sortOrder);
+//                break;
+//            case KAKAO_PEMAIN:
+//                column = new String[]{
+//                        PemainEntry.KOLOM_JUMLAH_BUAH_KAKAO
+//                };
+//                selectionArgs = new String[]{
+//                        String.valueOf(ContentUris.parseId(uri))
+//                };
+//                output = db.query(PemainEntry.NAMA_TABEL, column, selection, selectionArgs, null, null, sortOrder);
+//                break;
+//            case BIBIT_PEMAIN:
+//                column = new String[]{
+//                        PemainEntry.KOLOM_JUMLAH_BIBIT
+//                };
+//                selectionArgs = new String[]{
+//                        String.valueOf(ContentUris.parseId(uri))
+//                };
+//                output = db.query(PemainEntry.NAMA_TABEL, column, selection, selectionArgs, null, null, sortOrder);
+//                break;
+//            case POLYBAG_PEMAIN:
+//                column = new String[]{
+//                        PemainEntry.KOLOM_JUMLAH_POLYBAG
+//                };
+//                selectionArgs = new String[]{
+//                        String.valueOf(ContentUris.parseId(uri))
+//                };
+//                output = db.query(PemainEntry.NAMA_TABEL, column, selection, selectionArgs, null, null, sortOrder);
+//                break;
             default: /* nothing */
                 ;
         }
