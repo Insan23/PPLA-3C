@@ -52,7 +52,8 @@ public class Lahan {
     private static enum PERAWATAN {
         TIDAK_ADA,
         AIR_BUTUH, PUPUK_BUTUH, PANEN_BUTUH,
-        AIR_SUKSES, PUPUK_SUSKES, PANEN_SUKSES
+        AIR_SUKSES, PUPUK_SUSKES, PANEN_SUKSES,
+        SIAP_TANAM, SIAP_TANAM_SUKSES
     }
 
     private Context konteks;
@@ -68,13 +69,18 @@ public class Lahan {
 
     private delayMemupuk waktuPemupukan;
     private delayMenyiram waktuPenyiraman;
+    private delayMemanen waktuPemanenan;
+    private delayMemindah waktuPemindahan;
 
     private boolean butuhAir;
     private boolean butuhPupuk;
     private boolean butuhPanen;
+    private boolean butuhPindah;
 
     private int lokasiX;
     private int lokasiY;
+    private int jedaPenyiraman;
+    private int jedaPemupukan;
 
     TANAMAN TANAMAN_SAAT_INI;
 
@@ -90,10 +96,20 @@ public class Lahan {
 
         waktuPemupukan = new delayMemupuk();
         waktuPenyiraman = new delayMenyiram();
+        waktuPemanenan = new delayMemanen();
+        waktuPemindahan = new delayMemindah();
     }
 
     public void setLahan(LAHAN lahan) {
         LAHAN_SAAT_INI = lahan;
+    }
+
+    public void setPenyiraman(int penyiraman) {
+        this.penyiraman = penyiraman;
+    }
+
+    public void setPemupukan(int pemupukan) {
+        this.pemupukan = pemupukan;
     }
 
     public TANAMAN getTANAMAN_SAAT_INI() {
@@ -102,6 +118,11 @@ public class Lahan {
 
     public void tindakan(AKSI_USER aksi) {
         switch (aksi) {
+            case TIDAK_ADA:
+                if (TANAMAN_SAAT_INI == TANAMAN.SIAP_TANAM && butuhPindah) {
+                    ambilTanaman();
+                }
+                break;
             case POLYBAG:
                 letakPoly();
                 break;
@@ -134,20 +155,19 @@ public class Lahan {
         }
     }
 
-    private void letakTanaman() {
-        if (LAHAN_SAAT_INI == LAHAN.PINDAH && TANAMAN_SAAT_INI == TANAMAN.CANGKUL) {
-            TANAMAN_SAAT_INI = TANAMAN.KECIL;
-            gantiImageTanaman(TANAMAN_SAAT_INI);
-            penyiraman = 3;
-            tidak_menyiram = 0;
-            pemupukan = 2;
-            tidak_memupuk = 0;
-        }
+    private void ambilTanaman() {
+        gantiImageNotif(PERAWATAN.SIAP_TANAM_SUKSES);
+        TANAMAN_SAAT_INI = TANAMAN.KOSONG;
+        gantiImageTanaman(TANAMAN_SAAT_INI);
     }
 
-
     private void pakaiSabit() {
-
+        if (butuhPanen) {
+            gantiImageNotif(PERAWATAN.PANEN_SUKSES);
+            mHandler.removeCallbacks(waktuPemanenan);
+            Toast.makeText(konteks, "Debug: Pemanenan Selesai", Toast.LENGTH_LONG);
+            pertumbuhan();
+        }
     }
 
     private void mencangkulTanah() {
@@ -193,6 +213,17 @@ public class Lahan {
         }
     }
 
+    private void letakTanaman() {
+        if (LAHAN_SAAT_INI == LAHAN.PINDAH && TANAMAN_SAAT_INI == TANAMAN.CANGKUL) {
+            TANAMAN_SAAT_INI = TANAMAN.KECIL;
+            gantiImageTanaman(TANAMAN_SAAT_INI);
+            penyiraman = 3;
+            tidak_menyiram = 0;
+            pemupukan = 1;
+            tidak_memupuk = 0;
+        }
+    }
+
     private void pertumbuhan() {
         if (LAHAN_SAAT_INI == LAHAN.LAHAN_POLYBAG) {
             if (penyiraman > 0) {
@@ -208,19 +239,46 @@ public class Lahan {
                     @Override
                     public void run() {
                         gantiImageNotif(PERAWATAN.PUPUK_BUTUH);
-                        mHandler.postDelayed(waktuPemupukan, 300000);
-                        if (pemupukan == 1) {
-                            TANAMAN_SAAT_INI = TANAMAN.TUNAS;
-                        } else if (pemupukan == 0) {
-                            TANAMAN_SAAT_INI = TANAMAN.SIAP_TANAM;
-                        } else {
-                            if (pemupukan == 2 && tidak_memupuk == 1)
-                            Toast.makeText(konteks, "Debug: siap dipindah", Toast.LENGTH_LONG);
+                        mHandler.postDelayed(waktuPemupukan, 60000); //delay pemberitahuan dan waktu penyiraman
+
+                        /**
+                         * kondisi pengecekan setelah pemberian pupuk
+                         * pada lahan poly
+                         */
+                        if (TANAMAN_SAAT_INI == TANAMAN.BIBIT) {
+                            if (pemupukan == 1) {
+                                TANAMAN_SAAT_INI = TANAMAN.TUNAS;
+                            }
+                            if (tidak_memupuk == 1) {
+                                TANAMAN_SAAT_INI = TANAMAN.POLYBAG;
+                            }
+                        } else if (TANAMAN_SAAT_INI == TANAMAN.TUNAS) {
+                            if (pemupukan == 0) {
+                                TANAMAN_SAAT_INI = TANAMAN.SIAP_TANAM;
+                            }
+                            if (tidak_memupuk == 1) {
+                                TANAMAN_SAAT_INI = TANAMAN.POLYBAG;
+                            }
+                        } else if (TANAMAN_SAAT_INI == TANAMAN.SIAP_TANAM) {
+
                         }
+                        mHandler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                gantiImageTanaman(TANAMAN_SAAT_INI);
+                                if (TANAMAN_SAAT_INI == TANAMAN.SIAP_TANAM) {
+                                    mHandler.postDelayed(null, 300000);
+                                    gantiImageNotif(PERAWATAN.SIAP_TANAM);
+                                    mHandler.postDelayed(waktuPemindahan, 180000);
+                                } else {
+                                    penyiraman = 3;
+                                }
+                            }
+                        }, 300000);
                     }
-                }, 360000);
+                }, 180000);
             }
-            penyiraman = 3;
+            gantiImageTanaman(TANAMAN_SAAT_INI);
         } else if (LAHAN_SAAT_INI == LAHAN.LAHAN_TANAM) {
             if (penyiraman > 0) {
                 mHandler.postDelayed(new Runnable() {
@@ -235,20 +293,96 @@ public class Lahan {
                     @Override
                     public void run() {
                         gantiImageNotif(PERAWATAN.PUPUK_BUTUH);
-                        mHandler.postDelayed(waktuPemupukan, 300000);
-                        if (pemupukan == 1) {
-                            TANAMAN_SAAT_INI = TANAMAN.TUNAS;
-                        } else if (pemupukan == 0) {
-                            TANAMAN_SAAT_INI = TANAMAN.SIAP_TANAM;
-                        } else {
-                            Toast.makeText(konteks, "Debug: siap dipindah", Toast.LENGTH_LONG);
+                        mHandler.postDelayed(waktuPemupukan, 60000); //delay pemberitahuan dan waktu penyiraman
+
+                        /**
+                         * kondisi pengecekan setelah pemberian pupuk
+                         * pada lahan tanam
+                         */
+                        if (TANAMAN_SAAT_INI == TANAMAN.KECIL) { //pemupukan 1x
+                            if (pemupukan == 0) {
+                                //kondisi normal
+                                TANAMAN_SAAT_INI = TANAMAN.BESAR_TANPA_BUAH;
+                            } else if (tidak_memupuk == 1) {
+                                TANAMAN_SAAT_INI = TANAMAN.KOSONG;
+                            }
+                        } else if (TANAMAN_SAAT_INI == TANAMAN.BESAR_TANPA_BUAH) { //pemupukan 2x
+                            if (pemupukan == 0) {
+                                TANAMAN_SAAT_INI = TANAMAN.BESAR_BUAH_SEDANG;
+                            } else if (tidak_memupuk == 1) {
+                                TANAMAN_SAAT_INI = TANAMAN.BESAR_TANPA_BUAH_KUNING;
+                            } else if (tidak_memupuk == 2) {
+                                TANAMAN_SAAT_INI = TANAMAN.BESAR_TANPA_BUAH_KUNING_SEMUA;
+                                gantiImageTanaman(TANAMAN_SAAT_INI);
+                                /**
+                                 * perubahan dari tanaman besar tanpa buah, lalu menghilang
+                                 */
+                                mHandler.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        TANAMAN_SAAT_INI = TANAMAN.KOSONG;
+                                        gantiImageTanaman(TANAMAN_SAAT_INI);
+                                    }
+                                }, 60000);
+                            }
+                        } else if (TANAMAN_SAAT_INI == TANAMAN.BESAR_BUAH_SEDANG) { //pemupukan 1x
+                            if (pemupukan == 0) {
+                                TANAMAN_SAAT_INI = TANAMAN.BESAR_BUAH_BESAR;
+                            }
+                            if (tidak_memupuk == 1) {
+                                TANAMAN_SAAT_INI = TANAMAN.BESAR_BUAH_SEDANG_KUNING;
+                                gantiImageTanaman(TANAMAN_SAAT_INI);
+                                /**
+                                 * kesempatan untuk pemupukan sekali lagi
+                                 * pada tanaman besar buah sedang
+                                 */
+                                pemupukan = 1;
+                                gantiImageNotif(PERAWATAN.PUPUK_BUTUH);
+                                mHandler.postDelayed(waktuPemupukan, 60000);
+                                if (pemupukan == 0) {
+                                    TANAMAN_SAAT_INI = TANAMAN.BESAR_BUAH_SEDANG;
+                                } else {
+                                    TANAMAN_SAAT_INI = TANAMAN.BESAR_BUAH_SEDANG_KUNING_SEMUA;
+                                    gantiImageTanaman(TANAMAN_SAAT_INI);
+                                    mHandler.postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            TANAMAN_SAAT_INI = TANAMAN.BESAR_TANPA_BUAH;
+                                            gantiImageTanaman(TANAMAN_SAAT_INI);
+                                        }
+                                    }, 60000);
+                                }
+                            }
+                        } else if (TANAMAN_SAAT_INI == TANAMAN.BESAR_BUAH_BESAR) { //pemupukan 1x
+                            if (pemupukan == 0) {
+
+                            }
                         }
+                        mHandler.postDelayed(new Runnable() { //jeda setelah memberi pupuk
+                            @Override
+                            public void run() {
+                                if (TANAMAN_SAAT_INI == TANAMAN.BESAR_BUAH_BESAR) {
+                                    gantiImageNotif(PERAWATAN.PANEN_BUTUH);
+                                    mHandler.postDelayed(waktuPemanenan, 180000); //jeda pemanenan
+                                } else {
+                                    if (TANAMAN_SAAT_INI == TANAMAN.KECIL) pemupukan = 1;
+                                    else if (TANAMAN_SAAT_INI == TANAMAN.BESAR_TANPA_BUAH) pemupukan = 2;
+                                    else if (TANAMAN_SAAT_INI == TANAMAN.BESAR_BUAH_SEDANG) pemupukan = 1;
+                                    else if (TANAMAN_SAAT_INI == TANAMAN.BESAR_BUAH_BESAR) pemupukan = 1;
+
+                                    if (TANAMAN_SAAT_INI == TANAMAN.BESAR_TANPA_BUAH && pemupukan == 1) {
+                                        //tidak ada
+                                    } else {
+                                        penyiraman = 3;
+                                    }
+                                    gantiImageTanaman(TANAMAN_SAAT_INI);
+                                }
+                            }
+                        }, 300000);
                     }
-                }, 360000);
+                }, 180000);
             }
-            penyiraman = 3;
         }
-        gantiImageTanaman(TANAMAN_SAAT_INI);
     }
 
     private class delayMemupuk implements Runnable {
@@ -259,16 +393,8 @@ public class Lahan {
                 Toast.makeText(konteks, "Debug: Masih Butuh Pupuk", Toast.LENGTH_LONG);
                 gantiImageNotif(PERAWATAN.TIDAK_ADA);
                 tidak_memupuk--;
-                if (tidak_memupuk == 2) {
-                    if (LAHAN_SAAT_INI == LAHAN.LAHAN_POLYBAG) {
-                        TANAMAN_SAAT_INI = TANAMAN.POLYBAG;
-                        gantiImageTanaman(TANAMAN_SAAT_INI);
-                    } else if (LAHAN_SAAT_INI == LAHAN.LAHAN_TANAM) {
-                        TANAMAN_SAAT_INI = TANAMAN.KOSONG;
-                        gantiImageTanaman(TANAMAN_SAAT_INI);
-                    }
-                }
             }
+            gantiImageTanaman(TANAMAN_SAAT_INI);
             pertumbuhan();
         }
     }
@@ -284,6 +410,7 @@ public class Lahan {
                 if (tidak_menyiram == 1) {
                     switch (TANAMAN_SAAT_INI) {
                         case BIBIT:
+                            TANAMAN_SAAT_INI = TANAMAN.POLYBAG;
                             break;
                         case TUNAS:
                             TANAMAN_SAAT_INI = TANAMAN.TUNAS_KUNING;
@@ -364,6 +491,25 @@ public class Lahan {
         }
     }
 
+    private class delayMemanen implements Runnable {
+
+        @Override
+        public void run() {
+
+        }
+    }
+
+    private class delayMemindah implements Runnable {
+
+        @Override
+        public void run() {
+            if (butuhPindah && TANAMAN_SAAT_INI == TANAMAN.SIAP_TANAM) {
+                TANAMAN_SAAT_INI = TANAMAN.POLYBAG;
+            }
+            gantiImageTanaman(TANAMAN.SIAP_TANAM);
+        }
+    }
+
     private void letakPoly() {
         if (TANAMAN_SAAT_INI == TANAMAN.KOSONG && LAHAN_SAAT_INI == LAHAN.LAHAN_POLYBAG) {
             TANAMAN_SAAT_INI = TANAMAN.POLYBAG;
@@ -390,7 +536,7 @@ public class Lahan {
                     public void run() {
                         gantiImageNotif(PERAWATAN.TIDAK_ADA);
                     }
-                }, 500);
+                }, 1000);
                 break;
             case PUPUK_BUTUH:
                 notif.setImageResource(R.drawable.ic_pupuk_warning);
@@ -404,7 +550,7 @@ public class Lahan {
                     public void run() {
                         gantiImageNotif(PERAWATAN.TIDAK_ADA);
                     }
-                }, 500);
+                }, 1000);
                 break;
             case PANEN_BUTUH:
                 notif.setImageResource(R.drawable.ic_sabit_warning);
@@ -418,7 +564,20 @@ public class Lahan {
                     public void run() {
                         gantiImageNotif(PERAWATAN.TIDAK_ADA);
                     }
-                }, 300);
+                }, 1000);
+                break;
+            case SIAP_TANAM:
+                notif.setImageResource(R.drawable.ic_done_black_24dp);
+                butuhPindah = true;
+                break;
+            case SIAP_TANAM_SUKSES:
+                butuhPindah = true;
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        gantiImageNotif(PERAWATAN.SIAP_TANAM_SUKSES);
+                    }
+                }, 1000);
                 break;
             default:
                 Toast.makeText(konteks, "Tindakan GAGAL, Tidak Diketahui: GANTI NOTIF", Toast.LENGTH_LONG);

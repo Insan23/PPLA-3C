@@ -1347,7 +1347,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="40 koin" />
+                        android:text="15 koin" />
                 </LinearLayout>
 
                 <!--pupuk-->
@@ -1368,7 +1368,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="500" />
+                        android:text="200" />
                 </LinearLayout>
 
                 <!--polybag-->
@@ -1389,7 +1389,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="40" />
+                        android:text="2" />
                 </LinearLayout>
 
                 <!--lahan-->
@@ -1410,7 +1410,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="2000" />
+                        android:text="7000" />
                 </LinearLayout>
 
                 <!--lahan poly-->
@@ -1431,7 +1431,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="2000" />
+                        android:text="7110" />
                 </LinearLayout>
 
                 <Button
