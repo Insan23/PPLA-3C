@@ -355,7 +355,28 @@ public class Lahan {
                             }
                         } else if (TANAMAN_SAAT_INI == TANAMAN.BESAR_BUAH_BESAR) { //pemupukan 1x
                             if (pemupukan == 0) {
-
+                                TANAMAN_SAAT_INI = TANAMAN.BESAR_BUAH_BESAR_KUNING;
+                                gantiImageTanaman(TANAMAN_SAAT_INI);
+                                /**
+                                 * kesempatan untuk pemupukan sekali lagi
+                                 * pada tanaman besar buah sedang
+                                 */
+                                pemupukan = 1;
+                                gantiImageNotif(PERAWATAN.PUPUK_BUTUH);
+                                mHandler.postDelayed(waktuPemupukan, 60000);
+                                if (pemupukan == 0) {
+                                    TANAMAN_SAAT_INI = TANAMAN.BESAR_BUAH_BESAR;
+                                } else {
+                                    TANAMAN_SAAT_INI = TANAMAN.BESAR_BUAH_BESAR_KUNING_SEMUA;
+                                    gantiImageTanaman(TANAMAN_SAAT_INI);
+                                    mHandler.postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            TANAMAN_SAAT_INI = TANAMAN.BESAR_TANPA_BUAH;
+                                            gantiImageTanaman(TANAMAN_SAAT_INI);
+                                        }
+                                    }, 60000);
+                                }
                             }
                         }
                         mHandler.postDelayed(new Runnable() { //jeda setelah memberi pupuk
@@ -365,10 +386,23 @@ public class Lahan {
                                     gantiImageNotif(PERAWATAN.PANEN_BUTUH);
                                     mHandler.postDelayed(waktuPemanenan, 180000); //jeda pemanenan
                                 } else {
-                                    if (TANAMAN_SAAT_INI == TANAMAN.KECIL) pemupukan = 1;
-                                    else if (TANAMAN_SAAT_INI == TANAMAN.BESAR_TANPA_BUAH) pemupukan = 2;
-                                    else if (TANAMAN_SAAT_INI == TANAMAN.BESAR_BUAH_SEDANG) pemupukan = 1;
-                                    else if (TANAMAN_SAAT_INI == TANAMAN.BESAR_BUAH_BESAR) pemupukan = 1;
+                                    /**
+                                     * reset semua kondisi pemupukan
+                                     */
+                                    if (TANAMAN_SAAT_INI == TANAMAN.KECIL) {
+                                        pemupukan = 1;
+                                        tidak_memupuk = 0;
+                                    } else if (TANAMAN_SAAT_INI == TANAMAN.BESAR_TANPA_BUAH) {
+                                        pemupukan = 2;
+                                        tidak_memupuk = 0;
+                                    } else if (TANAMAN_SAAT_INI == TANAMAN.BESAR_BUAH_SEDANG) {
+                                        pemupukan = 1;
+                                        tidak_memupuk = 0;
+                                    } else if (TANAMAN_SAAT_INI == TANAMAN.BESAR_BUAH_BESAR) {
+                                        pemupukan = 1;
+                                        tidak_memupuk = 0;
+                                    }
+
 
                                     if (TANAMAN_SAAT_INI == TANAMAN.BESAR_TANPA_BUAH && pemupukan == 1) {
                                         //tidak ada
